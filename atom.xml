@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shuiqingliu.com/"/>
-  <updated>2017-06-02T03:03:28.000Z</updated>
+  <updated>2017-06-12T13:41:13.000Z</updated>
   <id>http://shuiqingliu.com/</id>
   
   <author>
@@ -14,6 +14,99 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How to Driver BCM94352 on MacOS Sierra(10.12.5)</title>
+    <link href="http://shuiqingliu.com/2017/06/12/How-to-driver-BCM94352-on-MacOS-Sierra-12-5/"/>
+    <id>http://shuiqingliu.com/2017/06/12/How-to-driver-BCM94352-on-MacOS-Sierra-12-5/</id>
+    <published>2017-06-12T02:37:58.000Z</published>
+    <updated>2017-06-12T13:41:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>PS: You should first look over tolede’s github :<a href="https://github.com/toleda/wireless_half-mini/" target="_blank" rel="external">https://github.com/toleda/wireless_half-mini/</a> before you read this article</strong></p>
+<p>#Base Information</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HardWare  Name</td>
+<td>BCM94352HMB</td>
+</tr>
+<tr>
+<td>Vendor ID</td>
+<td>14E4</td>
+</tr>
+<tr>
+<td>Device ID</td>
+<td>43B1</td>
+</tr>
+<tr>
+<td>System Version</td>
+<td>macOS Sierra(10.12.5 16F73)</td>
+</tr>
+<tr>
+<td>Laptop info</td>
+<td>Hasee K610-I7-D2</td>
+</tr>
+</tbody>
+</table>
+<p>#Driver WIFI and Bluetooth<br>There are a few steps for dealing with wif &amp; bluetooth</p>
+<ul>
+<li>Setting your BIOS</li>
+<li>Add the necessary kext to your /L/E forlder</li>
+<li>Add the necessary patch to your config.list</li>
+</ul>
+<p>Tools:</p>
+<ul>
+<li>KCPM Utility Pro</li>
+<li>Clover Configurator</li>
+<li>DPCIManager</li>
+<li>IORegistryExplorer</li>
+</ul>
+<p><strong><a href="https://1drv.ms/u/s!Amlm6pusnQYKePGlxcnG75xjyoM" title="OneDriver Download Link" target="_blank" rel="external">Tools Download</a></strong></p>
+<p>##Setting your BIOS<br>Reboot your computer and then quickly press the <strong><code>ESC</code></strong> button,When you into the BIOS option select <strong><code>SCU</code></strong> Item then move to <strong><code>Advanced</code></strong> option ,the very important step is set the value of <strong><code>XHC</code></strong>  to<strong><code>smart auto</code></strong><br>The operation like this<br><img src="http://qingliu.qiniudn.com/IMG_8951.JPG" alt="BIOS Setting"><br><img src="http://qingliu.qiniudn.com/IMG_1191.JPG" alt="XHC Settingi"></p>
+<p>##Add the necessary kext  of WIFI</p>
+<ul>
+<li>Download the newer version of FakePCIID Kext from RehabMan’s bitbucket<br><a href="https://bitbucket.org/RehabMan/os-x-fake-pci-id/downloads/" target="_blank" rel="external">https://bitbucket.org/RehabMan/os-x-fake-pci-id/downloads/</a></li>
+<li>Unzip the download file and then use <code>KCMP Utility Pro</code> tools  to install <code>FakePCIID.kext</code> , <code>FakePCIID_Broadcom_WiFi.kext</code> and <code>FakePCIID_XHCIMux.kext</code> into <code>/Library/Extensions</code></li>
+</ul>
+<p>##Add the necessary kext of Bluetooth</p>
+<ul>
+<li>Download the newer version of <code>BrcmFirmwareRepo.kext</code> and <code>BrcmPatchRAM2.kext</code> from RehabMan’s bitbucket  <a href="https://bitbucket.org/RehabMan/os-x-brcmpatchram/downloads/" target="_blank" rel="external">https://bitbucket.org/RehabMan/os-x-brcmpatchram/downloads/</a></li>
+<li>Unzip the download file and the use install the two files into <code>/Library/Extensions</code></li>
+</ul>
+<p>##Add the necessary patch to config.list</p>
+<ul>
+<li>I already upload the KextsToPatch part of  my config.list  see it here <a href="https://1drv.ms/u/s!Amlm6pusnQYKeVcY1hUHugHsZeU" target="_blank" rel="external">https://1drv.ms/u/s!Amlm6pusnQYKeVcY1hUHugHsZeU</a><br>you can paste the whole patch into your config.list</li>
+<li>you must add the fellow patch to DSDT the path is <code>ACPI/DSDT/Patches/</code><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">array</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Comment<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">string</span>&gt;</span>change EHC1 to EH01<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Disabled<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">false</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Find<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">data</span>&gt;</span></div><div class="line">        RUhDMQ==</div><div class="line">        <span class="tag">&lt;/<span class="name">data</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Replace<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">data</span>&gt;</span></div><div class="line">        RUgwMQ==</div><div class="line">        <span class="tag">&lt;/<span class="name">data</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Comment<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">string</span>&gt;</span>change EHC2 to EH02<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Disabled<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">false</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Find<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">data</span>&gt;</span></div><div class="line">        RUhDMg==</div><div class="line">        <span class="tag">&lt;/<span class="name">data</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Replace<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">data</span>&gt;</span></div><div class="line">        RUgwMg==</div><div class="line">        <span class="tag">&lt;/<span class="name">data</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">array</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>#Verify and check<br>When you driver the BCM94352HMB you can check it use IORegistryExplorer tools,open the tools you can find the bluetooth port.connect to network and try to use AirDrop Enjoy your hackintosh!</p>
+<p>#Screenshot<br><img src="http://qingliu.qiniudn.com/system.png" alt="system"><br><img src="http://qingliu.qiniudn.com/Bluetooth11.png" alt="Bluetooth"><br><img src="http://qingliu.qiniudn.com/wif.png" alt="wifi"><br><img src="http://qingliu.qiniudn.com/airdrop.png" alt="airdrop"><br><img src="http://qingliu.qiniudn.com/Bluetooth.png" alt="Bluetooth Port"></p>
+<p>#Credit<br>@RehabMan<br>@toleda<br>@jqqqqqqqqqq<br>@wx3124558<br>@yuxans</p>
+<p>PS:If you find a grammatical error please let me know, I am  learning to write a blog in English this time.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;PS: You should first look over tolede’s github :&lt;a href=&quot;https://github.com/toleda/wireless_half-mini/&quot; target=&quot;_blank&quot; rel=&quot;exte
+    
+    </summary>
+    
+    
+      <category term="MacOS Sierra" scheme="http://shuiqingliu.com/tags/MacOS-Sierra/"/>
+    
+      <category term="黑苹果" scheme="http://shuiqingliu.com/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/"/>
+    
+      <category term="BCM94352HMB" scheme="http://shuiqingliu.com/tags/BCM94352HMB/"/>
+    
+      <category term="Bluetooth,WIFI" scheme="http://shuiqingliu.com/tags/Bluetooth-WIFI/"/>
+    
+  </entry>
   
   <entry>
     <title>Use Anaconda to Install Opencv</title>
@@ -649,9 +742,9 @@ Setting--&gt;Editor---&gt;Syntax highlight 设置颜色主题
       <category term="教程" scheme="http://shuiqingliu.com/categories/android/git/linux/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="android" scheme="http://shuiqingliu.com/tags/android/"/>
-    
       <category term="Ubuntu" scheme="http://shuiqingliu.com/tags/Ubuntu/"/>
+    
+      <category term="android" scheme="http://shuiqingliu.com/tags/android/"/>
     
       <category term="git" scheme="http://shuiqingliu.com/tags/git/"/>
     
@@ -735,9 +828,9 @@ Setting--&gt;Editor---&gt;Syntax highlight 设置颜色主题
       <category term="教程" scheme="http://shuiqingliu.com/categories/android/linux/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="android" scheme="http://shuiqingliu.com/tags/android/"/>
-    
       <category term="Ubuntu" scheme="http://shuiqingliu.com/tags/Ubuntu/"/>
+    
+      <category term="android" scheme="http://shuiqingliu.com/tags/android/"/>
     
       <category term="git" scheme="http://shuiqingliu.com/tags/git/"/>
     
@@ -793,9 +886,9 @@ Setting--&gt;Editor---&gt;Syntax highlight 设置颜色主题
       <category term="教程" scheme="http://shuiqingliu.com/categories/android/linux/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="android" scheme="http://shuiqingliu.com/tags/android/"/>
-    
       <category term="Ubuntu" scheme="http://shuiqingliu.com/tags/Ubuntu/"/>
+    
+      <category term="android" scheme="http://shuiqingliu.com/tags/android/"/>
     
       <category term="git" scheme="http://shuiqingliu.com/tags/git/"/>
     
@@ -840,33 +933,6 @@ Setting--&gt;Editor---&gt;Syntax highlight 设置颜色主题
     
     
       <category term="android studio" scheme="http://shuiqingliu.com/tags/android-studio/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>人生中的第一次缺考</title>
-    <link href="http://shuiqingliu.com/2014/12/20/%E4%BA%BA%E7%94%9F%E4%B8%AD%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%BC%BA%E8%80%83/"/>
-    <id>http://shuiqingliu.com/2014/12/20/人生中的第一次缺考/</id>
-    <published>2014-12-20T06:47:38.000Z</published>
-    <updated>2017-06-02T03:03:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>2014.12.20 9：32分，超哥说了句：诶，你怎么没去考试。我一下子惊醒，猛地从床上坐起来。立马拿起手机看了下时间9：32,此时四级考试已开始，9：00开考9：15则不许进入考场。</p>
-<p>我呆呆的望着超哥，整个人呆滞了几秒钟。后来淡淡的说了句：来不及了，不去了。遂又躺在床上，眼睛有点干涩，眨了下眼睛。有点湿润了。突然好像得了大病似的，出不来气感觉心口有块石头压着。这只是无力的挣扎罢了。。。</p>
-<p>我人生中的第一次缺考献给了这次重要的考试。从此再也不会有了。终生遗憾，将无法逃避。我昨天晚上上床之前，将我的准考证、身份证、铅笔橡皮都整齐的放在了我的桌子上面，为今天的考试准备着，而我却忘记了设个闹钟，多么可笑。好象是冥冥之中注定的一样。宿舍另外一哥们去考试没叫醒我，我不怪他。我不会把自己的错误怪罪到别人头上。我能做的就是我的耳机，铅笔，橡皮都借给了刚刚去考六级的垚垚。这就像是让他去帮我完成我未完成的使命一样，这种感觉尤为强烈。在这里为垚垚加油。</p>
-<p>写下这段文字，希望能告诫自己。在以后的工作，生活当中。做好每一件事的准备。走好每一步。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;2014.12.20 9：32分，超哥说了句：诶，你怎么没去考试。我一下子惊醒，猛地从床上坐起来。立马拿起手机看了下时间9：32,此时四级考试已开始，9：00开考9：15则不许进入考场。&lt;/p&gt;
-&lt;p&gt;我呆呆的望着超哥，整个人呆滞了几秒钟。后来淡淡的说了句：来不及了，不去了
-    
-    </summary>
-    
-      <category term="日志" scheme="http://shuiqingliu.com/categories/%E6%97%A5%E5%BF%97/"/>
-    
-    
-      <category term="二货" scheme="http://shuiqingliu.com/tags/%E4%BA%8C%E8%B4%A7/"/>
     
   </entry>
   

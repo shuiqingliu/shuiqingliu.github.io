@@ -154,6 +154,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-一加oneplus手机从coloros-刷写cm11s" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/09/24/一加oneplus手机从coloros-刷写cm11s/">一加(oneplus)手机从ColorOS 刷写CM11S</a>
+    </h1>
+  
+
+        
+        <a href="/2014/09/24/一加oneplus手机从coloros-刷写cm11s/" class="archive-article-date">
+  	<time datetime="2014-09-24T14:38:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-09-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前几天一加到货，整体感觉确实体会到了所谓的“不将就”。包装到设计都很完美。美中不足就是ColorOS ，我拿到手的第一件事就是直接换系统。必须CM啊。下来说说步骤</p>
+<p>从CM 官方网站下载为oneplus做的CM11S包地址：<span style="color: #ff0000;"><a href="https://cyngn.com/products/oneplusone/" target="_blank" rel="external">https://cyngn.com/products/oneplusone/</a></span></p>
+<p>下载网页最下面的 CyanogenMod 11S (4.4)    <a href="http://dist01.slc.cyngn.com/factory/bacon/cm-11.0-XNPH33R-bacon-signed-fastboot.zip" target="_blank" rel="external">cm-11.0-XNPH33R-bacon-signed-fastboot.zip</a>      版本可能会更新</p>
+<div class="col-md-3"><br><br>然后<span style="color: #000000;">将下载的文件进行解压找到里面的flash-radio.sh 重命名为flashcm11.sh打开将里面内容修改为如下：</span><br>&gt; fastboot flash modem NON-HLOS.bin<br>&gt; fastboot flash sbl1 sbl1.mbn<br>&gt; fastboot flash dbi sdi.mbn<br>&gt; fastboot flash aboot emmc_appsboot.mbn<br>&gt; fastboot flash rpm rpm.mbn<br>&gt; fastboot flash tz tz.mbn<br>&gt; fastboot flash LOGO logo.bin<br>&gt;<br>&gt; fastboot flash boot boot.img<br>&gt; fastboot flash system system.img<br>&gt; fastboot flash recovery recovery.img<br>&gt; fastboot flash cache cache.img<br>&gt;<br>&gt; fastboot flash userdata userdata.img<br>&gt;<br>&gt; fastboot reboot<br>注意上述sh中userdate分清楚手机16G还是64G然后64G选择userdate_64.img，然后建议刷写CM11S之前进行4G破解<br><br>文件改写完成后链接手机然后手机开启USB 调试模式后终端运行如下命令：<br>&gt; adb reboot bootloader<br>等待手机进入fastboot模式然后，在root模式下进入解压文件夹：运行sh flashcm11.sh 等待手机重启完成刷写<br><br>PS：最坑爹的是上述教程仅适用于linux ，并且fastboot必须在root模式下使用。如果你是windows 那么请一条条运行上述命令，fastboot 换为fastboot.exe， 你也可以自己写个bat.<br><br></div>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">oneplus</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">一加</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">cm11s</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/android/" class="article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/09/24/一加oneplus手机从coloros-刷写cm11s/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-git-clone-error-rpc-failed-result56-http-code-200-错误解决" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -891,94 +975,6 @@ Maximum size in bytes of the buffer used by smart HTTP transports when POSTing d
 
 
   
-    <article id="post-linux-64bit-play-wmv-with-ffmpeg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/03/23/linux-64bit-play-wmv-with-ffmpeg/">Linux 64bit Play Wmv With Ffmpeg</a>
-    </h1>
-  
-
-        
-        <a href="/2014/03/23/linux-64bit-play-wmv-with-ffmpeg/" class="archive-article-date">
-  	<time datetime="2014-03-22T19:23:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="终于搞定了linux-64位下的wmv视频播放，ffmpeg就是神器。哈哈哈，兴奋啊。"><a href="#终于搞定了linux-64位下的wmv视频播放，ffmpeg就是神器。哈哈哈，兴奋啊。" class="headerlink" title="   终于搞定了linux 64位下的wmv视频播放，ffmpeg就是神器。哈哈哈，兴奋啊。"></a><span style="color: #ff0000;">   终于搞定了linux 64位下的wmv视频播放，ffmpeg就是神器。哈哈哈，兴奋啊。</span></h2><p>办法如下：参照ffmpeg编译引导，<strong><a href="http://trac.ffmpeg.org/wiki/UbuntuCompilationGuide" target="_blank" rel="external">http://trac.ffmpeg.org/wiki/UbuntuCompilationGuide</a></strong></p>
-<p>编译ffmpeg时候的configure 如下：</p>
-<blockquote>
-<p><span style="color: #0000ff;">configuration: –prefix=/home/qingliu/ffmpeg_build –extra-cflags=-I/home/qingliu/ffmpeg_build/include –extra-ldflags=-L/home/qingliu/ffmpeg_build/lib –bindir=/home/qingliu/bin –extra-libs=-ldl –enable-gpl –enable-libass –enable-libfdk-aac –enable-libmp3lame –enable-libopus –enable-libtheora –enable-libvorbis –enable-libvpx –enable-libx264 –enable-nonfree –enable-x11grab –enable-ffplay</span></p>
-<p>播放文件  ffplay   xxx.wmv</p>
-<p>&nbsp;</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ffmpeg</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">wmv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/git/" class="article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/03/23/linux-64bit-play-wmv-with-ffmpeg/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1099,6 +1095,22 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MacOS Sierra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">黑苹果</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">BCM94352HMB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Bluetooth,WIFI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">2014</a>
               </li>
              
@@ -1123,6 +1135,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">android studio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">adb</a>
               </li>
              
@@ -1132,18 +1148,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android studio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1172,6 +1176,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1287,15 +1299,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">boost</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ffmpeg</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">wmv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">boost</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1403,15 +1415,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">linuxdeepin</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wine-qqintl</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1451,11 +1463,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">二货</a>
+                <a href="javascript:void(0)" class="js-tag color1">cm11s</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cm11s</a>
+                <a href="javascript:void(0)" class="js-tag color3">二货</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1511,15 +1523,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">元旦</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">15G</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">天翼云</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">元旦</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1555,10 +1567,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
               </li>
              
@@ -1568,6 +1576,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">netgear</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1607,6 +1619,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JPEG选项</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jpg存为web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">operating system not found</a>
               </li>
              
@@ -1615,11 +1635,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JPEG选项</a>
+                <a href="javascript:void(0)" class="js-tag color3">完善</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jpg存为web</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1632,14 +1652,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">完善</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
