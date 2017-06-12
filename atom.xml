@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>qingliu&#39;s blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://shuiqingliu.com/"/>
+  <updated>2017-06-02T03:03:28.000Z</updated>
+  <id>http://shuiqingliu.com/</id>
+  
+  <author>
+    <name>qingliu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Use Anaconda to Install Opencv</title>
+    <link href="http://shuiqingliu.com/2017/03/29/use-anaconda-to-install-opencv/"/>
+    <id>http://shuiqingliu.com/2017/03/29/use-anaconda-to-install-opencv/</id>
+    <published>2017-03-29T15:59:34.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Install-and-Setting-Anaconda-with-python3-x-version"><a href="#Install-and-Setting-Anaconda-with-python3-x-version" class="headerlink" title="Install and Setting Anaconda with python3.x version"></a>Install and Setting Anaconda with python3.x version</h1><h3 id="1-install-anaconda"><a href="#1-install-anaconda" class="headerlink" title="1. install anaconda"></a>1. install anaconda</h3><blockquote>
+<p>look this link: <a href="https://www.continuum.io/downloads" target="_blank" rel="external">https://www.continuum.io/downloads</a></p>
+</blockquote>
+<h3 id="2-setting-anaconda"><a href="#2-setting-anaconda" class="headerlink" title="2. setting anaconda"></a>2. setting anaconda</h3><ul>
+<li><p>Add the anaconda bin <em>PATH</em> in your .bashrc  file or maybe you are using zsh the file will be .zshrc:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim .bashrc</div></pre></td></tr></table></figure>
+</li>
+<li><p>add the following line to the file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=&quot;~/anaconda3/bin:$PATH&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>and then load the config use <code>source .bashrc</code></p>
+<h3 id="3-update-and-create-environment"><a href="#3-update-and-create-environment" class="headerlink" title="3. update and create environment"></a>3. update and create environment</h3></li>
+<li>update<code>conda update --all</code></li>
+<li>create enviroment<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda creat --name opencv python=3</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4-install-opencv"><a href="#4-install-opencv" class="headerlink" title="4.  install opencv"></a>4.  install opencv</h3><ul>
+<li><p>activate enviroment</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source activate opencv</div></pre></td></tr></table></figure>
+</li>
+<li><p>install opencv</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda install -c menpo opencv3</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="5-test-opencv"><a href="#5-test-opencv" class="headerlink" title="5. test opencv"></a>5. test opencv</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">python</div><div class="line"><span class="keyword">import</span> cv2</div></pre></td></tr></table></figure>
+<p><img src="http://qingliu.qiniudn.com/cv.png" alt="test"></p>
+<h3 id="6-setting-pycharm-to-use-the-opencv-environment"><a href="#6-setting-pycharm-to-use-the-opencv-environment" class="headerlink" title="6. setting pycharm to use the opencv environment"></a>6. setting pycharm to use the opencv environment</h3><ul>
+<li>open the <code>File--&gt;Settings--&gt;Project Interpreter</code>,click the right button like a gear then click add local input the path of <code>~/anaconda3/envs/opencv/bin/python</code> click ok button to save the setting<br>like the following pic:</li>
+</ul>
+<p><img src="http://qingliu.qiniudn.com/settingcv.png" alt="setting"></p>
+<h2 id="finally-enjoy-your-field"><a href="#finally-enjoy-your-field" class="headerlink" title="finally, enjoy your field"></a><em>finally, enjoy your field</em></h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Install-and-Setting-Anaconda-with-python3-x-version&quot;&gt;&lt;a href=&quot;#Install-and-Setting-Anaconda-with-python3-x-version&quot; class=&quot;headerlin
+    
+    </summary>
+    
+      <category term="-anaconda -opencv" scheme="http://shuiqingliu.com/categories/anaconda-opencv/"/>
+    
+    
+      <category term="-anaconda -opencv -pycharm" scheme="http://shuiqingliu.com/tags/anaconda-opencv-pycharm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[OJ刷题]题目1464：Hello World for U</title>
+    <link href="http://shuiqingliu.com/2017/03/13/OJ%E5%88%B7%E9%A2%98-%E9%A2%98%E7%9B%AE1464%EF%BC%9AHello-World-for-U/"/>
+    <id>http://shuiqingliu.com/2017/03/13/OJ刷题-题目1464：Hello-World-for-U/</id>
+    <published>2017-03-12T19:15:57.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><blockquote>
+<p>题目描述：<br>Given any string of N (&gt;=5) characters, you are asked to form the characters into the shape of U. For example, “helloworld” can be printed as:<br>h    d<br>e     l<br>l      r<br>lowo<br>That is, the characters must be printed in the original order, starting top-down from the left vertical line with n1 characters, then left to right along the bottom line with n2 characters, and finally bottom-up along the vertical line with n3 characters. And more, we would like U to be as squared as possible – that is, it must be satisfied that n1 = n3 = max { k| k &lt;= n2 for all 3 &lt;= n2 &lt;= N } with n1 + n2 + n3 - 2 = N.<br>输入：<br>There are multiple test cases.Each case contains one string with no less than 5 and no more than 80 characters in a line. The string contains no white space.<br>输出：<br>For each test case, print the input string in the shape of U as specified in the description.<br>样例输入：<br>helloworld!<br>ac.jobdu.com<br>样例输出：<br>h   !<br>e   d<br>l   l<br>lowor<br>a    m<br>c    o<br>.    c<br>jobdu.</p>
+</blockquote>
+<h1 id="AC-Answer"><a href="#AC-Answer" class="headerlink" title="AC Answer:"></a>AC Answer:</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> p = <span class="number">0</span>; <span class="comment">//字符串个数</span></div><div class="line">    <span class="keyword">int</span> n2 = <span class="number">0</span>; <span class="comment">//横行输入个数</span></div><div class="line">    <span class="keyword">int</span> n1 = <span class="number">0</span>; <span class="comment">//纵向输入个数</span></div><div class="line">    <span class="keyword">char</span> strInput[<span class="number">81</span>]; <span class="comment">//字符串最大个数</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;<span class="number">81</span>;i++)&#123;</div><div class="line">        strInput[i] = <span class="number">0</span>; <span class="comment">//初始化字符串数组</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span>((<span class="built_in">scanf</span>(<span class="string">"%s"</span>,strInput)) != EOF)&#123;</div><div class="line">        p = <span class="built_in">strlen</span>(strInput); <span class="comment">//计算字符串长度</span></div><div class="line">        <span class="keyword">int</span> arrayLen = p - <span class="number">3</span> + <span class="number">1</span>; <span class="comment">//计算所有可能的N2个数</span></div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> a[arrayLen];</div><div class="line">        <span class="comment">//产生N2数组</span></div><div class="line">        <span class="keyword">for</span>(i =<span class="number">0</span>;i&lt; arrayLen;i++)&#123;</div><div class="line">            a[i] = <span class="number">3</span> + i;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//判断第一个满足要求的n2</span></div><div class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; arrayLen;i++)&#123;</div><div class="line">            <span class="keyword">if</span>((p + <span class="number">2</span> - a[i]) % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; a[i] &gt;= (p + <span class="number">2</span> - a[i])/<span class="number">2</span>)&#123;</div><div class="line">                n2 = a[i];</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        n1 = (p + <span class="number">2</span> - n2)/<span class="number">2</span>; <span class="comment">//计算N1个数</span></div><div class="line">        <span class="keyword">int</span> j=p<span class="number">-1</span>;</div><div class="line">        <span class="comment">//输出列</span></div><div class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; n1<span class="number">-1</span>;i++)&#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%c"</span>,strInput[i]);</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;n2<span class="number">-2</span>;i++)&#123;</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"%s"</span>,<span class="string">" "</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%c\n"</span>,strInput[j--]);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//输出行</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = n1<span class="number">-1</span>;i&lt;p-n1+<span class="number">1</span>;i++)&#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%c"</span>,strInput[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h1><ul>
+<li>判系统是有多组test case输入，所以需要使用while来判断EOF</li>
+<li>每组用例输出结果最后一行需要换行</li>
+</ul>
+<h1 id="晒图："><a href="#晒图：" class="headerlink" title="晒图："></a>晒图：</h1><p><img src="http://qingliu.qiniudn.com/1464.png" alt="1464"><br><img src="http://qingliu.qiniudn.com/14641.png" alt="14641"></p>
+<hr>
+<p><em><strong>最后祝大家刷题愉快！</strong></em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;题目：&quot;&gt;&lt;a href=&quot;#题目：&quot; class=&quot;headerlink&quot; title=&quot;题目：&quot;&gt;&lt;/a&gt;题目：&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;题目描述：&lt;br&gt;Given any string of N (&amp;gt;=5) characters, y
+    
+    </summary>
+    
+      <category term="ACM" scheme="http://shuiqingliu.com/categories/ACM/"/>
+    
+      <category term="C/C++" scheme="http://shuiqingliu.com/categories/ACM/C-C/"/>
+    
+    
+      <category term="ACM" scheme="http://shuiqingliu.com/tags/ACM/"/>
+    
+      <category term="OJ" scheme="http://shuiqingliu.com/tags/OJ/"/>
+    
+      <category term="C/C++" scheme="http://shuiqingliu.com/tags/C-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Codeblocks使用技巧</title>
+    <link href="http://shuiqingliu.com/2017/03/11/codeblocks%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>http://shuiqingliu.com/2017/03/11/codeblocks使用技巧/</id>
+    <published>2017-03-11T06:53:04.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>Code::Blocks is a free, open-source, cross-platform IDE. Using a plugin architecture, its capabilities and features are defined by the provided plugins.  </p>
+</blockquote>
+<h1 id="初始安装"><a href="#初始安装" class="headerlink" title="初始安装:"></a>初始安装:</h1><h3 id="1-添加codeblocks的仓库"><a href="#1-添加codeblocks的仓库" class="headerlink" title="1. 添加codeblocks的仓库"></a>1. 添加<code>codeblocks</code>的仓库</h3><p>​    因为我用的Ubuntu所以直接去添加仓库：</p>
+<blockquote>
+<p><a href="https://launchpad.net/~damien-moore/+archive/ubuntu/codeblocks-stable/" target="_blank" rel="external">https://launchpad.net/~damien-moore/+archive/ubuntu/codeblocks-stable/</a></p>
+</blockquote>
+<h3 id="2-按照提示输入命令添加"><a href="#2-按照提示输入命令添加" class="headerlink" title="2. 按照提示输入命令添加"></a>2. 按照提示输入命令添加</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:damien-moore/codeblocks-stable</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install codeblocks</div></pre></td></tr></table></figure>
+<h1 id="简单配置："><a href="#简单配置：" class="headerlink" title="简单配置："></a>简单配置：</h1><h3 id="1-配置使用的终端类型"><a href="#1-配置使用的终端类型" class="headerlink" title="1.  配置使用的终端类型"></a>1.  配置使用的终端类型</h3><pre><code>Setting---&gt;General settings ----&gt; Terminal to launch console programs
+选择 genome-terminal -t $TITLE -x
+</code></pre><h3 id="2-配置打开默认工程"><a href="#2-配置打开默认工程" class="headerlink" title="2. 配置打开默认工程"></a>2. 配置打开默认工程</h3><pre><code>Setting---&gt;General settings---&gt;Open default workspace 
+还要设置下on project load 为 open all project files
+</code></pre><h3 id="3-配置语法颜色主题和光标颜色"><a href="#3-配置语法颜色主题和光标颜色" class="headerlink" title="3. 配置语法颜色主题和光标颜色"></a>3. 配置语法颜色主题和光标颜色</h3><pre><code>Setting--&gt;Editor---&gt;Margins and caret在caret栏目选择颜色和宽度就可（光标）
+Setting--&gt;Editor---&gt;Syntax highlight 设置颜色主题
+</code></pre><h1 id="可能遇到的问题："><a href="#可能遇到的问题：" class="headerlink" title="可能遇到的问题："></a>可能遇到的问题：</h1><h3 id="1-配置文件不能保存"><a href="#1-配置文件不能保存" class="headerlink" title="1. 配置文件不能保存"></a>1. 配置文件不能保存</h3><ul>
+<li><p>检查配置文件的权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls <span class="_">-a</span> ~/.config/codeblocks/default.conf</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果用户和所属组均为root 则修改权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod 777 ~/.config/codeblocks/default.conf</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-新添加的文件不能编译运行"><a href="#2-新添加的文件不能编译运行" class="headerlink" title="2. 新添加的文件不能编译运行"></a>2. 新添加的文件不能编译运行</h3><ul>
+<li>很有可能编辑目标没有设置，需要在add file的时候就勾选build target如下:</li>
+</ul>
+<p><img src="http://qingliu.qiniudn.com/Hello.cpp.png" alt="target"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Code::Blocks is a free, open-source, cross-platform IDE. Using a plugin architecture, its capabilities and features are defi
+    
+    </summary>
+    
+      <category term="教程" scheme="http://shuiqingliu.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Linux" scheme="http://shuiqingliu.com/categories/%E6%95%99%E7%A8%8B/Linux/"/>
+    
+      <category term="C/C++" scheme="http://shuiqingliu.com/categories/%E6%95%99%E7%A8%8B/Linux/C-C/"/>
+    
+    
+      <category term="C/C++" scheme="http://shuiqingliu.com/tags/C-C/"/>
+    
+      <category term="codeblocks" scheme="http://shuiqingliu.com/tags/codeblocks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>给WNDR3800刷OpenWRT</title>
+    <link href="http://shuiqingliu.com/2017/02/25/%E7%BB%99WNDR3800%E5%88%B7OpenWRT/"/>
+    <id>http://shuiqingliu.com/2017/02/25/给WNDR3800刷OpenWRT/</id>
+    <published>2017-02-25T12:55:51.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><code>背景：我拿到机子之前是刷过openwrt的，然后系统崩溃了，DHCP和wifi全挂了，我直接TFTP再刷一次openwrt</code></li>
+</ul>
+<hr>
+<p>Let’s do it!</p>
+<h4 id="1-下载原厂的固件"><a href="#1-下载原厂的固件" class="headerlink" title="1.下载原厂的固件"></a>1.下载原厂的固件</h4><p><a href="https://downloads.openwrt.org/chaos_calmer/15.05.1/ar71xx/generic/openwrt-15.05.1-ar71xx-generic-wndr3800-squashfs-factory.img" target="_blank" rel="external">下载地址</a></p>
+<h4 id="2-进入TFTP刷机模式进行刷机"><a href="#2-进入TFTP刷机模式进行刷机" class="headerlink" title="2.进入TFTP刷机模式进行刷机"></a>2.进入TFTP刷机模式进行刷机</h4><p>   <em>PS：先给Ubuntu装个tftp：<code>sudo apt-get install tftp</code></em></p>
+<ul>
+<li>长按reset键，直至绿灯闪烁时松开即可，此时就已进入了TFTP模式</li>
+<li>将本机PC IP 设为静态的<code>192.168.1.2</code>子网掩码<code>255.255.255.0</code></li>
+<li><p>输入如下命令,然后耐心的等待重启，直至绿灯长亮说明系统启动完毕<code>(大约5分钟)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tftp  192.168.1.1</div><div class="line">mode binary</div><div class="line">put openwrt-15.05.1-ar71xx-generic-wndr3800-squashfs-factory.img</div><div class="line">quit</div></pre></td></tr></table></figure>
+<p> 具体输入如下图所示：</p>
+</li>
+</ul>
+<p><img src="http://qingliu.qiniudn.com/tftp.png" alt="输入命令"></p>
+<h4 id="3-登录路由器进行相关配置"><a href="#3-登录路由器进行相关配置" class="headerlink" title="3.登录路由器进行相关配置"></a>3.登录路由器进行相关配置</h4><h5 id="3-1配置ssh"><a href="#3-1配置ssh" class="headerlink" title="3.1配置ssh"></a>3.1配置ssh</h5><ul>
+<li>首次登录需要需要先telnet登录设置密码然后用ssh登录<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">telnet 192.168.1.1 #telnet登录</div><div class="line">passwd #更改root密码</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如图：</p>
+<p><img src="http://qingliu.qiniudn.com/telnet.png" alt="login"></p>
+<h5 id="3-2进行配置"><a href="#3-2进行配置" class="headerlink" title="3.2进行配置"></a>3.2进行配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh root@192.168.1.1</div><div class="line">opkg update</div></pre></td></tr></table></figure>
+<h6 id="3-2-1进入web-登录Luci"><a href="#3-2-1进入web-登录Luci" class="headerlink" title="3.2.1进入web 登录Luci"></a>3.2.1进入web 登录Luci</h6><ul>
+<li>地址为：<code>192.168.1.1</code>,密码为之前设置的密码，登录之后在<code>Network</code>下<code>wifi</code>目录下打开wifi并点击<code>edit</code>-<code>Wireless Security</code>设置wifi密码.</li>
+</ul>
+<h6 id="3-2-2安装中文包"><a href="#3-2-2安装中文包" class="headerlink" title="3.2.2安装中文包"></a>3.2.2安装中文包</h6><ul>
+<li>在<code>system-software-avaliable package</code>搜索<code>chinese</code>安装base-zh-cn那个包就OK了.</li>
+</ul>
+<h6 id="3-2-3题外话"><a href="#3-2-3题外话" class="headerlink" title="3.2.3题外话"></a>3.2.3题外话</h6><ul>
+<li>接下来安装ss，chinadns就不说了这个教程到处都是自己找找就行了</li>
+<li>还有如果要恢复为官方固件的话也是TFTP刷，只不过put的镜像为官方img罢了</li>
+</ul>
+<hr>
+<p>来张web界面图：<br><img src="http://qingliu.qiniudn.com/openwrt.png" alt="web"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;code&gt;背景：我拿到机子之前是刷过openwrt的，然后系统崩溃了，DHCP和wifi全挂了，我直接TFTP再刷一次openwrt&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Let’s do it!&lt;/p&gt;
+&lt;h4 id=&quot;1-下载原厂的固件&quot;&gt;&lt;
+    
+    </summary>
+    
+      <category term="教程" scheme="http://shuiqingliu.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="Linux" scheme="http://shuiqingliu.com/categories/%E6%95%99%E7%A8%8B/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://shuiqingliu.com/tags/Linux/"/>
+    
+      <category term="openwrt" scheme="http://shuiqingliu.com/tags/openwrt/"/>
+    
+      <category term="wndr3800" scheme="http://shuiqingliu.com/tags/wndr3800/"/>
+    
+      <category term="netgear" scheme="http://shuiqingliu.com/tags/netgear/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu 安装Nvidia 驱动之后Unity消失的解决办法</title>
+    <link href="http://shuiqingliu.com/2016/04/21/ubuntu-%E5%AE%89%E8%A3%85nvidia-%E9%A9%B1%E5%8A%A8%E4%B9%8B%E5%90%8Eunity%E6%B6%88%E5%A4%B1%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>http://shuiqingliu.com/2016/04/21/ubuntu-安装nvidia-驱动之后unity消失的解决办法/</id>
+    <published>2016-04-20T16:03:46.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在安装nvidia官方驱动之后Unity消失，开机后只有桌面文件和壁纸，对于这种情况可通过如下方法解决：</p>
+<ul>
+<li>1.在桌面上右键打开terminal</li>
+<li>2.安装ccsm</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install compizconfig-settings-manager</div></pre></td></tr></table></figure>
+<ul>
+<li>3.在终端输入ccsm</li>
+<li>4.将下图中的opengl和unity plugin 都打开，Unity就出现了，问题解决，如果未能解决，请在终端输入<code>software-properties-gtk --open-tab=4</code> 打开<code>addition driver</code> 选择<code>xorg-xserver</code>然后再执行如下操作</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在安装nvidia官方驱动之后Unity消失，开机后只有桌面文件和壁纸，对于这种情况可通过如下方法解决：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.在桌面上右键打开terminal&lt;/li&gt;
+&lt;li&gt;2.安装ccsm&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highligh
+    
+    </summary>
+    
+      <category term="linux" scheme="http://shuiqingliu.com/categories/linux/"/>
+    
+    
+      <category term="Linux" scheme="http://shuiqingliu.com/tags/Linux/"/>
+    
+      <category term="nvidia" scheme="http://shuiqingliu.com/tags/nvidia/"/>
+    
+      <category term="unity" scheme="http://shuiqingliu.com/tags/unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android Studio不能自动完成更新的解决办法</title>
+    <link href="http://shuiqingliu.com/2015/12/05/android-studio%E4%B8%8D%E8%83%BD%E8%87%AA%E5%8A%A8%E5%AE%8C%E6%88%90%E6%9B%B4%E6%96%B0%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>http://shuiqingliu.com/2015/12/05/android-studio不能自动完成更新的解决办法/</id>
+    <published>2015-12-05T13:24:03.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>昨天Android Studio提示我更新到2.0 preview 2也就是AI-143.2461418，但是3M的补丁，点击update and restart 后等下载后as关闭但是没有自动重启并且在再次手动打开还是提示更新，没有自动完成升级。</p>
+<p>解决办法：Linux下找到home/username/.AndroidStudio(版本号)/restart/restarter.sh 将改脚本执行一下即可完成升级脚本内容自己可以看一下<br><a href="http://www.shuiqingliu.com/archives/449/updatestudio" target="_blank" rel="external"><img src="http://www.shuiqingliu.com/wp-content/uploads/2015/12/updatestudio-300x190.png" alt="updatestudio"></a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;昨天Android Studio提示我更新到2.0 preview 2也就是AI-143.2461418，但是3M的补丁，点击update and restart 后等下载后as关闭但是没有自动重启并且在再次手动打开还是提示更新，没有自动完成升级。&lt;/p&gt;
+&lt;p&gt;解决办法：
+    
+    </summary>
+    
+      <category term="android" scheme="http://shuiqingliu.com/categories/android/"/>
+    
+      <category term="linux" scheme="http://shuiqingliu.com/categories/android/linux/"/>
+    
+      <category term="教程" scheme="http://shuiqingliu.com/categories/android/linux/%E6%95%99%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Wordpress迁移后文章和页面404解决办法</title>
+    <link href="http://shuiqingliu.com/2015/11/26/wordpress%E8%BF%81%E7%A7%BB%E5%90%8E%E6%96%87%E7%AB%A0%E5%92%8C%E9%A1%B5%E9%9D%A2404%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>http://shuiqingliu.com/2015/11/26/wordpress迁移后文章和页面404解决办法/</id>
+    <published>2015-11-26T13:01:54.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于我服务器lamp环境是我手动搭建的，经过排查伪静态服务没有开启，查了下是在apache2.conf 文件中添加如下信息ps:我博客就放在/var/www/html</p>
+<directory var="" www="" html=""><br>        Options Indexes FollowSymLinks<br>        AllowOverride All<br>        Require all granted<br></directory>
+
+<p>这还不行，还需要开启apache的rewrite模块，由于我服务器是Ubuntu系统很简单，一个命令搞定：<br>sudo　a2enmod rewrite<br>sudo service apache2 restart<br>问题完美解决</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于我服务器lamp环境是我手动搭建的，经过排查伪静态服务没有开启，查了下是在apache2.conf 文件中添加如下信息ps:我博客就放在/var/www/html&lt;/p&gt;
+&lt;directory var=&quot;&quot; www=&quot;&quot; html=&quot;&quot;&gt;&lt;br&gt;        Opti
+    
+    </summary>
+    
+      <category term="linux" scheme="http://shuiqingliu.com/categories/linux/"/>
+    
+      <category term="教程" scheme="http://shuiqingliu.com/categories/linux/%E6%95%99%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>解决dnsmasq默认修改/etc/resolv.conf 的nameserver为127.0.0.1</title>
+    <link href="http://shuiqingliu.com/2015/11/23/%E8%A7%A3%E5%86%B3dnsmasq%E9%BB%98%E8%AE%A4%E4%BF%AE%E6%94%B9etcresolv-conf-%E7%9A%84nameserver%E4%B8%BA127-0-0-1/"/>
+    <id>http://shuiqingliu.com/2015/11/23/解决dnsmasq默认修改etcresolv-conf-的nameserver为127-0-0-1/</id>
+    <published>2015-11-23T03:04:56.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>事出有因，今天早上肖神说想用anyconnect，我登上服务器准备wget安装文件结果unable to resolve host address。cat /etc/resolv.conf 一看nameserver变为了127.0.0.1。 查了下，修改/etc/resolvconf/resolvconf.d/base 然后resolvconf -u 更新不起作用，更改/etc/network/interfaces 添加dns-nameserver  也不起作用，偶尔我吧dnsmasq stop后查看/etc/resolv.conf  变回了默认的google的nameserver，我restart dnsmasq resolv.conf 又被修改了，原来是dnsmasq搞的鬼。查了下<a href="http://raspberrypi.stackexchange.com/questions/37439/proper-way-to-prevent-dnsmasq-from-overwriting-dns-server-list-supplied-by-dhcp" target="_blank" rel="external">http://raspberrypi.stackexchange.com/questions/37439/proper-way-to-prevent-dnsmasq-from-overwriting-dns-server-list-supplied-by-dhcp</a> 是这个原因。<br><code>在/etc/default/dnsmasq中添加DNSMASQ_EXCEPT=lo</code><br>问题得到解决，dns服务也可用了，wget也可以了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;事出有因，今天早上肖神说想用anyconnect，我登上服务器准备wget安装文件结果unable to resolve host address。cat /etc/resolv.conf 一看nameserver变为了127.0.0.1。 查了下，修改/etc/resol
+    
+    </summary>
+    
+      <category term="linux" scheme="http://shuiqingliu.com/categories/linux/"/>
+    
+      <category term="教程" scheme="http://shuiqingliu.com/categories/linux/%E6%95%99%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C#进行CAD二次开发单行文字不显示问题</title>
+    <link href="http://shuiqingliu.com/2015/09/24/c%E8%BF%9B%E8%A1%8Ccad%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%8D%95%E8%A1%8C%E6%96%87%E5%AD%97%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/"/>
+    <id>http://shuiqingliu.com/2015/09/24/c进行cad二次开发单行文字不显示问题/</id>
+    <published>2015-09-24T12:42:22.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>好长时间不更新博客了！！！一直没搞技术研究了，惭愧惭愧。今天分享下这个问题的解决方法，他困扰了我一天。刚接触CAD的二次开发，当我做一个简单的创建单行文字的时候，代码编译执行都没有问题，然而他却不显示，find命令查找可以查找到文字对象啊，当我保存当前dwg，重新打开的时候可以显示了！我误打误撞结果把CAD工具栏搞没了，我就重置工作空间为CAD经典了，原来我之前的工作空间一直是草稿和注释！这就是问题关键。好了将你的CAD工作空间设置为CAD经典，问题解决。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;好长时间不更新博客了！！！一直没搞技术研究了，惭愧惭愧。今天分享下这个问题的解决方法，他困扰了我一天。刚接触CAD的二次开发，当我做一个简单的创建单行文字的时候，代码编译执行都没有问题，然而他却不显示，find命令查找可以查找到文字对象啊，当我保存当前dwg，重新打开的时候
+    
+    </summary>
+    
+      <category term="编程" scheme="http://shuiqingliu.com/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>百度地图在自定义Fragment中设置不显示缩放控件</title>
+    <link href="http://shuiqingliu.com/2015/05/29/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89fragment%E4%B8%AD%E8%AE%BE%E7%BD%AE%E4%B8%8D%E6%98%BE%E7%A4%BA%E7%BC%A9%E6%94%BE%E6%8E%A7%E4%BB%B6/"/>
+    <id>http://shuiqingliu.com/2015/05/29/百度地图在自定义fragment中设置不显示缩放控件/</id>
+    <published>2015-05-29T08:33:01.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>项目中需要去掉百度地图MapView中的缩放控件，因为他实在是太丑了而且占据了右下角的位置所以需要将他设置为不可见。先放出代码慢慢说：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">View rl = view.findViewById(R.id.maplayout);</div><div class="line">mMapView = <span class="keyword">new</span> MapView(mContext, <span class="keyword">new</span> BaiduMapOptions().zoomControlsEnabled(<span class="keyword">false</span>));</div><div class="line">mMapView.setLayoutParams(<span class="keyword">new</span> RelativeLayout</div><div class="line">.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT  , RelativeLayout.LayoutParams.WRAP_CONTENT));</div><div class="line">((RelativeLayout)rl).addView(mMapView);</div></pre></td></tr></table></figure></p>
+<p>1.首先我的Fragment的布局根节点为RelativeLayout，首先获得Relativelayout的View 对<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">View rl = view.findViewById(R.id.maplayout);</div></pre></td></tr></table></figure></p>
+<p>2.创建带有参数的MapView对象其中如下则为设置缩放控件不显示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> BaiduMapOptions().zoomControlsEnabled(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
+<p>3.然后设置mapview在RelativeLayout中的摆放，因为其父控件为RelativeLayout所以这里使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT</div><div class="line">						, RelativeLayout.LayoutParams.WRAP_CONTENT)</div></pre></td></tr></table></figure>
+<p>来给他设置wrap_content。<br>4.将mapview 添加到RelatvieLayout中<br>将通过RelativeLayout的id获取到的view转型为RelativeLayout，然后调用其addView方法将MapView添加到布局中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">((RelativeLayout)rl).addView(mMapView);</div></pre></td></tr></table></figure>
+<p>这就完成了将MapView动态添加到Fragment并设置其缩放控件不显示的步骤，如果你看到了这里非常感谢您。下方高能预警，不要打我</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>其实，我昨晚睡了一觉今天早上发现了3.4的sdk在mapview中已经直接提供了设置方法。那就是直接在布局文件中创建MapView然后通过如下方法设置<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mMapView.showZoomControls(<span class="keyword">false</span>);</div></pre></td></tr></table></figure></p>
+<p>希望你看到这里不要骂我，其实应该高兴，因为昨晚上我花了好几个小时，在想如何抛弃官方的SupportMapFragment来实现MapView的添加，用我自定义的Fragment来添加。这下想出来了，替你想好了。多省时省力。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;项目中需要去掉百度地图MapView中的缩放控件，因为他实在是太丑了而且占据了右下角的位置所以需要将他设置为不可见。先放出代码慢慢说：&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;
+    
+    </summary>
+    
+      <category term="android" scheme="http://shuiqingliu.com/categories/android/"/>
+    
+      <category term="教程" scheme="http://shuiqingliu.com/categories/android/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="编程" scheme="http://shuiqingliu.com/categories/android/%E6%95%99%E7%A8%8B/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Fragment" scheme="http://shuiqingliu.com/tags/Fragment/"/>
+    
+      <category term="LBS" scheme="http://shuiqingliu.com/tags/LBS/"/>
+    
+      <category term="百度地图" scheme="http://shuiqingliu.com/tags/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE/"/>
+    
+      <category term="缩放控件" scheme="http://shuiqingliu.com/tags/%E7%BC%A9%E6%94%BE%E6%8E%A7%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu 删除Ifupdown（eth0）</title>
+    <link href="http://shuiqingliu.com/2015/05/27/ubuntu-%E5%88%A0%E9%99%A4ifupdown%EF%BC%88eth0%EF%BC%89/"/>
+    <id>http://shuiqingliu.com/2015/05/27/ubuntu-删除ifupdown（eth0）/</id>
+    <published>2015-05-27T06:06:39.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>第一步：sudo subl /etc/network/interfaces</p>
+<p>删除其他内容只保留如下：</p>
+<h1 id="interfaces-5-file-used-by-ifup-8-and-ifdown-8"><a href="#interfaces-5-file-used-by-ifup-8-and-ifdown-8" class="headerlink" title="interfaces(5) file used by ifup(8) and ifdown(8)"></a>interfaces(5) file used by ifup(8) and ifdown(8)</h1><p>auto lo<br>iface lo inet loopback</p>
+<p>第二步 ：sudo subl /etc/NetworkManager/NetworkManager.conf</p>
+<p>将其中：</p>
+<p>[ifupdown]<br>managed=true</p>
+<p>改为：</p>
+<p>[ifupdown]<br>managed=false</p>
+<p>第三步：重启networkmanager服务</p>
+<p>sudo service network-manager restart</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;第一步：sudo subl /etc/network/interfaces&lt;/p&gt;
+&lt;p&gt;删除其他内容只保留如下：&lt;/p&gt;
+&lt;h1 id=&quot;interfaces-5-file-used-by-ifup-8-and-ifdown-8&quot;&gt;&lt;a href=&quot;#interfaces
+    
+    </summary>
+    
+      <category term="linux" scheme="http://shuiqingliu.com/categories/linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>流氓之WPS</title>
+    <link href="http://shuiqingliu.com/2015/05/08/%E6%B5%81%E6%B0%93%E4%B9%8Bwps/"/>
+    <id>http://shuiqingliu.com/2015/05/08/流氓之wps/</id>
+    <published>2015-05-07T18:26:59.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>WPS，大流氓一只。你要是装了这货，那就坑了。当你卸载后他还是会关联DOC,PPT,XLS等等。导致你office2013安装默认打开图标还是空白的。为了解决这个流氓带来的问题，你得重装下这个流氓然后用流氓自己的配置工具取消文件关联才可以。ksomisc.exe用它配置；路径C:\Users\xxx\AppData\Local\Kingsoft\WPS Office\9.1.0.5060\office6</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;WPS，大流氓一只。你要是装了这货，那就坑了。当你卸载后他还是会关联DOC,PPT,XLS等等。导致你office2013安装默认打开图标还是空白的。为了解决这个流氓带来的问题，你得重装下这个流氓然后用流氓自己的配置工具取消文件关联才可以。ksomisc.exe用它配置；路
+    
+    </summary>
+    
+      <category term="linux" scheme="http://shuiqingliu.com/categories/linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>百度地图API Android Sdk导入jar和so文件</title>
+    <link href="http://shuiqingliu.com/2015/04/12/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEapi-android-sdk%E5%AF%BC%E5%85%A5jar%E5%92%8Cso%E6%96%87%E4%BB%B6/"/>
+    <id>http://shuiqingliu.com/2015/04/12/百度地图api-android-sdk导入jar和so文件/</id>
+    <published>2015-04-12T13:18:59.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先，在导入百度地图SDK的时候对于android studio来讲应该将<span style="color: #ff0000;">BaiduLBS_Android.jar </span><span><span style="color: #000000;">添加到项目的libs目录下，然后将so文件添加到src/jniLibs/armeabi 目录下没有目录结构的话自己建立，不然会造成如下错误：</span></span></p>
+<blockquote>
+<p>No implementation found for int com.baidu.platform.comjni.map.commonmemcache.JNICommonMemCache.Create() (tried Java_com_baidu_platform_comjni_map_commonmemcache_JNICommonMemCache_Create and Java_com_baidu_platform_comjni_map_commonmemcache_JNICommonMemCache_Create__)<br>在SDKInitializer.initialize(getApplicationContext()) 时候会出错。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先，在导入百度地图SDK的时候对于android studio来讲应该将&lt;span style=&quot;color: #ff0000;&quot;&gt;BaiduLBS_Android.jar &lt;/span&gt;&lt;span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;添加到项目的
+    
+    </summary>
+    
+      <category term="linux" scheme="http://shuiqingliu.com/categories/linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu 升级内核出现Failed to Symbolic-Link boot/initrd.img-* to initrd.img:File Exists at /Var/lib/dpkg/info/linux-Image-*.Postinst</title>
+    <link href="http://shuiqingliu.com/2015/02/28/ubuntu-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8%E5%87%BA%E7%8E%B0failed-to-symbolic-link-bootinitrd-img-to-initrd-imgfile-exists-at-varlibdpkginfolinux-image-postinst/"/>
+    <id>http://shuiqingliu.com/2015/02/28/ubuntu-升级内核出现failed-to-symbolic-link-bootinitrd-img-to-initrd-imgfile-exists-at-varlibdpkginfolinux-image-postinst/</id>
+    <published>2015-02-28T11:58:48.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>错误如下：</p>
+<blockquote>
+<p>Setting up linux-image-3.13.0-46-generic (3.13.0-46.76) …<br>Running depmod.<br>update-initramfs: deferring update (hook will be called later)<br>Failed to symbolic-link boot/initrd.img-3.13.0-46-generic to initrd.img:File exists at /var/lib/dpkg/info/linux-image-3.13.0-46-generic.postinst line 629.<br>dpkg: error processing package linux-image-3.13.0-46-generic (–configure):<br>subprocess installed post-installation script returned error exit status 17<br>dpkg: dependency problems prevent configuration of linux-image-extra-3.13.0-46-generic:<br>linux-image-extra-3.13.0-46-generic depends on linux-image-3.13.0-46-generic; however:<br>Package linux-image-3.13.0-46-generic is not configured yet.</p>
+<p>dpkg: error processing package linux-image-extra-3.13.0-46-generic (–configure):<br>dependency problems - leaving unconfigured<br>No apport report written because the error message indicates its a followup error from a previous failure.<br>E: Sub-process /usr/bin/dpkg returned an error code (1)<br>解决办法如下：<br>sudo mv /var/lib/dpkg/info/linux-image-3.13.0-46-generic.postinst .</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;错误如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Setting up linux-image-3.13.0-46-generic (3.13.0-46.76) …&lt;br&gt;Running depmod.&lt;br&gt;update-initramfs: deferring upd
+    
+    </summary>
+    
+      <category term="linux" scheme="http://shuiqingliu.com/categories/linux/"/>
+    
+      <category term="教程" scheme="http://shuiqingliu.com/categories/linux/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Ubuntu" scheme="http://shuiqingliu.com/tags/Ubuntu/"/>
+    
+      <category term="kernel" scheme="http://shuiqingliu.com/tags/kernel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu安卓开发环境配置(四)</title>
+    <link href="http://shuiqingliu.com/2015/01/12/ubuntu%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%9B%9B/"/>
+    <id>http://shuiqingliu.com/2015/01/12/ubuntu安卓开发环境配置四/</id>
+    <published>2015-01-11T16:48:30.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>上篇讲了编译环境搭建，这篇讲android studio下载安装。</p>
+<p>1.下载android studio</p>
+<blockquote>
+<p><a href="https://developer.android.com/sdk/index.html" target="_blank" rel="external">https://developer.android.com/sdk/index.html</a></p>
+<p> <img src="http://qingliu.qiniudn.com/androidd.png" alt="androidd"><br>需要特殊手段下载，昨天我们不是装了ss么，还有proxychains，我们可以用<br><code>proxychains wget -c https://dl.google.com/dl/android/studio/ide-zips/1.0.1/android-studio-ide-135.1641136-linux.zip</code></p>
+</blockquote>
+<p>2.安装oracle 的java，注意android studio 使用的是oracle的java，参见“学长”张篇文章，不再赘述</p>
+<p><a href="http://superwang.me/2014/05/13/install-oracle-java-7-in-ubuntu-via-ppa/" target="_blank" rel="external">http://superwang.me/2014/05/13/install-oracle-java-7-in-ubuntu-via-ppa/</a></p>
+<p>然后昨天我们装了openjdk，今天我们装了oracle，那怎么切换呢如下：</p>
+<blockquote>
+<p>sudo update-alternatives –config java</p>
+<p>sudo update-alternatives –config javac</p>
+</blockquote>
+<p>3.进入到android studio 解压目录运行studio.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /home/qingliu/dn/android-studio/bin</div><div class="line">./studio.sh</div></pre></td></tr></table></figure>
+<p>就可以打开软件，第一次打开会初始化， 然后会下载2.5G的sdk，这个可以跳过，在android studio目录下的bin目录下，编辑idea.properties</p>
+<blockquote>
+<p>添加：disable.android.first.run=true<br>如果你有ipv6环境，下载速度会让你爽到爆，具体设置请看我<a href="http://www.shuiqingliu.com/archives/358" title="Android  Studio 使用纯IPv6环境更新" target="_blank" rel="external">这篇文章</a></p>
+</blockquote>
+<p>进入后主题是白色，我们可以设置</p>
+<blockquote>
+<p>File—–settings—–Appearance—–theme<br>我选择darcula</p>
+</blockquote>
+<p><img src="http://qingliu.qiniudn.com/ttt.png" alt="ttt"></p>
+<p>设置代码配色方案，作为sublime 粉，那必须 设置一下啊：</p>
+<blockquote>
+<p>方法见：<a href="https://github.com/Fumler/idea-monokai" target="_blank" rel="external">https://github.com/Fumler/idea-monokai</a><br>来张全图：</p>
+</blockquote>
+<p><img src="http://qingliu.qiniudn.com/test.png" alt="test"></p>
+<p>&nbsp;</p>
+<p>更详细的anroid studio 详见<a href="http://stormzhang.com/devtools/2014/11/25/android-studio-tutorial1/" target="_blank" rel="external">http://stormzhang.com/devtools/2014/11/25/android-studio-tutorial1/</a></p>
+<p>四篇文章写完，我的电脑也配置的差不多了。最后放上一个小彩蛋，那就是安装zsh，加上我自己基于别人主题修改的炫酷主题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install zsh -y</div><div class="line">curl -L http://install.ohmyz.sh | sh</div></pre></td></tr></table></figure></p>
+<p><img src="http://qingliu.qiniudn.com/show.png" alt="tupian"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上篇讲了编译环境搭建，这篇讲android studio下载安装。&lt;/p&gt;
+&lt;p&gt;1.下载android studio&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.android.com/sdk/index.html&quot; ta
+    
+    </summary>
+    
+      <category term="android" scheme="http://shuiqingliu.com/categories/android/"/>
+    
+      <category term="linux" scheme="http://shuiqingliu.com/categories/android/linux/"/>
+    
+      <category term="教程" scheme="http://shuiqingliu.com/categories/android/linux/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="android studio" scheme="http://shuiqingliu.com/tags/android-studio/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu安卓开发环境配置(三)</title>
+    <link href="http://shuiqingliu.com/2015/01/11/ubuntu%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B8%89/"/>
+    <id>http://shuiqingliu.com/2015/01/11/ubuntu安卓开发环境配置三/</id>
+    <published>2015-01-10T18:19:36.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>上篇讲了常用必备工具，这篇来讲java安装，android 源码编译环境搭建。源码下载。</p>
+<p>1.为了后续工作顺利进行我们先来安装shaodowsocks</p>
+<p>我选择python版：</p>
+<blockquote>
+<p>sudo apt-get install python-pip</p>
+<p>pip install shadowsocks<br>安装完成后，在/etc/目录下面建立shadowsocks.json文件<br>sudo vim /etc/shadowsocks.json<br>输入如下内容:<br>{<br>“server”:”x.x.x.x”,         //你的ss服务器地址直接写ip<br>“server_port”:8388,        //你的ss服务器的端口<br>“local_address”:”127.0.0.1”,<br>“local_port”:1080,<br>“password”:”<strong>**</strong>“,   //你的ss密码<br>“timeout”:600,<br>“method”:”aes-256-cfb”<br>}<br>上述内容中在输入的时候“//”和后面中文都要去掉，保存后将sslocal加入开机启动，打开startup applications，填入如下内容：</p>
+</blockquote>
+<p><img src="http://qingliu.qiniudn.com/Screenshot-from-2015-01-11-001024.png" alt="Screenshot from 2015-01-11 00:10:24"></p>
+<p>安装proxychains<br><code>sudo apt-get -y install proxychains</code></p>
+<p>配置：<br>编辑<code>/etc/proxychains.conf</code>将最后一行<code>socks4 127.0.0.1 9050</code>改为 <code>socks5 127.0.0.1 1080</code></p>
+<p>2.安装java， openjdk-7-jdk<br><code>sudo apt-get install openjdk-7-jdk</code><br>3.安装编译所需软件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git gnupg flex bison gperf build-essential \</div><div class="line">zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev \</div><div class="line">libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 \</div><div class="line">libgl1-mesa-dev g++-multilib mingw32 tofrodos \</div><div class="line">python-markdown libxml2-utils xsltproc zlib1g-dev:i386</div></pre></td></tr></table></figure></p>
+<p>做链接<br><code>sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so</code><br>ubuntu14.04还需要安装如下包：<code>sudo apt-get install bison g++-multilib git gperf libxml2-utils</code><br>将：<code>export USE_CCACHE=1</code>添加到<code>.profile</code></p>
+<p>4.下载源码<br>安装repo<br><code>mkdir ~/bin</code><br>PATH=~/bin:$PATH<br><code>url https://storage.googleapis.com/git-repo-downloads/repo &amp;gt; ~/bin/repo</code></p>
+<blockquote>
+<p>chmod a+x ~/bin/repo<br>创建一个源码目录：<br>mkdir xxxx</p>
+<p>cd xxxx<br>repo初始化<br>repo init -u git://github.com/CyanogenMod/android.git -b cm-12.0<br>-u 指定仓库地址，-b指定源码分支</p>
+</blockquote>
+<p>具体操作可看我下面操作：</p>
+<script id="asciicast-15338" src="https://asciinema.org/a/15338.js" async type="text/javascript"></script> 
+
+<p>5.同步源码 </p>
+<blockquote>
+<p>在新建源码目录下：repo sync -j32 或者repo sync -j16 如下操作：<script id="asciicast-15339" src="https://asciinema.org/a/15339.js" async type="text/javascript"></script></p>
+</blockquote>
+<p>6.源码下载完后进行编译：</p>
+<blockquote>
+<p>. build/envsetup.sh</p>
+<p>lunch  （然后选择自己机型数字）</p>
+<p>make bacon</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上篇讲了常用必备工具，这篇来讲java安装，android 源码编译环境搭建。源码下载。&lt;/p&gt;
+&lt;p&gt;1.为了后续工作顺利进行我们先来安装shaodowsocks&lt;/p&gt;
+&lt;p&gt;我选择python版：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sudo apt-get in
+    
+    </summary>
+    
+      <category term="android" scheme="http://shuiqingliu.com/categories/android/"/>
+    
+      <category term="git" scheme="http://shuiqingliu.com/categories/android/git/"/>
+    
+      <category term="linux" scheme="http://shuiqingliu.com/categories/android/git/linux/"/>
+    
+      <category term="教程" scheme="http://shuiqingliu.com/categories/android/git/linux/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="android" scheme="http://shuiqingliu.com/tags/android/"/>
+    
+      <category term="Ubuntu" scheme="http://shuiqingliu.com/tags/Ubuntu/"/>
+    
+      <category term="git" scheme="http://shuiqingliu.com/tags/git/"/>
+    
+      <category term="Linux" scheme="http://shuiqingliu.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu安卓开发环境配置(二)</title>
+    <link href="http://shuiqingliu.com/2015/01/09/ubuntu%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%BA%8C/"/>
+    <id>http://shuiqingliu.com/2015/01/09/ubuntu安卓开发环境配置二/</id>
+    <published>2015-01-09T08:35:37.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.shuiqingliu.com/archives/365" title="Ubuntu安卓开发环境配置(一)" target="_blank" rel="external">上篇文章</a>讲到了系统刚装完之后的简单配置，下面来讲讲两大神器的安装以及TX的球球</p>
+<p>1.安装ia32-libs<br>如果你的系统版本大于等于Ubuntu13.10，安装会比较麻烦如下：</p>
+<blockquote>
+<p>sudo -i<br>cd /etc/apt/sources.list.d<br>echo “deb <a href="http://old-releases.ubuntu.com/ubuntu/" target="_blank" rel="external">http://old-releases.ubuntu.com/ubuntu/</a> raring main restricted universe multiverse” &gt;ia32-libs-raring.list<br>apt-get update<br>apt-get install ia32-libs<code>
+</code><br>如果你的系统小于Ubunu13.10，那么直接：<br>sudo apt-get install ia32-libs</p>
+</blockquote>
+<p>2.安装神器beyond Compare</p>
+<blockquote>
+<p>下载地址：<a href="http://pan.baidu.com/s/1qWkGjGK" target="_blank" rel="external">http://pan.baidu.com/s/1qWkGjGK</a></p>
+<p>下载后可以双击进行安装，也可以用命令上篇已经讲过如何用命令安装deb了。<br>激活码见：<a href="http://www.shuiqingliu.com/archives/129" title="Linux     Beyond Compare 3.3.7 build 15876  Key" target="_blank" rel="external">我之前一篇文章</a>   复制开始和结束中间的key</p>
+</blockquote>
+<p>3.安装神器Sublime Text2</p>
+<p>这是我最喜欢的编辑器，没有之一。爱不释手！我选择Sublime Text2因为免费的，不强制购买，他只是会每20次保存提示你购买，已经习惯了。下面进行安装和初步的配置</p>
+<p>复杂安装方法：<br>首先下载最新版：<a href="http://www.sublimetext.com/2" target="_blank" rel="external"> http://www.sublimetext.com/2</a></p>
+<p>解压：</p>
+<p><img src="http://qingliu.qiniudn.com/unzip.png" alt="unzip"></p>
+<p>解压出来的文件夹进行重命名<code>mv Sublime\ Text\ 2 sublime</code></p>
+<p>我们将sublime 文件夹放到/usr/local/lib下如下:</p>
+<blockquote>
+<p>sudo mv sublime/ /usr/local/lib/<br>做软链接，这样以后使用非常方便<br>sudo ln -s /usr/local/lib/sublime/sublime_text /usr/bin/subl<br>以后我们使用的时候就可言subl xxx ，可以是文件也可以是文件夹 .</p>
+</blockquote>
+<p>最简单的安装方法：</p>
+<p><a href="http://www.webupd8.org/2011/03/sublime-text-2-ubuntu-ppa.html" target="_blank" rel="external">http://www.webupd8.org/2011/03/sublime-text-2-ubuntu-ppa.html</a></p>
+<p>安装完之后对sublime 做初步配置</p>
+<p>a.安装package control，然后你就可以安装各种插件了。</p>
+<blockquote>
+<p>快捷键：ctrl<em>+`</em></p>
+<p>调出控制台输入安装代码：</p>
+<p>import urllib2,os,hashlib; h = ‘2deb499853c4371624f5a07e27c334aa’ + ‘bf8c4e67d14fb0525ba4f89698a6d7e1’; pf = ‘Package Control.sublime-package’; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( ‘<a href="http://packagecontrol.io/" target="_blank" rel="external">http://packagecontrol.io/</a>‘ + pf.replace(‘ ‘, ‘%20’)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), ‘wb’ ).write(by) if dh == h else None; print(‘Error validating download (got %s instead of %s), please try manual install’ % (dh, h) if dh != h else ‘Please restart Sublime Text to finish installation’)</p>
+</blockquote>
+<p>b.设置java开发环境。</p>
+<p>别人都写过了，我都不写了。请看这里<a href="http://blog.sina.com.cn/s/blog_927ae80b010195lg.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_927ae80b010195lg.html</a></p>
+<p>c.安装中文输入支持插件</p>
+<p>因为ibus不兼容，fcitx可以支持，因为我钟爱ibus所以装个中文支持插件</p>
+<blockquote>
+<p>cd ~/.config/sublime-text-2/Packages</p>
+<p>git clone <a href="https://github.com/xgenvn/InputHelper.git" target="_blank" rel="external">https://github.com/xgenvn/InputHelper.git</a></p>
+</blockquote>
+<p>d.设置shell script测试命令[[ 为[</p>
+<p>参见我的<a href="http://www.shuiqingliu.com/archives/332" title="sublime 更改shell中if then自动不全方式" target="_blank" rel="external">这篇文章</a></p>
+<p>e.设置默认新建文件为java</p>
+<p>快捷键：ctrl+shift+p 选择install package，安装Default File Type</p>
+<p>然后新建：Packages/User/default_file_type.sublime-settings文件</p>
+<p>编辑如下：</p>
+<blockquote>
+<p>{<br>“default_new_file_syntax”: “Packages/Java/Java.tmLanguage”<br>, “use_current_file_syntax”: true<br>}<br>4.安装qq，总得跟人交流吧</p>
+</blockquote>
+<p>下载wine-qqintel 国际版qq所需组件：</p>
+<p><a href="http://packages.linuxdeepin.com/enterprise/pool/non-free/d/deepinwine-qqintl/wine-qqintl_0.1.3-2_i386.deb" target="_blank" rel="external">http://packages.linuxdeepin.com/enterprise/pool/non-free/d/deepinwine-qqintl/wine-qqintl_0.1.3-2_i386.deb</a></p>
+<p><a href="http://packages.linuxdeepin.com/ubuntu/pool/main/t/ttf-wqy-microhei/ttf-wqy-microhei_0.2.0-beta-1_all.deb" target="_blank" rel="external">http://packages.linuxdeepin.com/ubuntu/pool/main/t/ttf-wqy-microhei/ttf-wqy-microhei_0.2.0-beta-1_all.deb</a></p>
+<p>先安装字体wqy-microhei  依赖，然后安装qqintl</p>
+<p>如果安装出错如下，请再搜索安装liblcms2-2:i386</p>
+<p><img src="http://qingliu.qiniudn.com/cuowu.png" alt="cuowu"><br>然后在重新安装qqintl就可。</p>
+<p>下篇文章讲安装java，搭建android源码编译环境，下载源码。敬请期待！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://www.shuiqingliu.com/archives/365&quot; title=&quot;Ubuntu安卓开发环境配置(一)&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;上篇文章&lt;/a&gt;讲到了系统刚装完之后的简单配置，下面来讲讲两
+    
+    </summary>
+    
+      <category term="android" scheme="http://shuiqingliu.com/categories/android/"/>
+    
+      <category term="linux" scheme="http://shuiqingliu.com/categories/android/linux/"/>
+    
+      <category term="教程" scheme="http://shuiqingliu.com/categories/android/linux/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="android" scheme="http://shuiqingliu.com/tags/android/"/>
+    
+      <category term="Ubuntu" scheme="http://shuiqingliu.com/tags/Ubuntu/"/>
+    
+      <category term="git" scheme="http://shuiqingliu.com/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu安卓开发环境配置(一)</title>
+    <link href="http://shuiqingliu.com/2015/01/08/ubuntu%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B8%80/"/>
+    <id>http://shuiqingliu.com/2015/01/08/ubuntu安卓开发环境配置一/</id>
+    <published>2015-01-08T13:32:36.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>上周我用了三年的Ubuntu挂了，强制关机以后就进不了系统，在initramfs。查了资料在livecd 下更新initramfs，更新grub配置，但是我的不行，会出现磁盘 I/O error。可能我硬盘马上要挂了，smart都是read error rate。苦于没钱买硬盘，先用这个吧。然后修复不好就只能重装。下来我就分享下我从刚装系统后是怎么一步步配置android 开发环境的。都是按照我个人习惯配置的。可能不完全适用于你，但可以作为参考嘛。我系统装的是Ubuntu14.04 LTS 版本。该系列文章我可能要写好几篇，我配置到那里写到哪里。如果你是Ubunt新手你会在文中找到有用的东西，如果你是高手也可以来批评批评嘿嘿。下面开始配置。。。</p>
+<ol>
+<li>系统的安装我就不说了，安装用livecd非常简单我在这里放一张我分区的截图供你参考。</li>
+</ol>
+<p><img src="http://qingliu.qiniudn.com/IMG_20150108_172806-1024x759.jpg" alt="IMG_20150108_172806"></p>
+<p>做以说明：我硬盘1TB 在这里我分了/boot， /， /home， swap四个分区。分出home是为了以后万一系统坏了，可以保留home重新安装。boot用来安装grub引导，剩下的未分区的我打算用来放置android 源码，这样系统坏了也不会影响到代码。注意看图片下方，device for boot loader installation。我们选择sda1 因为我要把他装到boot，万一以后要张个win的话好弄。</p>
+<ol>
+<li><p>安装完之后刚进入系统做初步设置。首先连上wifi，右上角点击wifi形状选择要接入的网络就可言连接上了。只要你的网卡不是奇葩基本都没有问题。</p>
+</li>
+<li><p>安装chrome<br>我是直接在<a href="http://www.google.com/chrome/" target="_blank" rel="external">http://www.google.com/chrome/</a> 下载然后安装的，因为我路由器默认fq了，也可以从其他渠道下载。我是chrome忠实的使用着2333.至于下载下来怎么安装，直接双击.deb包就可以安装。或者通过终端Ctrl+Alt+T调出terminal，<code>cd ~/Download</code>然后<code>sudo dpkg -i xxxx.deb</code></p>
+</li>
+<li><p>设置中文输入法</p>
+</li>
+</ol>
+<p>点击右上角EN图标，选择Text EntrySettings，添加Chinese（Sunpinyin）如下：</p>
+<p><img src="http://qingliu.qiniudn.com/%E6%B7%BB%E5%8A%A0pinyin.png" alt="添加pinyin"></p>
+<p>点击左下角小“+”找到Chinese（Sunpinyin）add这样就可以中文输入了，右上角会看到小太阳状的图标。Super+space 可以切换输入法，当中文输入的时候可以按shift进行中英切换。在text entrysettings 中小扳手可以设置中pinyin输入法的，当按shift切换中英的时候，输入法状态栏会讨厌的自动出来，可以让他彻底关闭，在终端输入ibus-setup ，将show property panel 改为 do not show 就可以了</p>
+<ol>
+<li>更新系统<br>同样打开终端Ctrl+Alt+T，输入下面命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update &amp;&amp; sudo apt-get upgrade</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>耐心等待即可完成系统更新。</p>
+</blockquote>
+<ol>
+<li>设置系统语言<br>我是直接用英文，但是给出中文设置方法。在unity找到System-setting 就是那个齿轮带扳手的货，然后进去点击language-support 点击install/remove languages 就可以安装中文，然后在列表中选择中文点击apply system-wide就好。</li>
+</ol>
+<p>经过以上设置后系统基本可以用了，今天先写到这里，有点小困，明天继续配置，然后再写。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上周我用了三年的Ubuntu挂了，强制关机以后就进不了系统，在initramfs。查了资料在livecd 下更新initramfs，更新grub配置，但是我的不行，会出现磁盘 I/O error。可能我硬盘马上要挂了，smart都是read error rate。苦于没钱买
+    
+    </summary>
+    
+      <category term="android" scheme="http://shuiqingliu.com/categories/android/"/>
+    
+      <category term="linux" scheme="http://shuiqingliu.com/categories/android/linux/"/>
+    
+      <category term="教程" scheme="http://shuiqingliu.com/categories/android/linux/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="android" scheme="http://shuiqingliu.com/tags/android/"/>
+    
+      <category term="Ubuntu" scheme="http://shuiqingliu.com/tags/Ubuntu/"/>
+    
+      <category term="git" scheme="http://shuiqingliu.com/tags/git/"/>
+    
+      <category term="repo" scheme="http://shuiqingliu.com/tags/repo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android  Studio 使用纯IPv6环境更新</title>
+    <link href="http://shuiqingliu.com/2014/12/20/android-studio-%E4%BD%BF%E7%94%A8%E7%BA%AFipv6%E7%8E%AF%E5%A2%83%E6%9B%B4%E6%96%B0/"/>
+    <id>http://shuiqingliu.com/2014/12/20/android-studio-使用纯ipv6环境更新/</id>
+    <published>2014-12-20T07:26:36.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于大家众所周知的原因，你要下载Android Studio，Android SDK都将成为困难。然而当你有IPV6环境的时候，那么你也进入了一片净土。在这里你可以拥抱伟大的google。想想4~5m/s的SDK下载速度是什么样。下面来说说Ubuntu下Android Studio 1.0.1的安装和IPv6环境的设置。</p>
+<p>当你处于纯V6环境下了，请直接点击Android Studio<a href="https://developer.android.com/intl/zh-cn/sdk/index.html" target="_blank" rel="external">下载</a>    享受那飞快的下载速度。ok 200多M你一会就下完了。进入下载目录：</p>
+<blockquote>
+<p>unzip  android-studio-ide-135.1641136-linux.zip<br>PS:当然你注意自己的文件名了，这样你将android studio解压，会解压到一个android-studio目录，进入这个目录pwd如下：<br>/home/qingliu/dn/android-studio/bin<br>这时候先别着急，我们来设置下让Android Studio支持纯IPv6，因为我是64位的系统所以打开文件 上面目录下的studio64.vmoptions文件，做以下更改：<br>-Djava.net.preferIPv4Stack=true <code>改为</code></p>
+<p>-Djava.net.preferIPv6Addresses=true<br>OK，保存文件下来启动android studio<br>运行bin目录下的studio.sh<br>然后会启动获取SDK信息，下载SDK。如下图：</p>
+</blockquote>
+<p><a href="http://www.shuiqingliu.com/archives/358/screenshot-from-2014-12-20-140304" target="_blank" rel="external"><img src="http://www.shuiqingliu.com/wp-content/uploads/2014/12/Screenshot-from-2014-12-20-140304-300x236.png" alt="Screenshot from 2014-12-20 14:03:04"></a></p>
+<p>PS：这个下载会从dl.google.com下载如果你IPV6如上面设置了，还是不行的话，那就找到bin下的studio.vmoptions 删除这个文件中的-Djava.net.preferIPv4Stack=true就ok了。</p>
+<p>V6速度真心爽啊。同步个android 源码几个小时就搞定。下个android studio 还不是分分钟。</p>
+<p>恩好不出意外你就可以进到android studio，可是你有没有觉得这样每次运行studio.sh 麻烦，虽然可以nohup，但还是不爽。我们来给他设置个环境变量，写个desktop entry 直接在unity运行就爽了。</p>
+<p>首先吧bin目录加入到环境变量/etc/profile：</p>
+<blockquote>
+<p>PATH=$PAHT:/home/qingliu/dn/android-studio/bin</p>
+<p>export PATH<br>然后我们再给他加个desktop entry，在用户目录下的.local/share/applications/ 目录下新建studio.desktop文件如下：<br>[Desktop Entry]<br>Encoding=UTF-8<br>Version=1.0<br>Type=Application<br>Name=qingliu’s studio<br>Icon=jetbrains-android-studio.png<br>Path=/home/qingliu/dn/android-studio/bin<br>Exec=bash studio.sh<br>StartupNotify=false<br>StartupWMClass=jetbrains-android-studio<br>OnlyShowIn=Unity;<br>X-UnityGenerated=true<br>然后保存。再次在bin目录下运行studio.sh 然后将android studio 固定到launcher就好了以后打开就可直接点击图标打开。</p>
+</blockquote>
+<p>PS：注意以上文中提到的我的路径均换成你自己的文件路径。切记。在悲伤中不忘前进，见我i上篇博客。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于大家众所周知的原因，你要下载Android Studio，Android SDK都将成为困难。然而当你有IPV6环境的时候，那么你也进入了一片净土。在这里你可以拥抱伟大的google。想想4~5m/s的SDK下载速度是什么样。下面来说说Ubuntu下Android St
+    
+    </summary>
+    
+      <category term="android" scheme="http://shuiqingliu.com/categories/android/"/>
+    
+      <category term="教程" scheme="http://shuiqingliu.com/categories/android/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="android studio" scheme="http://shuiqingliu.com/tags/android-studio/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>人生中的第一次缺考</title>
+    <link href="http://shuiqingliu.com/2014/12/20/%E4%BA%BA%E7%94%9F%E4%B8%AD%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%BC%BA%E8%80%83/"/>
+    <id>http://shuiqingliu.com/2014/12/20/人生中的第一次缺考/</id>
+    <published>2014-12-20T06:47:38.000Z</published>
+    <updated>2017-06-02T03:03:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>2014.12.20 9：32分，超哥说了句：诶，你怎么没去考试。我一下子惊醒，猛地从床上坐起来。立马拿起手机看了下时间9：32,此时四级考试已开始，9：00开考9：15则不许进入考场。</p>
+<p>我呆呆的望着超哥，整个人呆滞了几秒钟。后来淡淡的说了句：来不及了，不去了。遂又躺在床上，眼睛有点干涩，眨了下眼睛。有点湿润了。突然好像得了大病似的，出不来气感觉心口有块石头压着。这只是无力的挣扎罢了。。。</p>
+<p>我人生中的第一次缺考献给了这次重要的考试。从此再也不会有了。终生遗憾，将无法逃避。我昨天晚上上床之前，将我的准考证、身份证、铅笔橡皮都整齐的放在了我的桌子上面，为今天的考试准备着，而我却忘记了设个闹钟，多么可笑。好象是冥冥之中注定的一样。宿舍另外一哥们去考试没叫醒我，我不怪他。我不会把自己的错误怪罪到别人头上。我能做的就是我的耳机，铅笔，橡皮都借给了刚刚去考六级的垚垚。这就像是让他去帮我完成我未完成的使命一样，这种感觉尤为强烈。在这里为垚垚加油。</p>
+<p>写下这段文字，希望能告诫自己。在以后的工作，生活当中。做好每一件事的准备。走好每一步。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2014.12.20 9：32分，超哥说了句：诶，你怎么没去考试。我一下子惊醒，猛地从床上坐起来。立马拿起手机看了下时间9：32,此时四级考试已开始，9：00开考9：15则不许进入考场。&lt;/p&gt;
+&lt;p&gt;我呆呆的望着超哥，整个人呆滞了几秒钟。后来淡淡的说了句：来不及了，不去了
+    
+    </summary>
+    
+      <category term="日志" scheme="http://shuiqingliu.com/categories/%E6%97%A5%E5%BF%97/"/>
+    
+    
+      <category term="二货" scheme="http://shuiqingliu.com/tags/%E4%BA%8C%E8%B4%A7/"/>
+    
+  </entry>
+  
+</feed>
