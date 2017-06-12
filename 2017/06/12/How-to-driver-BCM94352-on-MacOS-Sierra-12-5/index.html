@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://shuiqingliu.com">
   <title>How to Driver BCM94352 on MacOS Sierra(10.12.5) | qingliu&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="PS: You should first look over tolede’s github :https://github.com/toleda/wireless_half-mini/ before you read this article #Base Information    Item Value     HardWare  Name BCM94352HMB   Vendor ID 14">
+  <meta name="description" content="PS: You should first look over tolede’s github :https://github.com/toleda/wireless_half-mini/ before you read this article Base Information   Item Value     HardWare  Name BCM94352HMB   Vendor ID 14E4">
 <meta name="keywords" content="MacOS Sierra,黑苹果,BCM94352HMB,Bluetooth,WIFI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to Driver BCM94352 on MacOS Sierra(10.12.5)">
 <meta property="og:url" content="http://shuiqingliu.com/2017/06/12/How-to-driver-BCM94352-on-MacOS-Sierra-12-5/index.html">
 <meta property="og:site_name" content="qingliu&#39;s blog">
-<meta property="og:description" content="PS: You should first look over tolede’s github :https://github.com/toleda/wireless_half-mini/ before you read this article #Base Information    Item Value     HardWare  Name BCM94352HMB   Vendor ID 14">
+<meta property="og:description" content="PS: You should first look over tolede’s github :https://github.com/toleda/wireless_half-mini/ before you read this article Base Information   Item Value     HardWare  Name BCM94352HMB   Vendor ID 14E4">
 <meta property="og:image" content="http://qingliu.qiniudn.com/IMG_8951.JPG">
 <meta property="og:image" content="http://qingliu.qiniudn.com/IMG_1191.JPG">
 <meta property="og:image" content="http://qingliu.qiniudn.com/system.png">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="http://qingliu.qiniudn.com/wif.png">
 <meta property="og:image" content="http://qingliu.qiniudn.com/airdrop.png">
 <meta property="og:image" content="http://qingliu.qiniudn.com/Bluetooth.png">
-<meta property="og:updated_time" content="2017-06-12T13:41:13.000Z">
+<meta property="og:updated_time" content="2017-06-12T13:45:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to Driver BCM94352 on MacOS Sierra(10.12.5)">
-<meta name="twitter:description" content="PS: You should first look over tolede’s github :https://github.com/toleda/wireless_half-mini/ before you read this article #Base Information    Item Value     HardWare  Name BCM94352HMB   Vendor ID 14">
+<meta name="twitter:description" content="PS: You should first look over tolede’s github :https://github.com/toleda/wireless_half-mini/ before you read this article Base Information   Item Value     HardWare  Name BCM94352HMB   Vendor ID 14E4">
 <meta name="twitter:image" content="http://qingliu.qiniudn.com/IMG_8951.JPG">
   
     <link rel="alternative" href="/atom.xml" title="qingliu&#39;s blog" type="application/atom+xml">
@@ -183,8 +183,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>PS: You should first look over tolede’s github :<a href="https://github.com/toleda/wireless_half-mini/" target="_blank" rel="external">https://github.com/toleda/wireless_half-mini/</a> before you read this article</strong></p>
-<p>#Base Information</p>
-<table>
+<h1 id="Base-Information"><a href="#Base-Information" class="headerlink" title="Base Information"></a>Base Information</h1><table>
 <thead>
 <tr>
 <th>Item</th>
@@ -214,7 +213,7 @@
 </tr>
 </tbody>
 </table>
-<p>#Driver WIFI and Bluetooth<br>There are a few steps for dealing with wif &amp; bluetooth</p>
+<h1 id="Driver-WIFI-and-Bluetooth"><a href="#Driver-WIFI-and-Bluetooth" class="headerlink" title="Driver WIFI and Bluetooth"></a>Driver WIFI and Bluetooth</h1><p>There are a few steps for dealing with wif &amp; bluetooth</p>
 <ul>
 <li>Setting your BIOS</li>
 <li>Add the necessary kext to your /L/E forlder</li>
@@ -228,26 +227,23 @@
 <li>IORegistryExplorer</li>
 </ul>
 <p><strong><a href="https://1drv.ms/u/s!Amlm6pusnQYKePGlxcnG75xjyoM" title="OneDriver Download Link" target="_blank" rel="external">Tools Download</a></strong></p>
-<p>##Setting your BIOS<br>Reboot your computer and then quickly press the <strong><code>ESC</code></strong> button,When you into the BIOS option select <strong><code>SCU</code></strong> Item then move to <strong><code>Advanced</code></strong> option ,the very important step is set the value of <strong><code>XHC</code></strong>  to<strong><code>smart auto</code></strong><br>The operation like this<br><img src="http://qingliu.qiniudn.com/IMG_8951.JPG" alt="BIOS Setting"><br><img src="http://qingliu.qiniudn.com/IMG_1191.JPG" alt="XHC Settingi"></p>
-<p>##Add the necessary kext  of WIFI</p>
-<ul>
+<h2 id="Setting-your-BIOS"><a href="#Setting-your-BIOS" class="headerlink" title="Setting your BIOS"></a>Setting your BIOS</h2><p>Reboot your computer and then quickly press the <strong><code>ESC</code></strong> button,When you into the BIOS option select <strong><code>SCU</code></strong> Item then move to <strong><code>Advanced</code></strong> option ,the very important step is set the value of <strong><code>XHC</code></strong>  to<strong><code>smart auto</code></strong><br>The operation like this<br><img src="http://qingliu.qiniudn.com/IMG_8951.JPG" alt="BIOS Setting"><br><img src="http://qingliu.qiniudn.com/IMG_1191.JPG" alt="XHC Settingi"></p>
+<h2 id="Add-the-necessary-kext-of-WIFI"><a href="#Add-the-necessary-kext-of-WIFI" class="headerlink" title="Add the necessary kext  of WIFI"></a>Add the necessary kext  of WIFI</h2><ul>
 <li>Download the newer version of FakePCIID Kext from RehabMan’s bitbucket<br><a href="https://bitbucket.org/RehabMan/os-x-fake-pci-id/downloads/" target="_blank" rel="external">https://bitbucket.org/RehabMan/os-x-fake-pci-id/downloads/</a></li>
 <li>Unzip the download file and then use <code>KCMP Utility Pro</code> tools  to install <code>FakePCIID.kext</code> , <code>FakePCIID_Broadcom_WiFi.kext</code> and <code>FakePCIID_XHCIMux.kext</code> into <code>/Library/Extensions</code></li>
 </ul>
-<p>##Add the necessary kext of Bluetooth</p>
-<ul>
+<h2 id="Add-the-necessary-kext-of-Bluetooth"><a href="#Add-the-necessary-kext-of-Bluetooth" class="headerlink" title="Add the necessary kext of Bluetooth"></a>Add the necessary kext of Bluetooth</h2><ul>
 <li>Download the newer version of <code>BrcmFirmwareRepo.kext</code> and <code>BrcmPatchRAM2.kext</code> from RehabMan’s bitbucket  <a href="https://bitbucket.org/RehabMan/os-x-brcmpatchram/downloads/" target="_blank" rel="external">https://bitbucket.org/RehabMan/os-x-brcmpatchram/downloads/</a></li>
 <li>Unzip the download file and the use install the two files into <code>/Library/Extensions</code></li>
 </ul>
-<p>##Add the necessary patch to config.list</p>
-<ul>
+<h2 id="Add-the-necessary-patch-to-config-list"><a href="#Add-the-necessary-patch-to-config-list" class="headerlink" title="Add the necessary patch to config.list"></a>Add the necessary patch to config.list</h2><ul>
 <li>I already upload the KextsToPatch part of  my config.list  see it here <a href="https://1drv.ms/u/s!Amlm6pusnQYKeVcY1hUHugHsZeU" target="_blank" rel="external">https://1drv.ms/u/s!Amlm6pusnQYKeVcY1hUHugHsZeU</a><br>you can paste the whole patch into your config.list</li>
 <li>you must add the fellow patch to DSDT the path is <code>ACPI/DSDT/Patches/</code><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">array</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Comment<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">string</span>&gt;</span>change EHC1 to EH01<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Disabled<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">false</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Find<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">data</span>&gt;</span></div><div class="line">        RUhDMQ==</div><div class="line">        <span class="tag">&lt;/<span class="name">data</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Replace<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">data</span>&gt;</span></div><div class="line">        RUgwMQ==</div><div class="line">        <span class="tag">&lt;/<span class="name">data</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Comment<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">string</span>&gt;</span>change EHC2 to EH02<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Disabled<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">false</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Find<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">data</span>&gt;</span></div><div class="line">        RUhDMg==</div><div class="line">        <span class="tag">&lt;/<span class="name">data</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Replace<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">data</span>&gt;</span></div><div class="line">        RUgwMg==</div><div class="line">        <span class="tag">&lt;/<span class="name">data</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">array</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>#Verify and check<br>When you driver the BCM94352HMB you can check it use IORegistryExplorer tools,open the tools you can find the bluetooth port.connect to network and try to use AirDrop Enjoy your hackintosh!</p>
-<p>#Screenshot<br><img src="http://qingliu.qiniudn.com/system.png" alt="system"><br><img src="http://qingliu.qiniudn.com/Bluetooth11.png" alt="Bluetooth"><br><img src="http://qingliu.qiniudn.com/wif.png" alt="wifi"><br><img src="http://qingliu.qiniudn.com/airdrop.png" alt="airdrop"><br><img src="http://qingliu.qiniudn.com/Bluetooth.png" alt="Bluetooth Port"></p>
-<p>#Credit<br>@RehabMan<br>@toleda<br>@jqqqqqqqqqq<br>@wx3124558<br>@yuxans</p>
+<h1 id="Verify-and-check"><a href="#Verify-and-check" class="headerlink" title="Verify and check"></a>Verify and check</h1><p>When you driver the BCM94352HMB you can check it use IORegistryExplorer tools,open the tools you can find the bluetooth port.connect to network and try to use AirDrop Enjoy your hackintosh!</p>
+<h1 id="Screenshot"><a href="#Screenshot" class="headerlink" title="Screenshot"></a>Screenshot</h1><p><img src="http://qingliu.qiniudn.com/system.png" alt="system"><br><img src="http://qingliu.qiniudn.com/Bluetooth11.png" alt="Bluetooth"><br><img src="http://qingliu.qiniudn.com/wif.png" alt="wifi"><br><img src="http://qingliu.qiniudn.com/airdrop.png" alt="airdrop"><br><img src="http://qingliu.qiniudn.com/Bluetooth.png" alt="Bluetooth Port"></p>
+<h1 id="Credit"><a href="#Credit" class="headerlink" title="Credit"></a>Credit</h1><p>@RehabMan<br>@toleda<br>@jqqqqqqqqqq<br>@wx3124558<br>@yuxans</p>
 <p>PS:If you find a grammatical error please let me know, I am  learning to write a blog in English this time.</p>
 
       
