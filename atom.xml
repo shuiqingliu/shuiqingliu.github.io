@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shuiqingliu.com/"/>
-  <updated>2017-06-12T13:45:28.000Z</updated>
+  <updated>2017-10-02T02:36:29.000Z</updated>
   <id>http://shuiqingliu.com/</id>
   
   <author>
@@ -16,11 +16,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Ssh 不能连接 Github 的一次搞笑经历</title>
+    <link href="http://shuiqingliu.com/2017/10/02/ssh-%E4%B8%8D%E8%83%BD%E8%BF%9E%E6%8E%A5-github-%E7%9A%84%E4%B8%80%E6%AC%A1%E6%90%9E%E7%AC%91%E7%BB%8F%E5%8E%86/"/>
+    <id>http://shuiqingliu.com/2017/10/02/ssh-不能连接-github-的一次搞笑经历/</id>
+    <published>2017-10-02T01:33:15.000Z</published>
+    <updated>2017-10-02T02:36:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Background-Information"><a href="#Background-Information" class="headerlink" title="Background Information:"></a>Background Information:</h1><p>Environment ：Mac Sierra10.12.6,OpenSSH,Global Proxy with IPv6<br>ERROR like this photo below:<br><img src="http://qingliu.qiniudn.com/ssh-exchange.jpg" alt="ERROR"><br>ssh_exchange_identification: Connection closed by remote host</p>
+<h1 id="How-to-find-the-main-problem"><a href="#How-to-find-the-main-problem" class="headerlink" title="How to find the main problem:"></a>How to find the main problem:</h1><h3 id="Search-the-error-info-on-Google"><a href="#Search-the-error-info-on-Google" class="headerlink" title="Search the error info on Google"></a>Search the error info on Google</h3><p>I searched for a long time and try it by myself,all of not work I realized that the problem was not that simple. So I go to next way.</p>
+<h3 id="Analyse-Error-message"><a href="#Analyse-Error-message" class="headerlink" title="Analyse Error message"></a>Analyse Error message</h3><p>I found the Message give me <code>key_load_public: no such file or directory</code>,this message cause me to focus on this direction .As you know it still don’t work well,when you check the connection with command <code>ssh -T git@github.com -vvv</code> you can get the same message of the key_load even if  you can connect properly. </p>
+<p>I saw a message when I very upset,It is <code>Connecting to github.com port 21473</code>,Holy S**t as you know the ssh default port is <strong>22</strong> ,I am stupid to use <code>21473</code>  connect the github, I recall that I have changed the local ssh port. so I type <code>ssh -T -p 22 git@github.com</code> it worked well.</p>
+<h1 id="Solve-problem"><a href="#Solve-problem" class="headerlink" title="Solve problem "></a>Solve problem </h1><p>There have to ways to solve this,the first way is change the ssh port to default value <code>22</code>,the second way use <a href="https://help.github.com/articles/using-ssh-over-the-https-port/" target="_blank" rel="external">Using SSH over the HTTPS port</a></p>
+<h1 id="Finally"><a href="#Finally" class="headerlink" title="Finally"></a>Finally</h1><p>Enjoy your coding time and focus on the error message.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Background-Information&quot;&gt;&lt;a href=&quot;#Background-Information&quot; class=&quot;headerlink&quot; title=&quot;Background Information:&quot;&gt;&lt;/a&gt;Background Informat
+    
+    </summary>
+    
+      <category term="github" scheme="http://shuiqingliu.com/categories/github/"/>
+    
+      <category term="ssh" scheme="http://shuiqingliu.com/categories/github/ssh/"/>
+    
+    
+      <category term="github" scheme="http://shuiqingliu.com/tags/github/"/>
+    
+      <category term="ssh" scheme="http://shuiqingliu.com/tags/ssh/"/>
+    
+  </entry>
+  
+  <entry>
     <title>How to Driver BCM94352 on MacOS Sierra(10.12.5)</title>
     <link href="http://shuiqingliu.com/2017/06/12/How-to-driver-BCM94352-on-MacOS-Sierra-12-5/"/>
     <id>http://shuiqingliu.com/2017/06/12/How-to-driver-BCM94352-on-MacOS-Sierra-12-5/</id>
     <published>2017-06-12T02:37:58.000Z</published>
-    <updated>2017-06-12T13:45:28.000Z</updated>
+    <updated>2017-10-02T02:37:34.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong>PS: You should first look over tolede’s github :<a href="https://github.com/toleda/wireless_half-mini/" target="_blank" rel="external">https://github.com/toleda/wireless_half-mini/</a> before you read this article</strong></p>
 <h1 id="Base-Information"><a href="#Base-Information" class="headerlink" title="Base Information"></a>Base Information</h1><table>
@@ -869,46 +901,6 @@ Setting--&gt;Editor---&gt;Syntax highlight 设置颜色主题
       <category term="git" scheme="http://shuiqingliu.com/tags/git/"/>
     
       <category term="repo" scheme="http://shuiqingliu.com/tags/repo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android  Studio 使用纯IPv6环境更新</title>
-    <link href="http://shuiqingliu.com/2014/12/20/android-studio-%E4%BD%BF%E7%94%A8%E7%BA%AFipv6%E7%8E%AF%E5%A2%83%E6%9B%B4%E6%96%B0/"/>
-    <id>http://shuiqingliu.com/2014/12/20/android-studio-使用纯ipv6环境更新/</id>
-    <published>2014-12-20T07:26:36.000Z</published>
-    <updated>2017-06-02T03:03:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>由于大家众所周知的原因，你要下载Android Studio，Android SDK都将成为困难。然而当你有IPV6环境的时候，那么你也进入了一片净土。在这里你可以拥抱伟大的google。想想4~5m/s的SDK下载速度是什么样。下面来说说Ubuntu下Android Studio 1.0.1的安装和IPv6环境的设置。</p>
-<p>当你处于纯V6环境下了，请直接点击Android Studio<a href="https://developer.android.com/intl/zh-cn/sdk/index.html" target="_blank" rel="external">下载</a>    享受那飞快的下载速度。ok 200多M你一会就下完了。进入下载目录：</p>
-<blockquote>
-<p>unzip  android-studio-ide-135.1641136-linux.zip<br>PS:当然你注意自己的文件名了，这样你将android studio解压，会解压到一个android-studio目录，进入这个目录pwd如下：<br>/home/qingliu/dn/android-studio/bin<br>这时候先别着急，我们来设置下让Android Studio支持纯IPv6，因为我是64位的系统所以打开文件 上面目录下的studio64.vmoptions文件，做以下更改：<br>-Djava.net.preferIPv4Stack=true <code>改为</code></p>
-<p>-Djava.net.preferIPv6Addresses=true<br>OK，保存文件下来启动android studio<br>运行bin目录下的studio.sh<br>然后会启动获取SDK信息，下载SDK。如下图：</p>
-</blockquote>
-<p><a href="http://www.shuiqingliu.com/archives/358/screenshot-from-2014-12-20-140304" target="_blank" rel="external"><img src="http://www.shuiqingliu.com/wp-content/uploads/2014/12/Screenshot-from-2014-12-20-140304-300x236.png" alt="Screenshot from 2014-12-20 14:03:04"></a></p>
-<p>PS：这个下载会从dl.google.com下载如果你IPV6如上面设置了，还是不行的话，那就找到bin下的studio.vmoptions 删除这个文件中的-Djava.net.preferIPv4Stack=true就ok了。</p>
-<p>V6速度真心爽啊。同步个android 源码几个小时就搞定。下个android studio 还不是分分钟。</p>
-<p>恩好不出意外你就可以进到android studio，可是你有没有觉得这样每次运行studio.sh 麻烦，虽然可以nohup，但还是不爽。我们来给他设置个环境变量，写个desktop entry 直接在unity运行就爽了。</p>
-<p>首先吧bin目录加入到环境变量/etc/profile：</p>
-<blockquote>
-<p>PATH=$PAHT:/home/qingliu/dn/android-studio/bin</p>
-<p>export PATH<br>然后我们再给他加个desktop entry，在用户目录下的.local/share/applications/ 目录下新建studio.desktop文件如下：<br>[Desktop Entry]<br>Encoding=UTF-8<br>Version=1.0<br>Type=Application<br>Name=qingliu’s studio<br>Icon=jetbrains-android-studio.png<br>Path=/home/qingliu/dn/android-studio/bin<br>Exec=bash studio.sh<br>StartupNotify=false<br>StartupWMClass=jetbrains-android-studio<br>OnlyShowIn=Unity;<br>X-UnityGenerated=true<br>然后保存。再次在bin目录下运行studio.sh 然后将android studio 固定到launcher就好了以后打开就可直接点击图标打开。</p>
-</blockquote>
-<p>PS：注意以上文中提到的我的路径均换成你自己的文件路径。切记。在悲伤中不忘前进，见我i上篇博客。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;由于大家众所周知的原因，你要下载Android Studio，Android SDK都将成为困难。然而当你有IPV6环境的时候，那么你也进入了一片净土。在这里你可以拥抱伟大的google。想想4~5m/s的SDK下载速度是什么样。下面来说说Ubuntu下Android St
-    
-    </summary>
-    
-      <category term="android" scheme="http://shuiqingliu.com/categories/android/"/>
-    
-      <category term="教程" scheme="http://shuiqingliu.com/categories/android/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="android studio" scheme="http://shuiqingliu.com/tags/android-studio/"/>
     
   </entry>
   

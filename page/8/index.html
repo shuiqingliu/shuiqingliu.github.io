@@ -156,6 +156,73 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-repo-sync-error-branch-halo-is-published-but-not-merged" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/06/12/repo-sync-error-branch-halo-is-published-but-not-merged/">Repo Sync Error: Branch Halo Is Published (But Not Merged)</a>
+    </h1>
+  
+
+        
+        <a href="/2013/06/12/repo-sync-error-branch-halo-is-published-but-not-merged/" class="archive-article-date">
+  	<time datetime="2013-06-12T15:09:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-06-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>解决办法很简单</p>
+<h1 id="repo-sync-amp-amp-repo-rebase"><a href="#repo-sync-amp-amp-repo-rebase" class="headerlink" title="repo sync &amp;&amp; repo rebase"></a><span style="color: #ff0000;">repo sync &amp;&amp; repo rebase</span></h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/android/" class="article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/日志/" class="article-tag-list-link color3">日志</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2013/06/12/repo-sync-error-branch-halo-is-published-but-not-merged/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-android-adb刷rom方法及常见问题解决" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -972,112 +1039,6 @@
 
 
   
-    <article id="post-linux常见问题笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/04/13/linux常见问题笔记/">Linux常见问题笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2013/04/13/linux常见问题笔记/" class="archive-article-date">
-  	<time datetime="2013-04-13T08:23:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-04-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><span style="color: #ff0000; font-size: medium;">一．apt-get 错误之</span></p>
-<p><span style="text-decoration: underline; font-size: small;"><span style="color: #ff0000; text-decoration: underline;">dpkg:error processing/var/cache/apt/archives/sysvutils_2.86.ds1-14.1ubuntu45.1_i386.deb(–unpack):</span></span><br><span style="text-decoration: underline; font-size: small;"><span style="color: #ff0000; text-decoration: underline;">tryingto overwrite ‘/usr/share/man/man1/mesg.1.gz’, which is also inpackage sysvinit-utils 2.88dsf-</span></span></p>
-<p>解决方法：<span style="color: #ff0000;">sudo dpkg -i –force-overwrite /var/cache/apt/archives/＊＊＊＊＊＊．deb</span></p>
-<p>然后：<span style="font-size: small; color: #ff0000;"> sudo apt-get -f install</span></p>
-<p>&nbsp;</p>
-<p><span style="color: #ff0000; font-size: medium;"> 二. dpkg -i <em>*</em>.deb   出现</span></p>
-<p><span style="font-size: medium; color: #ff0000;">dpkg: error processing <em>**</em>软件包名 (–install):</span><br><span style="font-size: medium; color: #ff0000;">依赖关系问题 - 仍未被配置    </span></p>
-<p>解决方法：<span style="font-size: medium; color: #ff0000;">sudo apt-get -f install</span></p>
-<p><span style="font-size: medium; color: #ff0000;">三. dpkg: error: dpkg status database is locked by another process</span></p>
-<p><span style="color: #ff0000;"><span style="color: #000000;">解决办法</span>：<span style="font-size: medium;">sudo rm -rf /var/lib/dpkg/lock</span></span></p>
-<p>&nbsp;</p>
-<p><span style="color: #ff0000; font-size: medium;">四.apt-get update 时候</span></p>
-<p><span style="font-size: medium; color: #ff0000;">W: Duplicate sources.list entry when do “sudo apt-get update”</span></p>
-<p>解决办法：<span style="font-size: medium; color: #ff0000;">sudo gedit /etc/apt/sources.list  </span></p>
-<p><span style="color: #ff0000;">里面有重复的源，删除掉重复的源就OK了。</span></p>
-<p>&nbsp;</p>
-<p><span style="color: #ff0000; font-size: medium;">五.W: 无法下载 bzip2:/var/lib/apt/lists/partial/extras.ubuntu.com_ubuntu_dists_oneiric_main_source_Sources  Hash 校验和不符</span></p>
-<p><span style="color: #ff0000; font-size: medium;">W: 无法下载 bzip2:/var/lib/apt/lists/partial/extras.ubuntu.com_ubuntu_dists_oneiric_main_binary-i386_Packages  Hash 校验和不符</span></p>
-<p><span style="color: #ff0000; font-size: medium;">E: Some index files failed to download. They have been ignored, or old ones used instead.</span></p>
-<p>解决办法：<span style="color: #ff0000; font-size: medium;">软件源-其他软件- 不要勾选两个独立就好了</span></p>
-<p>&nbsp;</p>
-<p>六.<span style="color: #ff0000; font-size: medium;">WARNING: python-gevent not installed. Please <code>wget --no-check-certificate --header=&amp;amp;quot;Host: goagent.googlecode.com&amp;amp;quot; [&lt;span style=&quot;color: #ff0000;&quot;&gt;http://www.google.cn/files/gevent-1.0dev-macosx-intel.egg</code></span>](<a href="http://www.google.cn/files/gevent-1.0dev-macosx-intel.egg%60" target="_blank" rel="external">http://www.google.cn/files/gevent-1.0dev-macosx-intel.egg%60</a>)</p>
-<p>解决办法：</p>
-<p><span style="color: #ff0000;">curl -L -O <a href="https://github.com/downloads/surfly/gevent/gevent-1.0rc2.tar.gz" target="_blank" rel="external">https://github.com/downloads/surfly/gevent/gevent-1.0rc2.tar.gz</a> &amp;&amp; tar xvzpf gevent-1.0rc2.tar.gz &amp;&amp; cd gevent-1.0rc2 &amp;&amp; sudo python setup.py install</span></p>
-<p><span style="color: #ff0000;"> </span></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ubuntu</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">apt-get</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">deepin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/04/13/linux常见问题笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
@@ -1202,6 +1163,22 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MacOS Sierra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">黑苹果</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">BCM94352HMB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Bluetooth,WIFI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ACM</a>
               </li>
              
@@ -1219,22 +1196,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ribbon</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MacOS Sierra</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑苹果</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">BCM94352HMB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Bluetooth,WIFI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1306,19 +1267,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Studio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPT</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mbr分区</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Studio</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1378,15 +1339,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">survey</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">inputstream</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">survey</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1430,23 +1391,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">grub</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">red flag</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">引导</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">moto360</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">表盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1462,15 +1415,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">grub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">red flag</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">引导</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1518,15 +1483,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">linuxdeepin</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wine-qqintl</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1614,18 +1579,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">原创</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">硬盘安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">15G</a>
               </li>
              
@@ -1643,6 +1596,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">握手包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">原创</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">硬盘安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1670,22 +1635,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">wndr3800</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">netgear</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">biso</a>
               </li>
              
@@ -1698,11 +1647,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">wndr3800</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">netgear</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">毕业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1750,19 +1715,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">VB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心情</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">完善</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">VB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">心情</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -156,6 +156,124 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-red-flag-inwise-8-0-下引导windows的曲折路" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/11/02/red-flag-inwise-8-0-下引导windows的曲折路/">Red Flag Inwise 8.0 下引导Windows的曲折路</a>
+    </h1>
+  
+
+        
+        <a href="/2013/11/02/red-flag-inwise-8-0-下引导windows的曲折路/" class="archive-article-date">
+  	<time datetime="2013-11-01T17:43:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-11-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>昨天接到朋友送来的本本，刚出厂没多久型号svf143a1qt    i5-4200U 4G 500G GT740 2G独显，预装红旗8.0。他的要求是，保留原系统，加装win7，听起来挺简单的啊。果断接手。</p>
+<p>5分钟下完win7 64 旗舰版 ，ultriso写入， 按assist（vaio 进入启动菜单直接按这个键）进入启动菜单，U盘启动装win7（当然提前DOS 版的diskgenius分好区了），然后就睡觉去了，醒来坑了，忘了备份mbr了linux启动不了了，好下载red flag 8.0的iso 这可是livecd的第一版啊，好做好U盘启动进去，一直在选择启动项的地方循环3秒，进不去安装界面。好吧扯了，查了下说拿掉独显可以，还是算了吧。</p>
+<p>想办法修复linux引导 那就grub吧，结果各种捣鼓还是无果，easyBcd添加启动项也引导不了，他的原来分区没有把boot 单独分区装。好吧放弃，曲线救国，ubuntu的iso 我倒是一大堆从10.04 到12.10  做了个12.04.2的启动盘，不管windows了先把linux 引导修复再说，U盘启动到ubuntu下，打开终端开始，命令如下：</p>
+<p>&nbsp;</p>
+<ul>
+<li>创建/mnt/temp，挂载原来的根目录<blockquote>
+<p><span style="color: #ff0000;">sudo mkdir /mnt/temp</span><br><span style="color: #ff0000;">        sudo     mount /dev/sda2 /mnt/temp</span></p>
+<ul>
+<li>挂载系统目录<br><span style="color: #ff0000;">for i in /dev /dev/pts /proc /sys; do sudo mount -B $i /mnt/temp$i; done</span></li>
+<li>chroot 进入原系统<br><span style="color: #ff0000;">sudo chroot  /mnt/temp</span></li>
+<li>重新安装grub到mbr<br><span style="color: #ff0000;">           sudo grub-install /dev/sda</span><br>好了至此，linux引导修复了，可以启动了，但是windows引导不了，grub4dos不会用。好吧打算就用linux引导win7   ，查资料大都是说在/boot/grub/grub.cfg 添加win7 的启动项，但是我怎么添加他都不行，后来我找到原因了。原来red flag 8.0 将grub 升级到了grub2 但是命令还是grub 而不是grub2，grub2 他已经将menu.list 替换成了grub.cfg ，找到问题所在解决 。grub2的添加启动项不能直接去更改grub.cfg 这是grub2的规定，直接去改，不会有任何效果，在系统加载的时候自动还原了。但是可以在自定义中改，那就是/etc/grub.d/40_custom</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>好的现在添加win7的引导  打开red flag 的终端 ，命令如下：</p>
+<blockquote>
+<p><span style="color: #ff0000;">sudo kwrite /etc/grub.d/40_custom              </span></p>
+<p>在打开的文件中添加：</p>
+<p><span style="color: #ff0000;">menuentry “windows7”{</span></p>
+<p><span style="color: #ff0000;">                    set root=’hd0,2’</span></p>
+<p><span style="color: #ff0000;">chainloader +1</span></p>
+<p><span style="color: #ff0000;">}</span></p>
+<p>保存，继续在终端下输入：</p>
+<p><span style="color: #ff0000;">sudo grub-mkconfig -o /boot/grub/grub.cfg             （回车要是提示40_custom 中有语法错误那就删除那行）</span></p>
+<p>输入后会出现</p>
+<p>Generating grub.cfg …<br>Found theme: /boot/grub/themes/Qomo/theme.txt<br>Found linux image: /boot/vmlinuz-linux<br>Found initrd image: /boot/initramfs-linux.img<br>No volume groups found<br>Found Windows 7 (loader) on /dev/sda3</p>
+<p>接着输入：</p>
+<p><span style="color: #ff0000;">sudo grub-install –root-directory=/ /dev/sda</span></p>
+<p>会提示：Installation finished. No error reported.</p>
+<p>&nbsp;</p>
+<p>然后重启重启电脑，win7的启动项就在启动目录了，可喜可贺。好了切换到win7看看，我去，切换花屏，得强之关机重新卡机选win7进入后才正常。肯定与显卡有关，后来由于win7刚装的系统什么驱动都没装。切换到win7给他装了GT740的显卡驱动。ok 再切换系统无任何问题。问题搞定。累死的节奏。写出来分享给跟我曾经一样迷茫的朋友。</p>
+<p>&nbsp;</p>
+<p>本文说明： 文中sd2 是我linux的根目录， 你可以通过sudo fdisk -l 命令查看 很清晰，sd3是我win7的系统盘，hd2 就是我win7系统盘因为grub 从0开始算。自己根据自己实际情况进行更改。不早了该睡觉了。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">grub</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">red flag</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">引导</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2013/11/02/red-flag-inwise-8-0-下引导windows的曲折路/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-常怀感恩之心，守护纯洁友情" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -910,73 +1028,6 @@
 
 
   
-    <article id="post-repo-sync-error-branch-halo-is-published-but-not-merged" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/06/12/repo-sync-error-branch-halo-is-published-but-not-merged/">Repo Sync Error: Branch Halo Is Published (But Not Merged)</a>
-    </h1>
-  
-
-        
-        <a href="/2013/06/12/repo-sync-error-branch-halo-is-published-but-not-merged/" class="archive-article-date">
-  	<time datetime="2013-06-12T15:09:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-06-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>解决办法很简单</p>
-<h1 id="repo-sync-amp-amp-repo-rebase"><a href="#repo-sync-amp-amp-repo-rebase" class="headerlink" title="repo sync &amp;&amp; repo rebase"></a><span style="color: #ff0000;">repo sync &amp;&amp; repo rebase</span></h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/android/" class="article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/日志/" class="article-tag-list-link color3">日志</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/06/12/repo-sync-error-branch-halo-is-published-but-not-merged/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
@@ -1101,6 +1152,22 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MacOS Sierra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">黑苹果</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">BCM94352HMB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Bluetooth,WIFI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ACM</a>
               </li>
              
@@ -1118,22 +1185,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ribbon</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MacOS Sierra</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑苹果</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">BCM94352HMB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Bluetooth,WIFI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1205,19 +1256,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Studio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPT</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mbr分区</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Studio</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1277,15 +1328,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">survey</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">inputstream</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">survey</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1329,23 +1380,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">grub</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">red flag</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">引导</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">moto360</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">表盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1361,15 +1404,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">grub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">red flag</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">引导</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1417,15 +1472,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">linuxdeepin</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wine-qqintl</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1513,18 +1568,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">原创</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">硬盘安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">15G</a>
               </li>
              
@@ -1542,6 +1585,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">握手包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">原创</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">硬盘安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1569,22 +1624,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">wndr3800</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">netgear</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">biso</a>
               </li>
              
@@ -1597,11 +1636,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">wndr3800</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">netgear</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">毕业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1649,19 +1704,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">VB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心情</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">完善</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">VB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">心情</a>
               </li>
              
               <li class="article-tag-list-item">

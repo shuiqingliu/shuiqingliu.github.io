@@ -156,6 +156,65 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-c进行cad二次开发单行文字不显示问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/24/c进行cad二次开发单行文字不显示问题/">C#进行CAD二次开发单行文字不显示问题</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/24/c进行cad二次开发单行文字不显示问题/" class="archive-article-date">
+  	<time datetime="2015-09-24T12:42:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>好长时间不更新博客了！！！一直没搞技术研究了，惭愧惭愧。今天分享下这个问题的解决方法，他困扰了我一天。刚接触CAD的二次开发，当我做一个简单的创建单行文字的时候，代码编译执行都没有问题，然而他却不显示，find命令查找可以查找到文字对象啊，当我保存当前dwg，重新打开的时候可以显示了！我误打误撞结果把CAD工具栏搞没了，我就重置工作空间为CAD经典了，原来我之前的工作空间一直是草稿和注释！这就是问题关键。好了将你的CAD工作空间设置为CAD经典，问题解决。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/编程/" class="article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/24/c进行cad二次开发单行文字不显示问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-百度地图在自定义fragment中设置不显示缩放控件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1001,95 +1060,6 @@
 
 
   
-    <article id="post-android-studio-使用纯ipv6环境更新" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/20/android-studio-使用纯ipv6环境更新/">Android  Studio 使用纯IPv6环境更新</a>
-    </h1>
-  
-
-        
-        <a href="/2014/12/20/android-studio-使用纯ipv6环境更新/" class="archive-article-date">
-  	<time datetime="2014-12-20T07:26:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-12-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>由于大家众所周知的原因，你要下载Android Studio，Android SDK都将成为困难。然而当你有IPV6环境的时候，那么你也进入了一片净土。在这里你可以拥抱伟大的google。想想4~5m/s的SDK下载速度是什么样。下面来说说Ubuntu下Android Studio 1.0.1的安装和IPv6环境的设置。</p>
-<p>当你处于纯V6环境下了，请直接点击Android Studio<a href="https://developer.android.com/intl/zh-cn/sdk/index.html" target="_blank" rel="external">下载</a>    享受那飞快的下载速度。ok 200多M你一会就下完了。进入下载目录：</p>
-<blockquote>
-<p>unzip  android-studio-ide-135.1641136-linux.zip<br>PS:当然你注意自己的文件名了，这样你将android studio解压，会解压到一个android-studio目录，进入这个目录pwd如下：<br>/home/qingliu/dn/android-studio/bin<br>这时候先别着急，我们来设置下让Android Studio支持纯IPv6，因为我是64位的系统所以打开文件 上面目录下的studio64.vmoptions文件，做以下更改：<br>-Djava.net.preferIPv4Stack=true <code>改为</code></p>
-<p>-Djava.net.preferIPv6Addresses=true<br>OK，保存文件下来启动android studio<br>运行bin目录下的studio.sh<br>然后会启动获取SDK信息，下载SDK。如下图：</p>
-</blockquote>
-<p><a href="http://www.shuiqingliu.com/archives/358/screenshot-from-2014-12-20-140304" target="_blank" rel="external"><img src="http://www.shuiqingliu.com/wp-content/uploads/2014/12/Screenshot-from-2014-12-20-140304-300x236.png" alt="Screenshot from 2014-12-20 14:03:04"></a></p>
-<p>PS：这个下载会从dl.google.com下载如果你IPV6如上面设置了，还是不行的话，那就找到bin下的studio.vmoptions 删除这个文件中的-Djava.net.preferIPv4Stack=true就ok了。</p>
-<p>V6速度真心爽啊。同步个android 源码几个小时就搞定。下个android studio 还不是分分钟。</p>
-<p>恩好不出意外你就可以进到android studio，可是你有没有觉得这样每次运行studio.sh 麻烦，虽然可以nohup，但还是不爽。我们来给他设置个环境变量，写个desktop entry 直接在unity运行就爽了。</p>
-<p>首先吧bin目录加入到环境变量/etc/profile：</p>
-<blockquote>
-<p>PATH=$PAHT:/home/qingliu/dn/android-studio/bin</p>
-<p>export PATH<br>然后我们再给他加个desktop entry，在用户目录下的.local/share/applications/ 目录下新建studio.desktop文件如下：<br>[Desktop Entry]<br>Encoding=UTF-8<br>Version=1.0<br>Type=Application<br>Name=qingliu’s studio<br>Icon=jetbrains-android-studio.png<br>Path=/home/qingliu/dn/android-studio/bin<br>Exec=bash studio.sh<br>StartupNotify=false<br>StartupWMClass=jetbrains-android-studio<br>OnlyShowIn=Unity;<br>X-UnityGenerated=true<br>然后保存。再次在bin目录下运行studio.sh 然后将android studio 固定到launcher就好了以后打开就可直接点击图标打开。</p>
-</blockquote>
-<p>PS：注意以上文中提到的我的路径均换成你自己的文件路径。切记。在悲伤中不忘前进，见我i上篇博客。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">android studio</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/android/" class="article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/12/20/android-studio-使用纯ipv6环境更新/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1214,6 +1184,22 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">MacOS Sierra</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">黑苹果</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">BCM94352HMB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Bluetooth,WIFI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ACM</a>
               </li>
              
@@ -1231,22 +1217,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ribbon</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">MacOS Sierra</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑苹果</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">BCM94352HMB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Bluetooth,WIFI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1318,19 +1288,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Studio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPT</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mbr分区</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Studio</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1390,15 +1360,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">survey</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">inputstream</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">survey</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1442,23 +1412,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">grub</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">red flag</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">引导</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">moto360</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">表盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1474,15 +1436,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">grub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">red flag</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">引导</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1530,15 +1504,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">linuxdeepin</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wine-qqintl</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1626,18 +1600,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">原创</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">硬盘安装</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">15G</a>
               </li>
              
@@ -1655,6 +1617,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">握手包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">原创</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">硬盘安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1682,22 +1656,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">wndr3800</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">netgear</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">biso</a>
               </li>
              
@@ -1710,11 +1668,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">wndr3800</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">netgear</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">毕业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1762,19 +1736,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">VB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">心情</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">完善</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">VB</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">心情</a>
               </li>
              
               <li class="article-tag-list-item">
