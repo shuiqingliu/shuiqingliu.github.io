@@ -156,6 +156,123 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ubuntu安卓开发环境配置一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/08/ubuntu安卓开发环境配置一/">Ubuntu安卓开发环境配置(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2015/01/08/ubuntu安卓开发环境配置一/" class="archive-article-date">
+  	<time datetime="2015-01-08T13:32:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-01-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上周我用了三年的Ubuntu挂了，强制关机以后就进不了系统，在initramfs。查了资料在livecd 下更新initramfs，更新grub配置，但是我的不行，会出现磁盘 I/O error。可能我硬盘马上要挂了，smart都是read error rate。苦于没钱买硬盘，先用这个吧。然后修复不好就只能重装。下来我就分享下我从刚装系统后是怎么一步步配置android 开发环境的。都是按照我个人习惯配置的。可能不完全适用于你，但可以作为参考嘛。我系统装的是Ubuntu14.04 LTS 版本。该系列文章我可能要写好几篇，我配置到那里写到哪里。如果你是Ubunt新手你会在文中找到有用的东西，如果你是高手也可以来批评批评嘿嘿。下面开始配置。。。</p>
+<ol>
+<li>系统的安装我就不说了，安装用livecd非常简单我在这里放一张我分区的截图供你参考。</li>
+</ol>
+<p><img src="http://qingliu.qiniudn.com/IMG_20150108_172806-1024x759.jpg" alt="IMG_20150108_172806"></p>
+<p>做以说明：我硬盘1TB 在这里我分了/boot， /， /home， swap四个分区。分出home是为了以后万一系统坏了，可以保留home重新安装。boot用来安装grub引导，剩下的未分区的我打算用来放置android 源码，这样系统坏了也不会影响到代码。注意看图片下方，device for boot loader installation。我们选择sda1 因为我要把他装到boot，万一以后要张个win的话好弄。</p>
+<ol>
+<li><p>安装完之后刚进入系统做初步设置。首先连上wifi，右上角点击wifi形状选择要接入的网络就可言连接上了。只要你的网卡不是奇葩基本都没有问题。</p>
+</li>
+<li><p>安装chrome<br>我是直接在<a href="http://www.google.com/chrome/" target="_blank" rel="external">http://www.google.com/chrome/</a> 下载然后安装的，因为我路由器默认fq了，也可以从其他渠道下载。我是chrome忠实的使用着2333.至于下载下来怎么安装，直接双击.deb包就可以安装。或者通过终端Ctrl+Alt+T调出terminal，<code>cd ~/Download</code>然后<code>sudo dpkg -i xxxx.deb</code></p>
+</li>
+<li><p>设置中文输入法</p>
+</li>
+</ol>
+<p>点击右上角EN图标，选择Text EntrySettings，添加Chinese（Sunpinyin）如下：</p>
+<p><img src="http://qingliu.qiniudn.com/%E6%B7%BB%E5%8A%A0pinyin.png" alt="添加pinyin"></p>
+<p>点击左下角小“+”找到Chinese（Sunpinyin）add这样就可以中文输入了，右上角会看到小太阳状的图标。Super+space 可以切换输入法，当中文输入的时候可以按shift进行中英切换。在text entrysettings 中小扳手可以设置中pinyin输入法的，当按shift切换中英的时候，输入法状态栏会讨厌的自动出来，可以让他彻底关闭，在终端输入ibus-setup ，将show property panel 改为 do not show 就可以了</p>
+<ol>
+<li>更新系统<br>同样打开终端Ctrl+Alt+T，输入下面命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update &amp;&amp; sudo apt-get upgrade</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>耐心等待即可完成系统更新。</p>
+</blockquote>
+<ol>
+<li>设置系统语言<br>我是直接用英文，但是给出中文设置方法。在unity找到System-setting 就是那个齿轮带扳手的货，然后进去点击language-support 点击install/remove languages 就可以安装中文，然后在列表中选择中文点击apply system-wide就好。</li>
+</ol>
+<p>经过以上设置后系统基本可以用了，今天先写到这里，有点小困，明天继续配置，然后再写。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ubuntu</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">repo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/android/" class="article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/01/08/ubuntu安卓开发环境配置一/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-android-studio-使用纯ipv6环境更新" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -867,97 +984,6 @@
 
 
   
-    <article id="post-ubuntu-12-04-以mtp方式连接一加手机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/ubuntu-12-04-以mtp方式连接一加手机/">Ubuntu 12.04 以MTP方式连接一加手机</a>
-    </h1>
-  
-
-        
-        <a href="/2014/10/14/ubuntu-12-04-以mtp方式连接一加手机/" class="archive-article-date">
-  	<time datetime="2014-10-14T13:07:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-10-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.安装必要的软件</p>
-<blockquote>
-<p>sudo apt-get install mtpfs libmtp-common mtp-tools libmtp-dev libmtp-runtime libmtp9<br>2.进行简单设置<br>a.编辑 <code>/etc/fuse.conf将#user_allow_other  改为 user_allow_other</code></p>
-<p>b.编辑.bashrc如下：</p>
-<p>alias oneplus=”mtpfs -o allow_other /media/oneplus”<br>alias disoneplus=”fusermount -u /media/oneplus”<br>ok设置好了，以后链接手机你就运行oneplus 断开你就disoneplus当然别名自己随便设置。我用的zsh，如果你也是请将别名添加到.zshrc</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MTP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">oneplus</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">一加</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/android/" class="article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/10/14/ubuntu-12-04-以mtp方式连接一加手机/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1098,6 +1124,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ViewController</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ACM</a>
               </li>
              
@@ -1170,11 +1204,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C8813Q</a>
+                <a href="javascript:void(0)" class="js-tag color1">codeblocks</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">codeblocks</a>
+                <a href="javascript:void(0)" class="js-tag color2">C8813Q</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1186,19 +1220,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GPT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mbr分区</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IDE</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Studio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mbr分区</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1262,14 +1296,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">inputstream</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">BT5</a>
               </li>
              
@@ -1279,6 +1305,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">inputstream</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1318,6 +1352,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">grub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">red flag</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">引导</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
@@ -1334,27 +1380,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">grub</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">red flag</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">引导</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1498,6 +1532,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">原创</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">硬盘安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">15G</a>
               </li>
              
@@ -1515,18 +1561,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">握手包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">原创</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">硬盘安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1554,15 +1588,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">biso</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双硬盘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">启动</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1578,15 +1604,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">biso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双硬盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">启动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">毕业</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1650,15 +1684,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高斯投影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntukylin</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">麒麟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高斯投影</a>
               </li>
             
             <div class="clearfix"></div>

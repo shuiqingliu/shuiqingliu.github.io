@@ -156,6 +156,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Simple-Way-to-Custom-UIView" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/16/Simple-Way-to-Custom-UIView/">Simple Way to Custom UIView</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/16/Simple-Way-to-Custom-UIView/" class="archive-article-date">
+  	<time datetime="2017-10-16T08:20:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Create-UIViewController-SubClass"><a href="#Create-UIViewController-SubClass" class="headerlink" title="Create UIViewController SubClass"></a>Create UIViewController SubClass</h1><p>create two file : AlterViewController.h and AlterViewController.m.  .h file is the head file like C style. we can create class and declare property. .m file is is the implementation file it implement method and create instance object. </p>
+<h2 id="create-AlterViewController-h-file"><a href="#create-AlterViewController-h-file" class="headerlink" title="create AlterViewController.h file"></a>create AlterViewController.h file</h2><p>We should import UIKith to head file and then inherit from UIViewController<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line">@interface AlterViewController : UIViewController</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<h2 id="create-AlterViewController-m-file"><a href="#create-AlterViewController-m-file" class="headerlink" title="create AlterViewController.m file"></a>create AlterViewController.m file</h2><p>create implementation of AlterViewController. We should import AlterViewController.h and then implementation AlterViewController and override viewDidLoad method and so on .<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &quot;AlterViewController.h&quot;</div><div class="line"></div><div class="line">@interface AlterViewController()</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation AlterViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad&#123;</div><div class="line">  #statement </div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<h1 id="Define-UIView-property"><a href="#Define-UIView-property" class="headerlink" title="Define UIView property"></a>Define UIView property</h1><p>UIView  is flexible and easy to customize We can use iOS API to set its propety.We can set frame（position,size）、background color、gesture… etc. let’s look at the details.</p>
+<h2 id="Init-UIView"><a href="#Init-UIView" class="headerlink" title="Init UIView"></a>Init UIView</h2><p><code>UIView *alterView = [[UIView alloc]init];</code><br>in objective-c we can get an instance object use grammar like<br><code>Object *property = [[ Object alloc]init]</code><br>alloc return a new instance and  initialized to a data structrue that describes the class memory for all other instance variables is set to 0;</p>
+<h2 id="set-UIView-Position-and-size"><a href="#set-UIView-Position-and-size" class="headerlink" title="set UIView Position and size"></a>set UIView Position and size</h2><p>In the first pleace we should have a concept of view coordinator system  in UIKit .The default coordinate system has its origin in the top-left corner and has axes that extend down and to the right from the origin point .Firgure 1 show this concept<br>Figure 1<br><img src="http://qingliu.qiniudn.com/native_coordinate_system.jpg" alt="Figure1"><br>We can set UIView postion and size with frame rectangle. It create a rectangle return from  CGRectMake Function that can define the position of rectangle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;</div><div class="line">CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;</div><div class="line">NSLog(@&quot;screenWidth:%0.2f,screenHeight:%0.2f&quot;,screenWidth,screenHeight);</div><div class="line"></div><div class="line">alterView.frame = CGRectMake(15, screenHeight - 175, screenWidth - 30, 160);</div></pre></td></tr></table></figure></p>
+<p>CGRectMake have four arguments: x,y rectangle width and height<br><code>CGRect CGRectMake(CGFloat x, CGFloat y, CGFloat width, CGFloat height);</code><br>you should get x,y-coordinate depends the origin point (0,0) at the top-left corner<br>For the example, I want to set UIView height with <code>160</code> and width with <code>screenwidth -30</code><br>Why subtract 30 ? because the X is 15 I want the UIView have a same safe area to the phone border  The Firure 2 show the description .<br>Figure 2<br><img src="http://qingliu.qiniudn.com/myView.png" alt="Figure 2"><br>The height same as the above. set height is 160 so I should subtract the View height and margin that’s why Y = screenHeight - 175 (175 = 160 +15)</p>
+<p>For this section we set the UIView position and size completed.</p>
+<h1 id="Add-UIView-to-view-that-is-receiver"><a href="#Add-UIView-to-view-that-is-receiver" class="headerlink" title="Add UIView to view that is receiver"></a>Add UIView to view that is receiver</h1><p>We already create View and set the view position. we should add the view to the SuperView now<br>background: When we create view and want to display it add a view to the end of the receiver’s list of subviews is necessary. we can use <code>ddSubview</code>method<br>From the Apple API description:<br><code>the method establishes a strong reference to view and set its next responder to the receiver,which is its new superview. Views can have only one superview.If view already has a superview and that view is not receiver,this method removes the privious superview before making the receiver its new superview.</code></p>
+<p>Add sub view method:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.view addSubview:alterView];</div></pre></td></tr></table></figure></p>
+<p>self.view rpresents the current view not the view we just created. <code>alterView</code> will be presented soon.</p>
+<h1 id="Add-Gesture-Recognizer-optinal"><a href="#Add-Gesture-Recognizer-optinal" class="headerlink" title="Add Gesture Recognizer(optinal)"></a>Add Gesture Recognizer(optinal)</h1><p>If you want to listener the tap action we should add tap recognizer to the View.For example you want to dismiss the UIView when to tap the point out of UIView.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissVC:)];</div><div class="line">[self.view addGestureRecognizer:tap];</div></pre></td></tr></table></figure></p>
+<p>UITapGestureRecognizer object have a action of selector  you should define the selector,eg: we can dismiss our UIView.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-(void) dismissVC:(id) sender&#123;</div><div class="line">    [self dismissViewControllerAnimated:YES completion:nil];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="Display-the-UIView"><a href="#Display-the-UIView" class="headerlink" title="Display the UIView"></a>Display the UIView</h1><p>Now we can display the UIView on the other View.</p>
+<ul>
+<li>import AlterViewController.h file<br><code>#import &quot;AlterViewController.h&quot;</code></li>
+<li>create instance of AlterViewController<br><code>#import &quot;AlterViewController.h&quot;</code></li>
+<li>set presentation style<br><code>alter.modalPresentationStyle = UIModalPresentationOverCurrentContext;</code></li>
+<li>present view<br><code>[self presentViewController:alter animated:YES  completion:nil];</code></li>
+</ul>
+<p>Explain: when we present the view  we the the modal style. you can found the guide from here<br><a href="https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/PresentingaViewController.html" target="_blank" rel="external">https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/PresentingaViewController.html</a></p>
+<p>UIModalPresentationOverCurrentContext result like  figure 3</p>
+<p>Figure 3 The current context presentation style<br><img src="https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/Art/VCPG_CurrentContextStyles_2x.png" alt="presentation"></p>
+<h1 id="Full-source-file"><a href="#Full-source-file" class="headerlink" title="Full source file"></a>Full source file</h1><p>Source file <a href="https://github.com/shuiqingliu/IOS_Dev/tree/master/Assignment1/Assignment1" target="_blank" rel="external">https://github.com/shuiqingliu/IOS_Dev/tree/master/Assignment1/Assignment1</a></p>
+<h1 id="Credit"><a href="#Credit" class="headerlink" title="Credit"></a>Credit</h1><p>@xizhou help me to understand the concepte of UITapGestureRecongnizer.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ViewController</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/16/Simple-Way-to-Custom-UIView/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-ssh-不能连接-github-的一次搞笑经历" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1011,69 +1098,6 @@ Setting--&gt;Editor---&gt;Syntax highlight 设置颜色主题
 
 
   
-    <article id="post-解决dnsmasq默认修改etcresolv-conf-的nameserver为127-0-0-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/23/解决dnsmasq默认修改etcresolv-conf-的nameserver为127-0-0-1/">解决dnsmasq默认修改/etc/resolv.conf 的nameserver为127.0.0.1</a>
-    </h1>
-  
-
-        
-        <a href="/2015/11/23/解决dnsmasq默认修改etcresolv-conf-的nameserver为127-0-0-1/" class="archive-article-date">
-  	<time datetime="2015-11-23T03:04:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>事出有因，今天早上肖神说想用anyconnect，我登上服务器准备wget安装文件结果unable to resolve host address。cat /etc/resolv.conf 一看nameserver变为了127.0.0.1。 查了下，修改/etc/resolvconf/resolvconf.d/base 然后resolvconf -u 更新不起作用，更改/etc/network/interfaces 添加dns-nameserver  也不起作用，偶尔我吧dnsmasq stop后查看/etc/resolv.conf  变回了默认的google的nameserver，我restart dnsmasq resolv.conf 又被修改了，原来是dnsmasq搞的鬼。查了下<a href="http://raspberrypi.stackexchange.com/questions/37439/proper-way-to-prevent-dnsmasq-from-overwriting-dns-server-list-supplied-by-dhcp" target="_blank" rel="external">http://raspberrypi.stackexchange.com/questions/37439/proper-way-to-prevent-dnsmasq-from-overwriting-dns-server-list-supplied-by-dhcp</a> 是这个原因。<br><code>在/etc/default/dnsmasq中添加DNSMASQ_EXCEPT=lo</code><br>问题得到解决，dns服务也可用了，wget也可以了。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/11/23/解决dnsmasq默认修改etcresolv-conf-的nameserver为127-0-0-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1214,6 +1238,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ViewController</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ACM</a>
               </li>
              
@@ -1286,11 +1318,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C8813Q</a>
+                <a href="javascript:void(0)" class="js-tag color1">codeblocks</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">codeblocks</a>
+                <a href="javascript:void(0)" class="js-tag color2">C8813Q</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1302,19 +1334,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GPT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mbr分区</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IDE</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Studio</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GPT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mbr分区</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1378,14 +1410,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">inputstream</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">BT5</a>
               </li>
              
@@ -1395,6 +1419,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">inputstream</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1434,6 +1466,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">grub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">red flag</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">引导</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
@@ -1450,27 +1494,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">grub</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">red flag</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">引导</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1614,6 +1646,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">原创</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双系统</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">硬盘安装</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">15G</a>
               </li>
              
@@ -1631,18 +1675,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">握手包</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">原创</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">硬盘安装</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1670,15 +1702,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">biso</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双硬盘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">启动</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1694,15 +1718,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">biso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双硬盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">启动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">毕业</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1766,15 +1798,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高斯投影</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntukylin</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">麒麟</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高斯投影</a>
               </li>
             
             <div class="clearfix"></div>
