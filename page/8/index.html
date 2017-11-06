@@ -156,6 +156,191 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-win下用notepad编写java-，同步到github-乱码的解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/07/02/win下用notepad编写java-，同步到github-乱码的解决办法/">Win下用notepad++编写java ，同步到Github 乱码的解决办法</a>
+    </h1>
+  
+
+        
+        <a href="/2013/07/02/win下用notepad编写java-，同步到github-乱码的解决办法/" class="archive-article-date">
+  	<time datetime="2013-07-01T16:48:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-07-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先描述下问题：win下用notepad++ 编码格式选择ANSI 然后javac   java 既不报错，运行中文又不乱码。。。 用UTF-8 编码报错javac 报错</p>
+<p>GBK 编码问题，，，然后加javac -encoding  UTF-8 *.java 不报错 （也有报错的时候，后面再说）  但是运行中文注释会出错，还有同步到github 不能用ANSI编码，不然乱码</p>
+<p>也有javac -encoding  UTF-8 *.java出错的下面一块说一下解决办法</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>解决方法： notepad ++ 中选UTF-8 无BOM格式     然后编译时候  用javac    -encoding  UTF-8   *.java 不然会报GBK编码的问题，  然后上传到github ，github不会乱码，别用ANSI 虽然ANSIjavac的时候不报错，但是会导致github乱码  因为github 不支持ANSI       所以还是麻烦的指定下encoding吧</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">encoding</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">github乱码</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javac</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/编程/" class="article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2013/07/02/win下用notepad编写java-，同步到github-乱码的解决办法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-解决conky安装后日历乱码问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/06/16/解决conky安装后日历乱码问题/">解决Conky安装后日历乱码问题</a>
+    </h1>
+  
+
+        
+        <a href="/2013/06/16/解决conky安装后日历乱码问题/" class="archive-article-date">
+  	<time datetime="2013-06-16T05:15:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-06-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="sudo-gedit-conkyrc"><a href="#sudo-gedit-conkyrc" class="headerlink" title="sudo gedit .conkyrc"></a>sudo gedit .conkyrc</h2><p>&nbsp;</p>
+<p>然后更改如下</p>
+<blockquote>
+<h1 id="Conky-settings"><a href="#Conky-settings" class="headerlink" title="Conky settings"></a>Conky settings</h1><p>background no<br>update_interval 1</p>
+<p>cpu_avg_samples 2<br>net_avg_samples 2</p>
+<p>override_utf8_locale yes</p>
+<p>double_buffer yes<br>no_buffers yes</p>
+<p>text_buffer_size 2048</p>
+<p>#imlib_cache_size 0</p>
+<p>temperature_unit fahrenheit</p>
+<h1 id="Window-specifications"><a href="#Window-specifications" class="headerlink" title="Window specifications"></a>Window specifications</h1><p>own_window yes<br>own_window_type override<br>own_window_transparent yes<br>own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below</p>
+<p>border_inner_margin 0<br>border_outer_margin 0</p>
+<p>minimum_size 200 250<br>maximum_width 200</p>
+<p>alignment tr<br>gap_x 35<br>gap_y 55</p>
+<h1 id="Graphics-settings"><a href="#Graphics-settings" class="headerlink" title="Graphics settings"></a>Graphics settings</h1><p>draw_shades no<br>draw_outline no<br>draw_borders no<br>draw_graph_borders no</p>
+<h1 id="Text-settings"><a href="#Text-settings" class="headerlink" title="Text settings"></a>Text settings</h1><p>use_xft yes<br>xftfont caviar dreams:size=8<br>xftalpha 0.5</p>
+<p>uppercase no</p>
+<p>temperature_unit celsius<br>default_color FFFFFF</p>
+<h1 id="Lua-Load"><a href="#Lua-Load" class="headerlink" title="Lua Load"></a>Lua Load</h1><p>lua_load ~/.conky/clock_rings.lua<br>lua_draw_hook_pre clock_rings</p>
+<p>TEXT<br>${voffset 8}${color FF6600}${font 文泉驿等宽正黑:size=16}${time %A}${font}${voffset -8}${alignr 50}${color FFFFFF}${font caviar dreams:size=38}${time %e}${font}<br>${color FFFFFF}${voffset -30}${color FFFFFF}${font 文泉驿等宽正黑:size=18}${time %b}${font}${voffset -3} ${color FFFFFF}${font caviar dreams:size=20}${time %Y}${font}${color FF6600}${hr}<br>${voffset 140}${font caviar dreams:size=10}${alignr}HOME${font}<br>${font caviar dreams:size=12}${color FFFFFF}${alignr}${weather <a href="http://weather.noaa.gov/pub/data/observations/metar/stations/" target="_blank" rel="external">http://weather.noaa.gov/pub/data/observations/metar/stations/</a> LQBK temperature temperature 30} °C${font}<br>${image ~/.conky/new-ubuntu-logo.png -p 64,125 -s 70x20}</p>
+<p>${color FFFFFF}${goto 25}${voffset 35}${cpu cpu0}%<br>${color FF6600}${goto 25}CPU<br>${color FFFFFF}${goto 50}${voffset 23}${memperc}%<br>${color FF6600}${goto 50}RAM<br>${color FFFFFF}${goto 75}${voffset 23}${swapperc}%<br>${color FF6600}${goto 75}Swap<br>${color FFFFFF}${goto 100}${voffset 23}${fs_used_perc /}%<br>${color FF6600}${goto 100}Disk<br>${color FFFFFF}${goto 125}${voffset 25}${downspeed eth0}<br>${color FFFFFF}${goto 125}${upspeed eth0}<br>${color FF6600}${goto 125}Net</p>
+<p>${color FFFFFF}${font caviar dreams:size=8}Uptime: ${uptime_short}<br>${color FFFFFF}${font caviar dreams:size=8}Processes: ${processes}<br>${color FFFFFF}${font caviar dreams:size=8}Running: ${running_processes}<br>${color FF6600}${font caviar dreams:size=8}${alignr}${nodename}<br>${color FF6600}${font caviar dreams:size=8}${alignr}${pre_exec cat /etc/issue.net} $machine<br>${color FF6600}${font caviar dreams:size=8}${alignr}Kernel: ${kernel}</p>
+<p>改成文泉驿等宽正黑的是月和星期<br><a href="http://www.shuiqingliu.com/wp-content/uploads/2013/06/conky.png" target="_blank" rel="external"><img src="http://www.shuiqingliu.com/wp-content/uploads/2013/06/conky-300x187.png" alt="conky"></a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">conky</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">乱码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2013/06/16/解决conky安装后日历乱码问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-git-push-failed-non-fast-forward-updates-were-rejected" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -866,166 +1051,6 @@
 
 
   
-    <article id="post-今天我被一句代码耍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/04/20/今天我被一句代码耍/">今天我被一句代码耍</a>
-    </h1>
-  
-
-        
-        <a href="/2013/04/20/今天我被一句代码耍/" class="archive-article-date">
-  	<time datetime="2013-04-19T19:11:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-04-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>最近在同步编译android源码，用的Mokee开源项目。当在初始化的时候。老大的教程分支名改掉了。导致我初始化错误。以至于后面编剧错误。而当我遇到问题的时候，到处寻人，可是还是不解决问题。经过了一朋友推荐问我说是不是分支同步错了。结果一问老大是的，他故意吧分支名改错。他说为了防止太白的人搞。而我恰恰就是那个太白的。
-</code></pre><p>今天的事我深深吸取了教训。我只想说我今天又进步了，今天我被一句代码玩。往后我玩千千万万句代码！加油！</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/04/20/今天我被一句代码耍/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-android-源码编译同步的小问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/04/14/android-源码编译同步的小问题/">Android 源码编译同步的小问题</a>
-    </h1>
-  
-
-        
-        <a href="/2013/04/14/android-源码编译同步的小问题/" class="archive-article-date">
-  	<time datetime="2013-04-14T12:24:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一．<span style="font-size: medium; color: #ff0000;">warning: local_manifest.xml is deprecated; put local manifests in local_manifests instead</span></p>
-<p>解决办法：两种　ａ或ｂ</p>
-<p>ａ．</p>
-<ul>
-<li><span style="color: #ff0000;">sudo rm -r ~/android/system/.repo </span></li>
-<li><span style="color: #ff0000;">repo init -u git://github.com/CyanogenMod/android.git -b cm-10.1</span></li>
-<li><span style="color: #ff0000;">repo sync</span><br>ｂ．<span style="color: #ff0000;">r</span><span style="color: #ff0000;">m -r ./.repo/local_manifest.xml　（如果命令提示找不到目录，那么直接进手动进目录删除）</span></li>
-</ul>
-<p>c.<span style="font-size: medium; color: #ff0000;">我自己的解决办法是在.repo目录下新建local_manifests 文件夹 </span></p>
-<p>二．<span style="font-size: medium; color: #ff0000;">user tag detected on new module - user tags are only supported （local_module _tags错误）</span></p>
-<p><span style="color: #ff0000;">　　　　build/core/base_rules.mk:74: <strong><em> Module name: 01-test</em></strong></span><br><span style="color: #ff0000;">　　　　build/core/base_rules.mk:75:  Makefile location: external/dhcpcd</span></p>
-<p><span style="color: #ff0000;">　　　　build/core/base_rules.mk:76: <em></em></span><br><span style="color: #ff0000;">　　　　build/core/base_rules.mk:77:  Each module must use a LOCAL_MODULE_TAGS in its</span><br><span style="color: #ff0000;">　　　　build/core/base_rules.mk:78: <em> Android.mk. Possible tags declared by a module:</em></span><br><span style="color: #ff0000;">　　　　build/core/base_rules.mk:79: </span><br><span style="color: #ff0000;">　　　　build/core/base_rules.mk:80: * optional, debug, eng, tests, samples</span></p>
-<p>解决办法：</p>
-<p><span style="color: #ff0000;">只需要看第二行 『Makefile location: external/dhcpcd』 的 external/dhcpcd 路徑下，</span><br><span style="color: #ff0000;">修改 Android.mk ，</span><br><span style="color: #ff0000;">找到第一行的 『Module name: 01-test』的 LOCAL_MODULE := 01-test，</span><br><span style="color: #ff0000;">在下面加入 LOCAL_MODULE_TAGS := optional 即可</span></p>
-<p><span style="color: #ff0000;">或是</span><br><span style="color: #ff0000;">有找到 LOCAL_MODULE_TAGS := user 的話</span><br><span style="color: #ff0000;">改成 LOCAL_MODULE_TAGS := optional</span></p>
-<p>&nbsp;</p>
-<p>三．<span style="color: #ff0000;">make[2]: /home/＊＊＊/＊＊＊/prebuilt/linux-x86/toolchain/arm-eabi-4.5.4-linaro/bin/arm-eabi-gcc:命令未找到</span></p>
-<p>解决办法及思路：我进所提示错误的目录发现我根本没有<span style="color: #ff0000;">arm-eabi-4.5.4－linaro</span>文件夹可是我有<span style="color: #ff0000;">arm-eabi-4.4.3　<span style="color: #000000;">文件夹下面的目录包含gcc</span>　<span style="color: #000000;">所有我重命名文件夹</span>arm-eabi-4.4.3位arm-eabi-4.5.4－linaro　<span style="color: #000000;">问题解决！</span></span></p>
-<p>本文持续更新，敬请期待。如果补全了文档，那么终将是最大的财富</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编译</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">源码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/android/" class="article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/04/14/android-源码编译同步的小问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
@@ -1150,6 +1175,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MacOS Sierra</a>
               </li>
              
@@ -1166,14 +1195,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ViewController</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ACM</a>
               </li>
              
@@ -1183,6 +1204,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ViewController</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1246,11 +1271,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">codeblocks</a>
+                <a href="javascript:void(0)" class="js-tag color2">C8813Q</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C8813Q</a>
+                <a href="javascript:void(0)" class="js-tag color1">codeblocks</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1262,19 +1287,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Studio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPT</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mbr分区</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Studio</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1338,6 +1363,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">inputstream</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">BT5</a>
               </li>
              
@@ -1350,11 +1383,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">inputstream</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">boost</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1363,10 +1392,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">wmv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">boost</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1422,15 +1447,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1443,6 +1464,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">一加</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1470,6 +1495,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wordpress</a>
               </li>
              
@@ -1483,10 +1512,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wine-qqintl</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1534,14 +1559,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">2013</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生日</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">d3dx11_43.dll</a>
               </li>
              
@@ -1559,6 +1576,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">suspended</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">2013</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">生日</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1598,15 +1623,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">心的激荡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">握手包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">review</a>
+                <a href="javascript:void(0)" class="js-tag color5">心的激荡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1626,11 +1647,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">百度云</a>
+                <a href="javascript:void(0)" class="js-tag color2">review</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
+                <a href="javascript:void(0)" class="js-tag color4">百度云</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1643,6 +1664,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">netgear</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1726,15 +1751,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高斯投影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntukylin</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">麒麟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高斯投影</a>
               </li>
             
             <div class="clearfix"></div>

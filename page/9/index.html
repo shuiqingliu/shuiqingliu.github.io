@@ -156,6 +156,166 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-今天我被一句代码耍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/04/20/今天我被一句代码耍/">今天我被一句代码耍</a>
+    </h1>
+  
+
+        
+        <a href="/2013/04/20/今天我被一句代码耍/" class="archive-article-date">
+  	<time datetime="2013-04-19T19:11:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-04-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>最近在同步编译android源码，用的Mokee开源项目。当在初始化的时候。老大的教程分支名改掉了。导致我初始化错误。以至于后面编剧错误。而当我遇到问题的时候，到处寻人，可是还是不解决问题。经过了一朋友推荐问我说是不是分支同步错了。结果一问老大是的，他故意吧分支名改错。他说为了防止太白的人搞。而我恰恰就是那个太白的。
+</code></pre><p>今天的事我深深吸取了教训。我只想说我今天又进步了，今天我被一句代码玩。往后我玩千千万万句代码！加油！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2013/04/20/今天我被一句代码耍/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-android-源码编译同步的小问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/04/14/android-源码编译同步的小问题/">Android 源码编译同步的小问题</a>
+    </h1>
+  
+
+        
+        <a href="/2013/04/14/android-源码编译同步的小问题/" class="archive-article-date">
+  	<time datetime="2013-04-14T12:24:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-04-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一．<span style="font-size: medium; color: #ff0000;">warning: local_manifest.xml is deprecated; put local manifests in local_manifests instead</span></p>
+<p>解决办法：两种　ａ或ｂ</p>
+<p>ａ．</p>
+<ul>
+<li><span style="color: #ff0000;">sudo rm -r ~/android/system/.repo </span></li>
+<li><span style="color: #ff0000;">repo init -u git://github.com/CyanogenMod/android.git -b cm-10.1</span></li>
+<li><span style="color: #ff0000;">repo sync</span><br>ｂ．<span style="color: #ff0000;">r</span><span style="color: #ff0000;">m -r ./.repo/local_manifest.xml　（如果命令提示找不到目录，那么直接进手动进目录删除）</span></li>
+</ul>
+<p>c.<span style="font-size: medium; color: #ff0000;">我自己的解决办法是在.repo目录下新建local_manifests 文件夹 </span></p>
+<p>二．<span style="font-size: medium; color: #ff0000;">user tag detected on new module - user tags are only supported （local_module _tags错误）</span></p>
+<p><span style="color: #ff0000;">　　　　build/core/base_rules.mk:74: <strong><em> Module name: 01-test</em></strong></span><br><span style="color: #ff0000;">　　　　build/core/base_rules.mk:75:  Makefile location: external/dhcpcd</span></p>
+<p><span style="color: #ff0000;">　　　　build/core/base_rules.mk:76: <em></em></span><br><span style="color: #ff0000;">　　　　build/core/base_rules.mk:77:  Each module must use a LOCAL_MODULE_TAGS in its</span><br><span style="color: #ff0000;">　　　　build/core/base_rules.mk:78: <em> Android.mk. Possible tags declared by a module:</em></span><br><span style="color: #ff0000;">　　　　build/core/base_rules.mk:79: </span><br><span style="color: #ff0000;">　　　　build/core/base_rules.mk:80: * optional, debug, eng, tests, samples</span></p>
+<p>解决办法：</p>
+<p><span style="color: #ff0000;">只需要看第二行 『Makefile location: external/dhcpcd』 的 external/dhcpcd 路徑下，</span><br><span style="color: #ff0000;">修改 Android.mk ，</span><br><span style="color: #ff0000;">找到第一行的 『Module name: 01-test』的 LOCAL_MODULE := 01-test，</span><br><span style="color: #ff0000;">在下面加入 LOCAL_MODULE_TAGS := optional 即可</span></p>
+<p><span style="color: #ff0000;">或是</span><br><span style="color: #ff0000;">有找到 LOCAL_MODULE_TAGS := user 的話</span><br><span style="color: #ff0000;">改成 LOCAL_MODULE_TAGS := optional</span></p>
+<p>&nbsp;</p>
+<p>三．<span style="color: #ff0000;">make[2]: /home/＊＊＊/＊＊＊/prebuilt/linux-x86/toolchain/arm-eabi-4.5.4-linaro/bin/arm-eabi-gcc:命令未找到</span></p>
+<p>解决办法及思路：我进所提示错误的目录发现我根本没有<span style="color: #ff0000;">arm-eabi-4.5.4－linaro</span>文件夹可是我有<span style="color: #ff0000;">arm-eabi-4.4.3　<span style="color: #000000;">文件夹下面的目录包含gcc</span>　<span style="color: #000000;">所有我重命名文件夹</span>arm-eabi-4.4.3位arm-eabi-4.5.4－linaro　<span style="color: #000000;">问题解决！</span></span></p>
+<p>本文持续更新，敬请期待。如果补全了文档，那么终将是最大的财富</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">编译</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">源码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/android/" class="article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2013/04/14/android-源码编译同步的小问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-麒麟操作系统发布大爱" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -915,172 +1075,6 @@
 
 
   
-    <article id="post-关于二级域名的建立和解析方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/02/26/关于二级域名的建立和解析方法/">关于二级域名的建立和解析方法</a>
-    </h1>
-  
-
-        
-        <a href="/2013/02/26/关于二级域名的建立和解析方法/" class="archive-article-date">
-  	<time datetime="2013-02-26T14:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-02-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前几天自己搞了下二级域名，然后不会。搜到的教程和我想要的不一样。后来自己研究了下，搞定了。现在给大家分享出来</p>
-<p>首先讲一下，我是在网站根目录下建立了bbs文件夹做的论坛，然后我想直接通过bbs.domain.com   访问我的论坛，主域名的都做好好了A记录了 。</p>
-<p>&nbsp;</p>
-<p>现来分二级域名建立和解析两个方面介绍下：</p>
-<p>1.二级域名建立，首先进入你的cPanel面板，点击里面的子域二级域名添加界面</p>
-<p>假如你建立了bbs文件夹你二级域名就填bbs然后文件根会自动建立如下图<a href="http://www.shuiqingliu.com/wp-content/uploads/2013/02/QQ截图20130226221754.jpg" target="_blank" rel="external"><img src="http://www.shuiqingliu.com/wp-content/uploads/2013/02/QQ截图20130226221754-300x120.jpg" alt="QQ截图20130226221754"></a></p>
-<p>&nbsp;</p>
-<p>这样就建立了二级域名，不要选择重定向了。</p>
-<p>2.二级域名的解析：去你的域名面板，给二级域名做 cname记录，host name 填写如：bbs.domain.com   ip是你空间ip</p>
-<p>&nbsp;</p>
-<p>这样就做好了解析和建立。   如果您有好的方法欢迎回复</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">二级域名</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">解析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/02/26/关于二级域名的建立和解析方法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-天翼云空间15g，速来抢注" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/01/24/天翼云空间15g，速来抢注/">天翼云空间15G，速来抢注</a>
-    </h1>
-  
-
-        
-        <a href="/2013/01/24/天翼云空间15g，速来抢注/" class="archive-article-date">
-  	<time datetime="2013-01-24T02:22:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-01-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>天翼云并不只限于手机用户使用，也不限于iPhone 5用户使用，对不同版本的iPhone 5天翼云服务可以帮助低存储版本的iPhone5扩展更多的免费云存储空间（高达15G）。</p>
-<p>现在公测免费15G，还有任务做送空间，电信，移动联通都可使用。速来注册。抓紧时间哦</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p><a href="http://cloud.189.cn" target="_blank" rel="external">http://cloud.189.cn</a>，点击页面右上角“登录”按钮，按照提示输入天翼账号及密码进行登录（移动铁通须注册）另一种方法是通过PC客户端登录，需在 <a href="http://cloud.189.cn/download_client.jsp" target="_blank" rel="external">http://cloud.189.cn/download_client.jsp</a>下载并安装相关客户端，打开客户端，按提示输入天翼账号及密码进行登录。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">15G</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">天翼云</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/日志/" class="article-tag-list-link color3">日志</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/01/24/天翼云空间15g，速来抢注/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
@@ -1205,6 +1199,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MacOS Sierra</a>
               </li>
              
@@ -1221,14 +1219,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ViewController</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ACM</a>
               </li>
              
@@ -1238,6 +1228,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ViewController</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1301,11 +1295,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">codeblocks</a>
+                <a href="javascript:void(0)" class="js-tag color2">C8813Q</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C8813Q</a>
+                <a href="javascript:void(0)" class="js-tag color1">codeblocks</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1317,19 +1311,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Studio</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GPT</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mbr分区</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Studio</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1393,6 +1387,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">inputstream</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">BT5</a>
               </li>
              
@@ -1405,11 +1407,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">inputstream</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color1">boost</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1418,10 +1416,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">wmv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">boost</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1477,15 +1471,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1498,6 +1488,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">一加</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1525,6 +1519,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wordpress</a>
               </li>
              
@@ -1538,10 +1536,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wine-qqintl</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1589,14 +1583,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">2013</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生日</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">d3dx11_43.dll</a>
               </li>
              
@@ -1614,6 +1600,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">suspended</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">2013</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">生日</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1653,15 +1647,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">心的激荡</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">握手包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">review</a>
+                <a href="javascript:void(0)" class="js-tag color5">心的激荡</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1681,11 +1671,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">百度云</a>
+                <a href="javascript:void(0)" class="js-tag color2">review</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
+                <a href="javascript:void(0)" class="js-tag color4">百度云</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1698,6 +1688,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">netgear</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1781,15 +1775,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">高斯投影</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntukylin</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">麒麟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">高斯投影</a>
               </li>
             
             <div class="clearfix"></div>

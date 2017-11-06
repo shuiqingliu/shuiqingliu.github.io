@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shuiqingliu.com/"/>
-  <updated>2017-10-16T14:02:30.000Z</updated>
+  <updated>2017-11-06T12:45:07.000Z</updated>
   <id>http://shuiqingliu.com/</id>
   
   <author>
@@ -14,6 +14,91 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>The Role of View Controllers</title>
+    <link href="http://shuiqingliu.com/2017/11/01/The-Role-of-View-Controllers/"/>
+    <id>http://shuiqingliu.com/2017/11/01/The-Role-of-View-Controllers/</id>
+    <published>2017-11-01T15:37:28.000Z</published>
+    <updated>2017-11-06T12:45:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>本文翻译自：<br><a href="https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/index.html#//apple_ref/doc/uid/TP40007457" target="_blank" rel="external">https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/index.html#//apple_ref/doc/uid/TP40007457</a><br>由于对内容理解程度不够深入，翻译内容难免有不当之处还望指正。</p>
+</blockquote>
+<ul>
+<li><em>PS：下文中用 VC 代表 view controller</em></li>
+</ul>
+<p>View Controllers 是你的应用内部结构的基础，每个应用至少有一个 VC 大部分应用有多个 VC的。每个 VC 管理你的应用的用户界面的一部分以及底层数据和用户界面之间的交互。VC 也有助于在你的应用的用户界面之间进行切换。</p>
+<p>因为 VC 在你的 app 中扮演如此重要的角色，VC 几乎是你所做一切工作的核心. <code>UIViewController</code> 类定义了管理 view 的方法和属性，处理事件，从一个 VC 切换到另一个 VC，他也协调你 app 的其他部分。你定义  <code>UIViewController</code> 的子类（或者其子类之一）并且你需要添加实现你的 app 的 行为的自定义代码。</p>
+<p>这里有两种类型的 VC：</p>
+<ul>
+<li>Content View controller管理你应用的一部分 并且是你创建的 VC 的主要类型</li>
+<li>Container view controller 从其他视图控制器（称为子视图控制器）收集信息，并且以 导航栏或者 <code>prsent</code> 的这样便利的方式呈现不同地视图控制器的内容。</li>
+</ul>
+<p>大多数 VC 是这两种类型的混合。</p>
+<h2 id="视图的管理"><a href="#视图的管理" class="headerlink" title="视图的管理"></a>视图的管理</h2><p>视图控制器最重要的角色是管理视图的层次结构。每个视图控制器有一个 根视图（root view）它包含了视图控制器的所有内容，你在根视图中添加用于展示内容的视图。<code>图 1-1</code> 展示了视图控制器和视图之间的内在关系。视图控制器总是有对其根视图的引用并且每个视图对齐子视图都是强引用。</p>
+<p>图1-1 视图控制器和其视图之间的关系<br><img src="http://qingliu.qiniudn.com/VCPG_ControllerHierarchy_fig_1-1_2x.png" alt="vc"></p>
+<blockquote>
+<p>注意<br>在你的视图控制器层级中使用 <code>outlets</code> 去访问其他视图是常用的方法，因为一个视图控制器管理所有视图的内容， <code>outlets</code> 可以让你存储你需要的视图的引用。当视图从<code>storyboard</code> 加载的时候，<code>outlets</code> 本身自动的链接到实际的视图对象。</p>
+</blockquote>
+<ul>
+<li>译者注：outlets 用IBoutlet 注解的属性，在 类接口中声明 outlets 然后和 storyboard 中的对象进行连接，当 storyboardd 加载时候这个连接被建立）</li>
+</ul>
+<p>一个内容视图控制器自己管理其说有的视图，一个容器视图控制器（container view controller）管理其自己的视图以及来自其一个或多个子视图控制器的根视图。容器视图控制器不管理他子视图的内容。它只管理根视图，根据容器的设计进行尺寸调整和位置的摆放。图1-2 显示了一个视图分割的视图控制器和他子视图之间的关系。这个分割的视图控制器管理管理其子视图的整体的大小和位置，但是子视图控制器真正管理这些视图的内容。</p>
+<p>图1-2 视图控制器可以管理其他视图控制器的内容。<br><img src="http://qingliu.qiniudn.com/VCPG_ContainerViewController_fig_1-2_2x.png" alt="ViewController"></p>
+<p>关于管理视图控制器的视图的信息可以查看 <a href="https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html#//apple_ref/doc/uid/TP40007457-CH7-SW6" target="_blank" rel="external">Managing View Layout</a></p>
+<ul>
+<li>译者注：如图所示，容器视图控制器（Split View Controller）管理自己视图（Split View Container View ）和 来自其他多个视图控制器的根视图 （View Controller A/B），然后视图控制器再去管理自己视图的内容 A/B 的内容。</li>
+</ul>
+<h2 id="数据封送"><a href="#数据封送" class="headerlink" title="数据封送"></a>数据封送</h2><p>一个视图控制器充当在它管理的视图和你应用的数据之间的媒介。<code>UIViewController</code> 类的属性和方法可以让你管理你的应用的视觉呈现。当你继承<code>UIViewController</code>后，你可以在你的子类中添加任何你需要用来管理数据的变量。添加自定义变量会创建一个如图1-3 所示的关系，其中视图控制器具有对你数据的应用以及用于呈现数据的视图。在这两者直接来回移动数据是你的工作。<br>图1-3 视图控制器在数据对象和视图之间调解<br><img src="http://qingliu.qiniudn.com/VCPG_CustomSubclasses_fig_1-3_2x.png" alt="1-3"><br>你应该始终在视图控制器和数据对象中保持清晰的职责分工。大多数的确保数据结构完整性的逻辑属于数据对象的本身。视图控制器可以校验来自视图的输入然后以数据对象需要的格式打包输入，但是你应该最小化视图控制器在管理实际数据中的角色。</p>
+<p><code>UIDocument</code> 对象是一个独立于视图控制器来管理你的数据的方式。一个文档（doucument）对象是一个控制器对象，它知道如何读取和写入数据到持久化存储当中。当你继承 <code>UIDocument</code>时候，你可以添加所需的任何逻辑和方法来提取数据，并将其传递给视图控制器或应用程序的其他部分。视图控制器可以存储他接受的任何数据的副本，以便更新视图，但文档仍然拥有真实的数据。</p>
+<h2 id="用户交互"><a href="#用户交互" class="headerlink" title="用户交互"></a>用户交互</h2><p>视图控制器是响应者（responder) 对象 ，能够处理响应者链中传递下来的事件。尽管他们都能够处理事件，视图控制器很少直接处理触摸事件。相反，视图经常处理他们自己的触摸事件然后将结果报告给关联的委托（delegate）或目标对象（通常是视图控制器）的方法。所以视图控制器的大多数事件都是使用委托方法或操作方法处理的。</p>
+<p>关于在视图控制器中实现操作方法的更多信息，请查看<a href="https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html#//apple_ref/doc/uid/TP40007457-CH7-SW11" target="_blank" rel="external">Handling User interractions</a>.有关处理其他类型的事件，请查看 <code>Event handling Guide for iOS</code></p>
+<h2 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h2><p>视图控制器对其视图和它创建的任何对象承担全部责任。 <code>UIViewController</code> 类自动处理视图管理的大多数方面。举个例子，UIKit 自动释放不在需要的任何视图相关的资源。在你的 <code>UIViewController</code> 子类中，你负责管理你明确创建的任何对象。</p>
+<p>当可用空闲内存不足时，UIKit 要求应用程序释放不在需要的资源。一种方式是通过调用视图控制器的 <code>didReceiveMemoryWarning</code> 方法。用这个方法移除不再需要的对象的引用或者稍后可以轻松重新创建。例如，你可能用这个方法删除了缓存数据，当低内存条件发生的时候，他是一个你能够释放更多内存的重要方法。应用消耗太多内存的话可能被系统恢复内存彻底终止。</p>
+<h2 id="适应性"><a href="#适应性" class="headerlink" title="适应性"></a>适应性</h2><p>视图控制器负责呈现其视图，并使该呈现适应底层环境。每个 iOS 应用应该能够在 iPadshang运行，并且可以在几种不同大小的 iPhone  上运行。而不是为每个设备提供不同的视图控制器和视图层次结构。使用单一视图控制器管理视图使其适应不断变化的空间要求更为简单。</p>
+<p>在 iOS  中，视图控制器需要处理粗粒度编号和细粒度变化。粗粒度变化发生在视图控制器特征的变化。特征是描述整个环境的属性，像显示的比例。两个重要的特征是视图控制器的水平和垂直尺寸类别，它表示视图控制器在给定维度有多少空间。你可以使用尺寸类别的变化来更改你布局视图的类别，像 图1-4 显示的那样。当尺寸种类是 <code>regular</code> 时候，视图控制器利用额外的空间去管理它的内容，当是 <code>compact</code> 时候，视图控制器垂直排列其内容。<br>图1-4 调整视图大小类的变化<br><img src="http://qingliu.qiniudn.com/VCPG_SizeClassChanges_fig_1-4_2x.png" alt="1-4"></p>
+<p>在给定的尺寸级别类中，任何时候都可能发生更细粒度的尺寸变化。当用户将 iPhone 从纵向旋转到横向时，尺寸类别可能不会改变，但是屏幕尺寸通常会改变。当你使用自动布局时候，<code>UIKit</code> 自动调整视图的大小和位置去匹配新的屏幕大小，视图控制器可以需求进行其他调整。</p>
+<p>有关更多的适应性的信息，请查看<a href="https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/TheAdaptiveModel.html#//apple_ref/doc/uid/TP40007457-CH19-SW1" target="_blank" rel="external">The Adaptive Model</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文翻译自：&lt;br&gt;&lt;a href=&quot;https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/index.html#//app
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://shuiqingliu.com/tags/iOS/"/>
+    
+      <category term="ViewController" scheme="http://shuiqingliu.com/tags/ViewController/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>About iOS App Core Behaviors</title>
+    <link href="http://shuiqingliu.com/2017/11/01/About-iOS-App-Core-behaviors/"/>
+    <id>http://shuiqingliu.com/2017/11/01/About-iOS-App-Core-behaviors/</id>
+    <published>2017-11-01T08:47:41.000Z</published>
+    <updated>2017-11-01T08:50:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://shuiqingliu.com/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://shuiqingliu.com/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>Simple Way to Custom UIView</title>
@@ -756,138 +841,6 @@ Setting--&gt;Editor---&gt;Syntax highlight 设置颜色主题
     
     
       <category term="android studio" scheme="http://shuiqingliu.com/tags/android-studio/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu安卓开发环境配置(三)</title>
-    <link href="http://shuiqingliu.com/2015/01/11/ubuntu%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%B8%89/"/>
-    <id>http://shuiqingliu.com/2015/01/11/ubuntu安卓开发环境配置三/</id>
-    <published>2015-01-10T18:19:36.000Z</published>
-    <updated>2017-06-02T03:03:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>上篇讲了常用必备工具，这篇来讲java安装，android 源码编译环境搭建。源码下载。</p>
-<p>1.为了后续工作顺利进行我们先来安装shaodowsocks</p>
-<p>我选择python版：</p>
-<blockquote>
-<p>sudo apt-get install python-pip</p>
-<p>pip install shadowsocks<br>安装完成后，在/etc/目录下面建立shadowsocks.json文件<br>sudo vim /etc/shadowsocks.json<br>输入如下内容:<br>{<br>“server”:”x.x.x.x”,         //你的ss服务器地址直接写ip<br>“server_port”:8388,        //你的ss服务器的端口<br>“local_address”:”127.0.0.1”,<br>“local_port”:1080,<br>“password”:”<strong>**</strong>“,   //你的ss密码<br>“timeout”:600,<br>“method”:”aes-256-cfb”<br>}<br>上述内容中在输入的时候“//”和后面中文都要去掉，保存后将sslocal加入开机启动，打开startup applications，填入如下内容：</p>
-</blockquote>
-<p><img src="http://qingliu.qiniudn.com/Screenshot-from-2015-01-11-001024.png" alt="Screenshot from 2015-01-11 00:10:24"></p>
-<p>安装proxychains<br><code>sudo apt-get -y install proxychains</code></p>
-<p>配置：<br>编辑<code>/etc/proxychains.conf</code>将最后一行<code>socks4 127.0.0.1 9050</code>改为 <code>socks5 127.0.0.1 1080</code></p>
-<p>2.安装java， openjdk-7-jdk<br><code>sudo apt-get install openjdk-7-jdk</code><br>3.安装编译所需软件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git gnupg flex bison gperf build-essential \</div><div class="line">zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev \</div><div class="line">libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 \</div><div class="line">libgl1-mesa-dev g++-multilib mingw32 tofrodos \</div><div class="line">python-markdown libxml2-utils xsltproc zlib1g-dev:i386</div></pre></td></tr></table></figure></p>
-<p>做链接<br><code>sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so</code><br>ubuntu14.04还需要安装如下包：<code>sudo apt-get install bison g++-multilib git gperf libxml2-utils</code><br>将：<code>export USE_CCACHE=1</code>添加到<code>.profile</code></p>
-<p>4.下载源码<br>安装repo<br><code>mkdir ~/bin</code><br>PATH=~/bin:$PATH<br><code>url https://storage.googleapis.com/git-repo-downloads/repo &amp;gt; ~/bin/repo</code></p>
-<blockquote>
-<p>chmod a+x ~/bin/repo<br>创建一个源码目录：<br>mkdir xxxx</p>
-<p>cd xxxx<br>repo初始化<br>repo init -u git://github.com/CyanogenMod/android.git -b cm-12.0<br>-u 指定仓库地址，-b指定源码分支</p>
-</blockquote>
-<p>具体操作可看我下面操作：</p>
-<script id="asciicast-15338" src="https://asciinema.org/a/15338.js" async type="text/javascript"></script> 
-
-<p>5.同步源码 </p>
-<blockquote>
-<p>在新建源码目录下：repo sync -j32 或者repo sync -j16 如下操作：<script id="asciicast-15339" src="https://asciinema.org/a/15339.js" async type="text/javascript"></script></p>
-</blockquote>
-<p>6.源码下载完后进行编译：</p>
-<blockquote>
-<p>. build/envsetup.sh</p>
-<p>lunch  （然后选择自己机型数字）</p>
-<p>make bacon</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;上篇讲了常用必备工具，这篇来讲java安装，android 源码编译环境搭建。源码下载。&lt;/p&gt;
-&lt;p&gt;1.为了后续工作顺利进行我们先来安装shaodowsocks&lt;/p&gt;
-&lt;p&gt;我选择python版：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;sudo apt-get in
-    
-    </summary>
-    
-      <category term="android" scheme="http://shuiqingliu.com/categories/android/"/>
-    
-      <category term="git" scheme="http://shuiqingliu.com/categories/android/git/"/>
-    
-      <category term="linux" scheme="http://shuiqingliu.com/categories/android/git/linux/"/>
-    
-      <category term="教程" scheme="http://shuiqingliu.com/categories/android/git/linux/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="android" scheme="http://shuiqingliu.com/tags/android/"/>
-    
-      <category term="Ubuntu" scheme="http://shuiqingliu.com/tags/Ubuntu/"/>
-    
-      <category term="git" scheme="http://shuiqingliu.com/tags/git/"/>
-    
-      <category term="Linux" scheme="http://shuiqingliu.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu安卓开发环境配置(二)</title>
-    <link href="http://shuiqingliu.com/2015/01/09/ubuntu%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%BA%8C/"/>
-    <id>http://shuiqingliu.com/2015/01/09/ubuntu安卓开发环境配置二/</id>
-    <published>2015-01-09T08:35:37.000Z</published>
-    <updated>2017-06-26T08:47:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://www.shuiqingliu.com/archives/365" title="Ubuntu安卓开发环境配置(一)" target="_blank" rel="external">上篇文章</a>讲到了系统刚装完之后的简单配置，下面来讲讲两大神器的安装以及TX的球球</p>
-<h2 id="1-安装ia32-libs"><a href="#1-安装ia32-libs" class="headerlink" title="1.安装ia32-libs"></a>1.安装ia32-libs</h2><p>如果你的系统版本大于等于Ubuntu13.10，安装会比较麻烦如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo -i</div><div class="line">cd /etc/apt/sources.list.d</div><div class="line">echo &quot;deb http://old-releases.ubuntu.com/ubuntu/ raring main restricted universe multiverse&quot; &amp;gt;ia32-libs-raring.list</div><div class="line">apt-get update</div><div class="line">apt-get install ia32-libs</div></pre></td></tr></table></figure></p>
-<p>如果你的系统小于Ubunu13.10，那么直接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install ia32-libs</div></pre></td></tr></table></figure></p>
-<h2 id="2-安装神器beyond-Compare"><a href="#2-安装神器beyond-Compare" class="headerlink" title="2.安装神器beyond Compare"></a>2.安装神器beyond Compare</h2><p>下载地址：<a href="http://pan.baidu.com/s/1qWkGjGK" target="_blank" rel="external">http://pan.baidu.com/s/1qWkGjGK</a><br>下载后可以双击进行安装，也可以用命令上篇已经讲过如何用命令安装deb了。<br>激活码见：<a href="http://www.shuiqingliu.com/archives/129" title="Linux     Beyond Compare 3.3.7 build 15876  Key" target="_blank" rel="external">我之前一篇文章</a>   复制开始和结束中间的key</p>
-<h2 id="3-安装神器Sublime-Text2"><a href="#3-安装神器Sublime-Text2" class="headerlink" title="3.安装神器Sublime Text2"></a>3.安装神器Sublime Text2</h2><p>这是我最喜欢的编辑器，没有之一。爱不释手！我选择Sublime Text2因为免费的，不强制购买，他只是会每20次保存提示你购买，已经习惯了。下面进行安装和初步的配置</p>
-<p>复杂安装方法：<br>首先下载最新版：<a href="http://www.sublimetext.com/2" target="_blank" rel="external"> http://www.sublimetext.com/2</a></p>
-<p>解压：</p>
-<p><img src="http://qingliu.qiniudn.com/unzip.png" alt="unzip"></p>
-<p>解压出来的文件夹进行重命名<code>mv Sublime\ Text\ 2 sublime</code></p>
-<p>我们将sublime 文件夹放到/usr/local/lib下如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo mv sublime/ /usr/local/lib/</div></pre></td></tr></table></figure></p>
-<p>做软链接，这样以后使用非常方便<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo ln -s /usr/local/lib/sublime/sublime_text /usr/bin/subl</div></pre></td></tr></table></figure></p>
-<p>以后我们使用的时候就可以<code>subl xxx</code> ，可以是文件也可以是文件夹 .</p>
-<p>最简单的安装方法：</p>
-<p><a href="http://www.webupd8.org/2011/03/sublime-text-2-ubuntu-ppa.html" target="_blank" rel="external">http://www.webupd8.org/2011/03/sublime-text-2-ubuntu-ppa.html</a></p>
-<p>安装完之后对sublime 做初步配置</p>
-<p>a.安装package control，然后你就可以安装各种插件了。<br>快捷键：<code>ctrl_+</code>_`</p>
-<p>调出控制台输入安装代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib2,os,hashlib; h = <span class="string">'2deb499853c4371624f5a07e27c334aa'</span> + <span class="string">'bf8c4e67d14fb0525ba4f89698a6d7e1'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(ipp) <span class="keyword">else</span> <span class="keyword">None</span>; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by) <span class="keyword">if</span> dh == h <span class="keyword">else</span> <span class="keyword">None</span>; print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h) <span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="string">'Please restart Sublime Text to finish installation'</span>)</div></pre></td></tr></table></figure></p>
-<p>b.设置java开发环境。</p>
-<p>别人都写过了，我都不写了。请看这里<a href="http://blog.sina.com.cn/s/blog_927ae80b010195lg.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_927ae80b010195lg.html</a></p>
-<p>c.安装中文输入支持插件</p>
-<p>因为ibus不兼容，fcitx可以支持，因为我钟爱ibus所以装个中文支持插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ~/.config/sublime-text-2/Packages</div><div class="line">git clone https://github.com/xgenvn/InputHelper.git</div></pre></td></tr></table></figure></p>
-<p>d.设置shell script测试命令[[ 为[</p>
-<p>参见我的<a href="http://www.shuiqingliu.com/archives/332" title="sublime 更改shell中if then自动不全方式" target="_blank" rel="external">这篇文章</a></p>
-<p>e.设置默认新建文件为java</p>
-<p>快捷键：ctrl+shift+p 选择install package，安装Default File Type</p>
-<p>然后新建：Packages/User/default_file_type.sublime-settings文件</p>
-<p>编辑如下：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   <span class="attr">"default_new_file_syntax"</span>: <span class="string">"Packages/Java/Java.tmLanguage"</span></div><div class="line">   , <span class="attr">"use_current_file_syntax"</span>: <span class="literal">true</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="4-安装qq，总得跟人交流吧"><a href="#4-安装qq，总得跟人交流吧" class="headerlink" title="4.安装qq，总得跟人交流吧"></a>4.安装qq，总得跟人交流吧</h2><p>下载wine-qqintel 国际版qq所需组件：</p>
-<p><a href="http://packages.linuxdeepin.com/enterprise/pool/non-free/d/deepinwine-qqintl/wine-qqintl_0.1.3-2_i386.deb" target="_blank" rel="external">http://packages.linuxdeepin.com/enterprise/pool/non-free/d/deepinwine-qqintl/wine-qqintl_0.1.3-2_i386.deb</a></p>
-<p><a href="http://packages.linuxdeepin.com/ubuntu/pool/main/t/ttf-wqy-microhei/ttf-wqy-microhei_0.2.0-beta-1_all.deb" target="_blank" rel="external">http://packages.linuxdeepin.com/ubuntu/pool/main/t/ttf-wqy-microhei/ttf-wqy-microhei_0.2.0-beta-1_all.deb</a></p>
-<p>先安装字体wqy-microhei  依赖，然后安装qqintl</p>
-<p>如果安装出错如下，请再搜索安装liblcms2-2:i386</p>
-<p><img src="http://qingliu.qiniudn.com/cuowu.png" alt="cuowu"><br>然后在重新安装qqintl就可。</p>
-<p>下篇文章讲安装java，搭建android源码编译环境，下载源码。敬请期待！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://www.shuiqingliu.com/archives/365&quot; title=&quot;Ubuntu安卓开发环境配置(一)&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;上篇文章&lt;/a&gt;讲到了系统刚装完之后的简单配置，下面来讲讲两
-    
-    </summary>
-    
-      <category term="android" scheme="http://shuiqingliu.com/categories/android/"/>
-    
-      <category term="linux" scheme="http://shuiqingliu.com/categories/android/linux/"/>
-    
-      <category term="教程" scheme="http://shuiqingliu.com/categories/android/linux/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="android" scheme="http://shuiqingliu.com/tags/android/"/>
-    
-      <category term="Ubuntu" scheme="http://shuiqingliu.com/tags/Ubuntu/"/>
-    
-      <category term="git" scheme="http://shuiqingliu.com/tags/git/"/>
     
   </entry>
   
