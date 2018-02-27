@@ -156,6 +156,198 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ubuntu-升级内核出现failed-to-symbolic-link-bootinitrd-img-to-initrd-imgfile-exists-at-varlibdpkginfolinux-image-postinst" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/28/ubuntu-升级内核出现failed-to-symbolic-link-bootinitrd-img-to-initrd-imgfile-exists-at-varlibdpkginfolinux-image-postinst/">Ubuntu 升级内核出现Failed to Symbolic-Link boot/initrd.img-* to initrd.img:File Exists at /Var/lib/dpkg/info/linux-Image-*.Postinst</a>
+    </h1>
+  
+
+        
+        <a href="/2015/02/28/ubuntu-升级内核出现failed-to-symbolic-link-bootinitrd-img-to-initrd-imgfile-exists-at-varlibdpkginfolinux-image-postinst/" class="archive-article-date">
+  	<time datetime="2015-02-28T11:58:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>错误如下：</p>
+<blockquote>
+<p>Setting up linux-image-3.13.0-46-generic (3.13.0-46.76) …<br>Running depmod.<br>update-initramfs: deferring update (hook will be called later)<br>Failed to symbolic-link boot/initrd.img-3.13.0-46-generic to initrd.img:File exists at /var/lib/dpkg/info/linux-image-3.13.0-46-generic.postinst line 629.<br>dpkg: error processing package linux-image-3.13.0-46-generic (–configure):<br>subprocess installed post-installation script returned error exit status 17<br>dpkg: dependency problems prevent configuration of linux-image-extra-3.13.0-46-generic:<br>linux-image-extra-3.13.0-46-generic depends on linux-image-3.13.0-46-generic; however:<br>Package linux-image-3.13.0-46-generic is not configured yet.</p>
+<p>dpkg: error processing package linux-image-extra-3.13.0-46-generic (–configure):<br>dependency problems - leaving unconfigured<br>No apport report written because the error message indicates its a followup error from a previous failure.<br>E: Sub-process /usr/bin/dpkg returned an error code (1)<br>解决办法如下：<br>sudo mv /var/lib/dpkg/info/linux-image-3.13.0-46-generic.postinst .</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ubuntu</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kernel</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/02/28/ubuntu-升级内核出现failed-to-symbolic-link-bootinitrd-img-to-initrd-imgfile-exists-at-varlibdpkginfolinux-image-postinst/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-ubuntu安卓开发环境配置四" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/12/ubuntu安卓开发环境配置四/">Ubuntu安卓开发环境配置(四)</a>
+    </h1>
+  
+
+        
+        <a href="/2015/01/12/ubuntu安卓开发环境配置四/" class="archive-article-date">
+  	<time datetime="2015-01-11T16:48:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-01-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上篇讲了编译环境搭建，这篇讲android studio下载安装。</p>
+<p>1.下载android studio</p>
+<blockquote>
+<p><a href="https://developer.android.com/sdk/index.html" target="_blank" rel="external">https://developer.android.com/sdk/index.html</a></p>
+<p> <img src="http://qingliu.qiniudn.com/androidd.png" alt="androidd"><br>需要特殊手段下载，昨天我们不是装了ss么，还有proxychains，我们可以用<br><code>proxychains wget -c https://dl.google.com/dl/android/studio/ide-zips/1.0.1/android-studio-ide-135.1641136-linux.zip</code></p>
+</blockquote>
+<p>2.安装oracle 的java，注意android studio 使用的是oracle的java，参见“学长”张篇文章，不再赘述</p>
+<p><a href="http://superwang.me/2014/05/13/install-oracle-java-7-in-ubuntu-via-ppa/" target="_blank" rel="external">http://superwang.me/2014/05/13/install-oracle-java-7-in-ubuntu-via-ppa/</a></p>
+<p>然后昨天我们装了openjdk，今天我们装了oracle，那怎么切换呢如下：</p>
+<blockquote>
+<p>sudo update-alternatives –config java</p>
+<p>sudo update-alternatives –config javac</p>
+</blockquote>
+<p>3.进入到android studio 解压目录运行studio.sh</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /home/qingliu/dn/android-studio/bin</div><div class="line">./studio.sh</div></pre></td></tr></table></figure>
+<p>就可以打开软件，第一次打开会初始化， 然后会下载2.5G的sdk，这个可以跳过，在android studio目录下的bin目录下，编辑idea.properties</p>
+<blockquote>
+<p>添加：disable.android.first.run=true<br>如果你有ipv6环境，下载速度会让你爽到爆，具体设置请看我<a href="http://www.shuiqingliu.com/archives/358" title="Android  Studio 使用纯IPv6环境更新" target="_blank" rel="external">这篇文章</a></p>
+</blockquote>
+<p>进入后主题是白色，我们可以设置</p>
+<blockquote>
+<p>File—–settings—–Appearance—–theme<br>我选择darcula</p>
+</blockquote>
+<p><img src="http://qingliu.qiniudn.com/ttt.png" alt="ttt"></p>
+<p>设置代码配色方案，作为sublime 粉，那必须 设置一下啊：</p>
+<blockquote>
+<p>方法见：<a href="https://github.com/Fumler/idea-monokai" target="_blank" rel="external">https://github.com/Fumler/idea-monokai</a><br>来张全图：</p>
+</blockquote>
+<p><img src="http://qingliu.qiniudn.com/test.png" alt="test"></p>
+<p>&nbsp;</p>
+<p>更详细的anroid studio 详见<a href="http://stormzhang.com/devtools/2014/11/25/android-studio-tutorial1/" target="_blank" rel="external">http://stormzhang.com/devtools/2014/11/25/android-studio-tutorial1/</a></p>
+<p>四篇文章写完，我的电脑也配置的差不多了。最后放上一个小彩蛋，那就是安装zsh，加上我自己基于别人主题修改的炫酷主题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install zsh -y</div><div class="line">curl -L http://install.ohmyz.sh | sh</div></pre></td></tr></table></figure></p>
+<p><img src="http://qingliu.qiniudn.com/show.png" alt="tupian"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">android studio</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/android/" class="article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/01/12/ubuntu安卓开发环境配置四/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-ubuntu安卓开发环境配置三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -929,178 +1121,6 @@
 
 
   
-    <article id="post-sublime-更改shell中if-then自动补全方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/30/sublime-更改shell中if-then自动补全方式/">Sublime 更改Shell中if Then自动补全方式</a>
-    </h1>
-  
-
-        
-        <a href="/2014/11/30/sublime-更改shell中if-then自动补全方式/" class="archive-article-date">
-  	<time datetime="2014-11-30T07:45:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-11-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我的编辑器一直用sublime text，最近在写个小脚本，常用的shell的自动不全，可是在if  then 语句及elif 语句不全的时候会自动不全成如下：</p>
-<blockquote>
-<p>if [[ condition ]]; then</p>
-<p>#statements<br>fi<br>[[ 虽然提供过了高级特性模式匹配，可以定义正则表达式等，但是这就造成了兼容性问题，[[ 是bash 和ksh的特性，当用sh 执行的时候呢假如sh test.sh [[ 处就会报错如下：<br>test1.sh: 7: test1.sh: [[: not found<br>假如我用./test.sh 运行呢？ 那肯定可以执行咯，因为已经明确指出了shebang为/bin/bash咯</p>
-</blockquote>
-<p>用bash test.sh 更不用说了肯定没问题。</p>
-<p>假如我写的脚本有些人用sh来运行的话那就出问题了。所以为了兼容这个小小的问题，又可以快速使用sublime的补全，我就去更改下sublime的shell script 包，更改下面两个文件：</p>
-<blockquote>
-<p>if-…-then-(if).sublime-snippet     和    elif-..-(elif).sublime-snippet<br>将这两个文件中的如下字段做以修改:<br>修改前：  &lt;content&gt;&lt;![CDATA[if ${2:[[ ${1:condition} ]]}; then<br>${0:#statements}<br>fi]]&gt;&lt;/content&gt;</p>
-<p>修改后： &lt;content&gt;&lt;![CDATA[if ${2:[ ${1:condition} ]}; then<br>${0:#statements}<br>fi]]&gt;&lt;/content&gt;<br>当然，elif修改也是照猫画虎。这样就可以做到一个小小的兼容和高效的工作。</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">sublime</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/shell/" class="article-tag-list-link color1">shell</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/11/30/sublime-更改shell中if-then自动补全方式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-dd命令克隆硬盘之大坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/25/dd命令克隆硬盘之大坑/">Dd命令克隆硬盘之大坑</a>
-    </h1>
-  
-
-        
-        <a href="/2014/11/25/dd命令克隆硬盘之大坑/" class="archive-article-date">
-  	<time datetime="2014-11-25T06:11:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-11-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>昨天收到了笤帚大(头像是一扫把所以我给起的笤帚大)送的1TB硬盘，欣喜若狂。拯救了我250G小机械的快要爆满的状态。感激涕零。待日后定当作以回报。下来说说我在把250G硬盘克隆到这个新1T上面的曲折。</p>
-<p>ps：我的250G上面就一个ubuntu系统，1T未建立分区的空盘</p>
-<p>首先知道dd命令可以克隆硬盘但是一直没用过所以试一下，我的1T为/dev/sda  250G是/dev/sdb  ，运行如下命令：</p>
-<blockquote>
-<p>sudo dd if=/dev/sdb of=/dev/sdb<br>ok这时候什么也看不到没用进度显示哦，下来另外开个terminal，给dd进程发送SIGUSR1 信号让dd返回当前进度如下：<br>sudo watch -n 5 killall -USR1 dd<br>这个时候坑爹的来了，你会看到速度8m/s。这尼玛不是忒坑爹啊比USB2.0还慢虽然我是IDE转SATA的接口也不至于这样啊，好吧我忍，上床睡觉200多G也得一会，睡醒了远程登陆上来看看，在82G的地方停了，心中千万草泥马啊。</p>
-</blockquote>
-<p>错误如下图：</p>
-<p><a href="http://www.shuiqingliu.com/wp-content/uploads/2014/11/Screenshot_2014-11-24-16-29-412.jpg" target="_blank" rel="external"><img src="http://www.shuiqingliu.com/wp-content/uploads/2014/11/Screenshot_2014-11-24-16-29-412-288x300.jpg" alt="Screenshot_2014-11-24-16-29-41~2"></a></p>
-<p>先解释下图中数据，records in /records out 都是指的block是数目，dd默认块大小512  byte，你给 block*512 看看是不是copied数目嘿嘿.好了,那么错误就是I/O error,估计我的250G物理坏道啊什么的.反正不管了.后来上网查了下强制复制也就是遇到错误不停止,就是给dd 加conv 参数是noerror和sync 用法如下:</p>
-<blockquote>
-<p>sudo dd if=/dev/sdb of=/dev/sda conv=noerror,sync<br>接下来又是漫长的等待,就这么简单结束了就clone好了?不不不,结果看文章标题就已经知道了,坑神坑.依旧在原来出错的地方出错了停止,noerror无效呵呵.我想用skip 和seek跳过这块又怕数据损坏.好吧我放弃dd了垃圾一个啊再硬盘克隆上,我没说其他地方仅指硬盘clone上可能是我自己不会算bs吧.</p>
-</blockquote>
-<p>接下来我换工具了,我用神器gparted,人家克隆用啥用e2image,这是谁开发的<a href="http://web.mit.edu/tytso/www/home.html" target="_blank" rel="external">http://web.mit.edu/tytso/www/home.html </a>链接在此快去膜拜.然后gparted你就做个usb启动盘就弄吧,我硬盘按30M/s</p>
-<p>一个多小时完成克隆现在我已经在克隆好的硬盘上写这篇文章了,给你看看哦</p>
-<blockquote>
-<p>Filesystem Size Used Avail Use% Mounted on<br>/dev/sdb1 798G 147G 611G 20% /</p>
-<p>&nbsp;<br>最后建议以后克隆硬盘不要用dd了,用gparted吧,快速便捷安全可靠.</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/11/25/dd命令克隆硬盘之大坑/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -1226,6 +1246,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1433,15 +1461,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">boost</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ffmpeg</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">wmv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">boost</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1497,11 +1525,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1514,10 +1546,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">一加</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1545,15 +1573,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wordpress</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">搬迁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1601,11 +1629,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二货</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cm11s</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">二货</a>
+                <a href="javascript:void(0)" class="js-tag color5">2013</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">生日</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1621,27 +1657,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">host1free</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">suspended</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">2013</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生日</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">二级域名</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">解析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">host1free</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">suspended</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1673,11 +1701,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">心的激荡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">握手包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">心的激荡</a>
+                <a href="javascript:void(0)" class="js-tag color2">review</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1697,27 +1729,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">review</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">百度云</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">wndr3800</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">netgear</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1730,6 +1746,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">启动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">wndr3800</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">netgear</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -156,6 +156,213 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-给WNDR3800刷OpenWRT" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/25/给WNDR3800刷OpenWRT/">给WNDR3800刷OpenWRT</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/25/给WNDR3800刷OpenWRT/" class="archive-article-date">
+  	<time datetime="2017-02-25T12:55:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><code>背景：我拿到机子之前是刷过openwrt的，然后系统崩溃了，DHCP和wifi全挂了，我直接TFTP再刷一次openwrt</code></li>
+</ul>
+<hr>
+<p>Let’s do it!</p>
+<h4 id="1-下载原厂的固件"><a href="#1-下载原厂的固件" class="headerlink" title="1.下载原厂的固件"></a>1.下载原厂的固件</h4><p><a href="https://downloads.openwrt.org/chaos_calmer/15.05.1/ar71xx/generic/openwrt-15.05.1-ar71xx-generic-wndr3800-squashfs-factory.img" target="_blank" rel="external">下载地址</a></p>
+<h4 id="2-进入TFTP刷机模式进行刷机"><a href="#2-进入TFTP刷机模式进行刷机" class="headerlink" title="2.进入TFTP刷机模式进行刷机"></a>2.进入TFTP刷机模式进行刷机</h4><p>   <em>PS：先给Ubuntu装个tftp：<code>sudo apt-get install tftp</code></em></p>
+<ul>
+<li>长按reset键，直至绿灯闪烁时松开即可，此时就已进入了TFTP模式</li>
+<li>将本机PC IP 设为静态的<code>192.168.1.2</code>子网掩码<code>255.255.255.0</code></li>
+<li><p>输入如下命令,然后耐心的等待重启，直至绿灯长亮说明系统启动完毕<code>(大约5分钟)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">tftp  192.168.1.1</div><div class="line">mode binary</div><div class="line">put openwrt-15.05.1-ar71xx-generic-wndr3800-squashfs-factory.img</div><div class="line">quit</div></pre></td></tr></table></figure>
+<p> 具体输入如下图所示：</p>
+</li>
+</ul>
+<p><img src="http://qingliu.qiniudn.com/tftp.png" alt="输入命令"></p>
+<h4 id="3-登录路由器进行相关配置"><a href="#3-登录路由器进行相关配置" class="headerlink" title="3.登录路由器进行相关配置"></a>3.登录路由器进行相关配置</h4><h5 id="3-1配置ssh"><a href="#3-1配置ssh" class="headerlink" title="3.1配置ssh"></a>3.1配置ssh</h5><ul>
+<li>首次登录需要需要先telnet登录设置密码然后用ssh登录<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">telnet 192.168.1.1 #telnet登录</div><div class="line">passwd #更改root密码</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如图：</p>
+<p><img src="http://qingliu.qiniudn.com/telnet.png" alt="login"></p>
+<h5 id="3-2进行配置"><a href="#3-2进行配置" class="headerlink" title="3.2进行配置"></a>3.2进行配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh root@192.168.1.1</div><div class="line">opkg update</div></pre></td></tr></table></figure>
+<h6 id="3-2-1进入web-登录Luci"><a href="#3-2-1进入web-登录Luci" class="headerlink" title="3.2.1进入web 登录Luci"></a>3.2.1进入web 登录Luci</h6><ul>
+<li>地址为：<code>192.168.1.1</code>,密码为之前设置的密码，登录之后在<code>Network</code>下<code>wifi</code>目录下打开wifi并点击<code>edit</code>-<code>Wireless Security</code>设置wifi密码.</li>
+</ul>
+<h6 id="3-2-2安装中文包"><a href="#3-2-2安装中文包" class="headerlink" title="3.2.2安装中文包"></a>3.2.2安装中文包</h6><ul>
+<li>在<code>system-software-avaliable package</code>搜索<code>chinese</code>安装base-zh-cn那个包就OK了.</li>
+</ul>
+<h6 id="3-2-3题外话"><a href="#3-2-3题外话" class="headerlink" title="3.2.3题外话"></a>3.2.3题外话</h6><ul>
+<li>接下来安装ss，chinadns就不说了这个教程到处都是自己找找就行了</li>
+<li>还有如果要恢复为官方固件的话也是TFTP刷，只不过put的镜像为官方img罢了</li>
+</ul>
+<hr>
+<p>来张web界面图：<br><img src="http://qingliu.qiniudn.com/openwrt.png" alt="web"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">openwrt</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">wndr3800</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">netgear</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/25/给WNDR3800刷OpenWRT/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-ubuntu-安装nvidia-驱动之后unity消失的解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/21/ubuntu-安装nvidia-驱动之后unity消失的解决办法/">Ubuntu 安装Nvidia 驱动之后Unity消失的解决办法</a>
+    </h1>
+  
+
+        
+        <a href="/2016/04/21/ubuntu-安装nvidia-驱动之后unity消失的解决办法/" class="archive-article-date">
+  	<time datetime="2016-04-20T16:03:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在安装nvidia官方驱动之后Unity消失，开机后只有桌面文件和壁纸，对于这种情况可通过如下方法解决：</p>
+<ul>
+<li>1.在桌面上右键打开terminal</li>
+<li>2.安装ccsm</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install compizconfig-settings-manager</div></pre></td></tr></table></figure>
+<ul>
+<li>3.在终端输入ccsm</li>
+<li>4.将下图中的opengl和unity plugin 都打开，Unity就出现了，问题解决，如果未能解决，请在终端输入<code>software-properties-gtk --open-tab=4</code> 打开<code>addition driver</code> 选择<code>xorg-xserver</code>然后再执行如下操作</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nvidia</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">unity</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/04/21/ubuntu-安装nvidia-驱动之后unity消失的解决办法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-android-studio不能自动完成更新的解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -706,198 +913,6 @@
 
 
   
-    <article id="post-ubuntu-升级内核出现failed-to-symbolic-link-bootinitrd-img-to-initrd-imgfile-exists-at-varlibdpkginfolinux-image-postinst" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/28/ubuntu-升级内核出现failed-to-symbolic-link-bootinitrd-img-to-initrd-imgfile-exists-at-varlibdpkginfolinux-image-postinst/">Ubuntu 升级内核出现Failed to Symbolic-Link boot/initrd.img-* to initrd.img:File Exists at /Var/lib/dpkg/info/linux-Image-*.Postinst</a>
-    </h1>
-  
-
-        
-        <a href="/2015/02/28/ubuntu-升级内核出现failed-to-symbolic-link-bootinitrd-img-to-initrd-imgfile-exists-at-varlibdpkginfolinux-image-postinst/" class="archive-article-date">
-  	<time datetime="2015-02-28T11:58:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-02-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>错误如下：</p>
-<blockquote>
-<p>Setting up linux-image-3.13.0-46-generic (3.13.0-46.76) …<br>Running depmod.<br>update-initramfs: deferring update (hook will be called later)<br>Failed to symbolic-link boot/initrd.img-3.13.0-46-generic to initrd.img:File exists at /var/lib/dpkg/info/linux-image-3.13.0-46-generic.postinst line 629.<br>dpkg: error processing package linux-image-3.13.0-46-generic (–configure):<br>subprocess installed post-installation script returned error exit status 17<br>dpkg: dependency problems prevent configuration of linux-image-extra-3.13.0-46-generic:<br>linux-image-extra-3.13.0-46-generic depends on linux-image-3.13.0-46-generic; however:<br>Package linux-image-3.13.0-46-generic is not configured yet.</p>
-<p>dpkg: error processing package linux-image-extra-3.13.0-46-generic (–configure):<br>dependency problems - leaving unconfigured<br>No apport report written because the error message indicates its a followup error from a previous failure.<br>E: Sub-process /usr/bin/dpkg returned an error code (1)<br>解决办法如下：<br>sudo mv /var/lib/dpkg/info/linux-image-3.13.0-46-generic.postinst .</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ubuntu</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kernel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/02/28/ubuntu-升级内核出现failed-to-symbolic-link-bootinitrd-img-to-initrd-imgfile-exists-at-varlibdpkginfolinux-image-postinst/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-ubuntu安卓开发环境配置四" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/12/ubuntu安卓开发环境配置四/">Ubuntu安卓开发环境配置(四)</a>
-    </h1>
-  
-
-        
-        <a href="/2015/01/12/ubuntu安卓开发环境配置四/" class="archive-article-date">
-  	<time datetime="2015-01-11T16:48:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-01-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上篇讲了编译环境搭建，这篇讲android studio下载安装。</p>
-<p>1.下载android studio</p>
-<blockquote>
-<p><a href="https://developer.android.com/sdk/index.html" target="_blank" rel="external">https://developer.android.com/sdk/index.html</a></p>
-<p> <img src="http://qingliu.qiniudn.com/androidd.png" alt="androidd"><br>需要特殊手段下载，昨天我们不是装了ss么，还有proxychains，我们可以用<br><code>proxychains wget -c https://dl.google.com/dl/android/studio/ide-zips/1.0.1/android-studio-ide-135.1641136-linux.zip</code></p>
-</blockquote>
-<p>2.安装oracle 的java，注意android studio 使用的是oracle的java，参见“学长”张篇文章，不再赘述</p>
-<p><a href="http://superwang.me/2014/05/13/install-oracle-java-7-in-ubuntu-via-ppa/" target="_blank" rel="external">http://superwang.me/2014/05/13/install-oracle-java-7-in-ubuntu-via-ppa/</a></p>
-<p>然后昨天我们装了openjdk，今天我们装了oracle，那怎么切换呢如下：</p>
-<blockquote>
-<p>sudo update-alternatives –config java</p>
-<p>sudo update-alternatives –config javac</p>
-</blockquote>
-<p>3.进入到android studio 解压目录运行studio.sh</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /home/qingliu/dn/android-studio/bin</div><div class="line">./studio.sh</div></pre></td></tr></table></figure>
-<p>就可以打开软件，第一次打开会初始化， 然后会下载2.5G的sdk，这个可以跳过，在android studio目录下的bin目录下，编辑idea.properties</p>
-<blockquote>
-<p>添加：disable.android.first.run=true<br>如果你有ipv6环境，下载速度会让你爽到爆，具体设置请看我<a href="http://www.shuiqingliu.com/archives/358" title="Android  Studio 使用纯IPv6环境更新" target="_blank" rel="external">这篇文章</a></p>
-</blockquote>
-<p>进入后主题是白色，我们可以设置</p>
-<blockquote>
-<p>File—–settings—–Appearance—–theme<br>我选择darcula</p>
-</blockquote>
-<p><img src="http://qingliu.qiniudn.com/ttt.png" alt="ttt"></p>
-<p>设置代码配色方案，作为sublime 粉，那必须 设置一下啊：</p>
-<blockquote>
-<p>方法见：<a href="https://github.com/Fumler/idea-monokai" target="_blank" rel="external">https://github.com/Fumler/idea-monokai</a><br>来张全图：</p>
-</blockquote>
-<p><img src="http://qingliu.qiniudn.com/test.png" alt="test"></p>
-<p>&nbsp;</p>
-<p>更详细的anroid studio 详见<a href="http://stormzhang.com/devtools/2014/11/25/android-studio-tutorial1/" target="_blank" rel="external">http://stormzhang.com/devtools/2014/11/25/android-studio-tutorial1/</a></p>
-<p>四篇文章写完，我的电脑也配置的差不多了。最后放上一个小彩蛋，那就是安装zsh，加上我自己基于别人主题修改的炫酷主题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install zsh -y</div><div class="line">curl -L http://install.ohmyz.sh | sh</div></pre></td></tr></table></figure></p>
-<p><img src="http://qingliu.qiniudn.com/show.png" alt="tupian"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">android studio</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/android/" class="article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/01/12/ubuntu安卓开发环境配置四/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1023,6 +1038,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1230,15 +1253,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">boost</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ffmpeg</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">wmv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">boost</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1294,11 +1317,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1311,10 +1338,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">一加</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1342,15 +1365,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wordpress</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">搬迁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1398,11 +1421,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二货</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cm11s</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">二货</a>
+                <a href="javascript:void(0)" class="js-tag color5">2013</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">生日</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1418,27 +1449,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">host1free</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">suspended</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">2013</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生日</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">二级域名</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">解析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">host1free</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">suspended</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1470,11 +1493,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">心的激荡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">握手包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">心的激荡</a>
+                <a href="javascript:void(0)" class="js-tag color2">review</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1494,27 +1521,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">review</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">百度云</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">wndr3800</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">netgear</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1527,6 +1538,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">启动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">wndr3800</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">netgear</a>
               </li>
              
               <li class="article-tag-list-item">

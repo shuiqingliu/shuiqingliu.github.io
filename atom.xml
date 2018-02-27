@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shuiqingliu.com/"/>
-  <updated>2017-11-06T12:45:07.000Z</updated>
+  <updated>2018-02-27T15:31:52.000Z</updated>
   <id>http://shuiqingliu.com/</id>
   
   <author>
@@ -14,6 +14,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://shuiqingliu.com/2018/02/27/%E5%89%91%E6%8C%87%20Offer%20%E4%B9%A0%E9%A2%98%20Java%20%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://shuiqingliu.com/2018/02/27/剑指 Offer 习题 Java 实现/</id>
+    <published>2018-02-27T05:52:16.000Z</published>
+    <updated>2018-02-27T15:31:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="剑指-Offer"><a href="#剑指-Offer" class="headerlink" title="剑指 Offer"></a>剑指 Offer</h1><ul>
+<li>注意考虑边界条件、特殊输入以及错误处理，一定要对输入值做判断。</li>
+<li>采用画图将抽象问题形象化、举例将抽象问题具体化和分解问题将复杂问题简单化的方法来理清思路</li>
+</ul>
+<h2 id="1-实现-Singleton-模式"><a href="#1-实现-Singleton-模式" class="headerlink" title="1. 实现 Singleton 模式"></a>1. 实现 Singleton 模式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">+ (instanceType *)sharedInstance &#123;</div><div class="line">    static instanceType *sharedInstance = nil;</div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        sharedInstance = [[instanceType alloc] init];</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    return sharedInstance;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>线程安全，保证在应用的 lifetime 中只生成一次。其他一些语言实现需要加同步锁如 Java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> MyObject instance;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> MyObject <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (instance == <span class="keyword">null</span>)&#123;</div><div class="line">        instance = <span class="keyword">new</span> MyObject();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> instance;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="2-数组中重复的数字"><a href="#2-数组中重复的数字" class="headerlink" title="2.数组中重复的数字"></a>2.数组中重复的数字</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by qingliu on 2/27/18.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="comment">// 面试题3（一）：找出数组中重复的数字</span></div><div class="line"><span class="comment">// 题目：在一个长度为n的数组里的所有数字都在0到n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，</span></div><div class="line"><span class="comment">// 也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。例如，如果输入长度为7的数组&#123;2, 3, 1, 0, 2, 5, 3&#125;，</span></div><div class="line"><span class="comment">// 那么对应的输出是重复的数字2或者3。</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DuplicationInArray</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> a[] = &#123;<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>&#125;;</div><div class="line">        duplicate(a);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">duplicate</span><span class="params">(<span class="keyword">int</span>[] numbers)</span></span>&#123;</div><div class="line">        <span class="comment">//判断是否为空和长度是否为 0</span></div><div class="line">        <span class="keyword">if</span> (numbers == <span class="keyword">null</span> || numbers.length &lt;= <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//数组每个值要符合 0~n-1</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++)&#123;</div><div class="line">            <span class="keyword">if</span> (numbers[i] &lt; <span class="number">0</span> || numbers[i] &gt; numbers.length -<span class="number">1</span>)&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++)&#123;</div><div class="line">            <span class="keyword">while</span> (numbers[i] != i)&#123;</div><div class="line">                <span class="comment">//如果当前位置的值定于以该值为下标处的值则找到了重复的</span></div><div class="line">                <span class="keyword">if</span> (numbers[i] == numbers[numbers[i]])&#123;</div><div class="line">                    System.out.println(<span class="string">"找到的其中一个值为："</span> +  numbers[i]);</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="comment">//若不等于则交互两个位置的值，这样数组下标值就等于当前存储的值</span></div><div class="line">                <span class="keyword">int</span> tempNumber = numbers[i];</div><div class="line">                numbers[i] =  numbers[tempNumber];</div><div class="line">                numbers[tempNumber] =  tempNumber;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"没有找到任何一个重复数字"</span>);</div><div class="line">        <span class="keyword">return</span>  <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="3-二维数组中的查找"><a href="#3-二维数组中的查找" class="headerlink" title="3.二维数组中的查找"></a>3.二维数组中的查找</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.company;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by qingliu on 2/27/18.</div><div class="line"> */</div><div class="line"> </div><div class="line"><span class="comment">// 面试题4：二维数组中的查找</span></div><div class="line"><span class="comment">// 题目：在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按</span></div><div class="line"><span class="comment">// 照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个</span></div><div class="line"><span class="comment">// 整数，判断数组中是否含有该整数。</span></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FindNumInMatrix</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">        <span class="keyword">int</span>[][] testData = &#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">9</span>&#125;,&#123;<span class="number">3</span>,<span class="number">6</span>,<span class="number">10</span>,<span class="number">13</span>&#125;,&#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">11</span>,<span class="number">14</span>&#125;,&#123;<span class="number">5</span>,<span class="number">8</span>,<span class="number">12</span>,<span class="number">15</span>&#125;&#125;;</div><div class="line">        <span class="keyword">int</span>[][] num = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>][<span class="number">4</span>];</div><div class="line">        <span class="keyword">boolean</span> result = Found(testData,<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>);</div><div class="line">        <span class="keyword">if</span>(result)&#123;</div><div class="line">            System.out.println(<span class="string">"Found it"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            System.out.println(<span class="string">"Not Found"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">Found</span><span class="params">(<span class="keyword">int</span>[][] data,<span class="keyword">int</span> rows,<span class="keyword">int</span> columns,<span class="keyword">int</span> targetNum)</span></span>&#123;</div><div class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">if</span> (data != <span class="keyword">null</span> &amp;&amp; rows &gt; <span class="number">0</span> &amp;&amp; columns &gt; <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">int</span> row = <span class="number">0</span>;</div><div class="line">            <span class="keyword">int</span> column = columns - <span class="number">1</span>;</div><div class="line">            <span class="keyword">while</span> (row &lt; rows &amp;&amp; column &gt;=<span class="number">0</span>)&#123;</div><div class="line">                <span class="keyword">if</span> (data[row][column] == targetNum)&#123;</div><div class="line">                    found = <span class="keyword">true</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (data[row][column] &gt; targetNum)&#123; <span class="comment">//右上角元素大于目标数字则剔除所在列</span></div><div class="line">                    column--;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> &#123;      <span class="comment">//否则目标数组大于该数字，行数增加</span></div><div class="line">                    row++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> found;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="4-替换空格"><a href="#4-替换空格" class="headerlink" title="4.替换空格"></a>4.替换空格</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.company;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by qingliu on 2/27/18.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">* 面试题5：替换空格</div><div class="line">* 题目：请实现一个函数，把字符串中的每个空格替换成"%20"。例如输入“We are happy.”，</div><div class="line">* 则输出“We%20are%20happy.”。</div><div class="line">**/</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReplaceSpace</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">        String testData = <span class="string">"Hello World! #$#$!!@!@"</span>;</div><div class="line">        <span class="keyword">char</span>[] test = <span class="keyword">new</span> <span class="keyword">char</span>[testData.length() + <span class="number">4</span>];</div><div class="line">        <span class="keyword">char</span>[] testDataArray = testData.toCharArray();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; testDataArray.length; i++)&#123;</div><div class="line">            test[i] = testDataArray[i];</div><div class="line">        &#125;</div><div class="line">        replace(test,testData.length(),testData.length() + <span class="number">4</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">replace</span><span class="params">(<span class="keyword">char</span>[] testStr,<span class="keyword">int</span> strLength,<span class="keyword">int</span> storeLength)</span></span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (testStr == <span class="keyword">null</span> || testStr.length == <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> length = strLength;</div><div class="line">        <span class="keyword">int</span> numberOfBlank = <span class="number">0</span>; <span class="comment">//空格计数</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strLength; i++)&#123;</div><div class="line">            <span class="keyword">if</span> (testStr[i] == <span class="string">' '</span>)&#123;</div><div class="line">                numberOfBlank++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> newStrLength = length + numberOfBlank*<span class="number">2</span>;</div><div class="line">        <span class="keyword">if</span> (newStrLength &gt; storeLength)&#123; <span class="comment">//若给定空间不够存储则直接返回</span></div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> indexOfOriginal = length - <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> indexOfNew = newStrLength -<span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (indexOfOriginal &gt;=<span class="number">0</span> &amp;&amp; indexOfNew &gt; indexOfOriginal)&#123;</div><div class="line">            <span class="keyword">if</span> (testStr[indexOfOriginal] == <span class="string">' '</span>)&#123;  <span class="comment">//若前面指针已经找到空格则后面的指针开始填充</span></div><div class="line">                testStr[indexOfNew--] = <span class="string">'0'</span>;</div><div class="line">                testStr[indexOfNew--] = <span class="string">'2'</span>;</div><div class="line">                testStr[indexOfNew--] = <span class="string">'%'</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                testStr[indexOfNew--] = testStr[indexOfOriginal]; <span class="comment">//若没找到则将前面指针的值拷贝到后面指针存储</span></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            indexOfOriginal--;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        String result = String.valueOf(testStr);</div><div class="line">        System.out.println(result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;剑指-Offer&quot;&gt;&lt;a href=&quot;#剑指-Offer&quot; class=&quot;headerlink&quot; title=&quot;剑指 Offer&quot;&gt;&lt;/a&gt;剑指 Offer&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;注意考虑边界条件、特殊输入以及错误处理，一定要对输入值做判断。&lt;/li&gt;
+&lt;li
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java TCP/IP Socket 编程读书笔记</title>
+    <link href="http://shuiqingliu.com/2018/01/31/Java-TCP-IP-Socket-%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <id>http://shuiqingliu.com/2018/01/31/Java-TCP-IP-Socket-编程读书笔记/</id>
+    <published>2018-01-31T10:22:44.000Z</published>
+    <updated>2018-02-08T10:21:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第一章-简介"><a href="#第一章-简介" class="headerlink" title="第一章 简介"></a>第一章 简介</h1><h2 id="1-1计算机网络、分组报文和协议"><a href="#1-1计算机网络、分组报文和协议" class="headerlink" title="1.1计算机网络、分组报文和协议"></a>1.1计算机网络、分组报文和协议</h2><p>&emsp; 计算机网络由一组通过通信信道连接的机器组成，有 <code>host</code> 和 <code>router</code>，<code>host</code>  是运行了应用程序的计算机。<code>router</code> 能够将信息从一个通信信道转发或传递到另一个通信信道。通信信道是将字节序列从一个 host 传输到另外一个 host 的手段。不同 host 的差异性通过和 router 连接连进行消除</p>
+<p>&emsp;传递的字节序列被称为分组报文，一组报文包括了基本的控制信息和用户数据，要传递这些报文需要定义 protocol,它规定了报文交换的方式和结构以及如何解析，TCP/IP 就是来解决这个问题的。他是一个协议簇主要包含 网络层的 IP 协议，传输层的 TCP 和 UDP 等。网络层负责将分组报文传输到目的地址，IP 协议提供将每组分组报文独立处理分发的能力，每个 IP 报文包含目的主机地址字段。但是 IP 协议不能保证报文完整的百分之百的正确的传递到目标主机，偶尔会丢失报文，报文乱序等。在 IP 协议之上为传输层，TCP 和 UDP  协议是进一步的寻址，他们采用端口号作为地址来区分同一主机上的不同应用，因为 IP 只能发到主机 不能区分应用。所以他们称为端到端的传输协议。</p>
+<p>&emsp;TCP 提供可信赖的字节流信道，他能检测和恢复 IP 层提供的主机到主机信道中可能发生的报文丢失，重复和其他错误。TCP在使用时候要先建立连接所以它是面向连接的协议。建立连接就需要常常提到的三次握手，断开连接采用四次握手。相反 UDP 不能对IP层产生的错误进行修复，他扩展了 IP 层的数据报服务功能使其能够在应用程序间工作。所以它叫做 用户数据报协议，他是不可靠的。<br>PS: IP 地址和域名不表</p>
+<h2 id="1-2-Socket"><a href="#1-2-Socket" class="headerlink" title="1.2 Socket"></a>1.2 Socket</h2><p>Socket  是在传输层和应用层之间的一中抽象层，应用程序可以使用 socket 来发送和接收数据就像在磁盘上读取和写入数据一样。TCP/IP 协议簇中的 socket 为 Stream Socket 和 datagram socket，它们分别应用 TCP 和 UDP 协议。一个 Steam Socket 代表了 TCP 连接的一端，TCP/IP 套接字有一个 地址和端口唯一确定。<br><img src="http://qingliu.qiniudn.com/file_30.jpg" alt="file_30"><br><img src="http://qingliu.qiniudn.com/file_34.jpg" alt="file_34.jpg"></p>
+<p><img src="http://qingliu.qiniudn.com/file_1.jpg" alt="file_1.jpg"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第一章-简介&quot;&gt;&lt;a href=&quot;#第一章-简介&quot; class=&quot;headerlink&quot; title=&quot;第一章 简介&quot;&gt;&lt;/a&gt;第一章 简介&lt;/h1&gt;&lt;h2 id=&quot;1-1计算机网络、分组报文和协议&quot;&gt;&lt;a href=&quot;#1-1计算机网络、分组报文和协议&quot; cla
+    
+    </summary>
+    
+      <category term="Socket" scheme="http://shuiqingliu.com/categories/Socket/"/>
+    
+    
+      <category term="Java" scheme="http://shuiqingliu.com/tags/Java/"/>
+    
+      <category term="Socket" scheme="http://shuiqingliu.com/tags/Socket/"/>
+    
+  </entry>
   
   <entry>
     <title>The Role of View Controllers</title>
@@ -184,7 +241,7 @@
     <link href="http://shuiqingliu.com/2017/06/12/How-to-driver-BCM94352-on-MacOS-Sierra-12-5/"/>
     <id>http://shuiqingliu.com/2017/06/12/How-to-driver-BCM94352-on-MacOS-Sierra-12-5/</id>
     <published>2017-06-12T02:37:58.000Z</published>
-    <updated>2017-10-02T02:37:34.000Z</updated>
+    <updated>2018-01-31T10:40:43.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong>PS: You should first look over tolede’s github :<a href="https://github.com/toleda/wireless_half-mini/" target="_blank" rel="external">https://github.com/toleda/wireless_half-mini/</a> before you read this article</strong></p>
 <h1 id="Base-Information"><a href="#Base-Information" class="headerlink" title="Base Information"></a>Base Information</h1><table>
@@ -256,6 +313,8 @@
       &lt;p&gt;&lt;strong&gt;PS: You should first look over tolede’s github :&lt;a href=&quot;https://github.com/toleda/wireless_half-mini/&quot; target=&quot;_blank&quot; rel=&quot;exte
     
     </summary>
+    
+      <category term="-Mac" scheme="http://shuiqingliu.com/categories/Mac/"/>
     
     
       <category term="MacOS Sierra" scheme="http://shuiqingliu.com/tags/MacOS-Sierra/"/>
@@ -365,7 +424,7 @@
     <link href="http://shuiqingliu.com/2017/03/11/codeblocks%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
     <id>http://shuiqingliu.com/2017/03/11/codeblocks使用技巧/</id>
     <published>2017-03-11T06:53:04.000Z</published>
-    <updated>2017-06-02T03:03:28.000Z</updated>
+    <updated>2018-01-31T10:39:37.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Code::Blocks is a free, open-source, cross-platform IDE. Using a plugin architecture, its capabilities and features are defined by the provided plugins.  </p>
@@ -746,101 +805,6 @@ Setting--&gt;Editor---&gt;Syntax highlight 设置颜色主题
     
       <category term="linux" scheme="http://shuiqingliu.com/categories/linux/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu 升级内核出现Failed to Symbolic-Link boot/initrd.img-* to initrd.img:File Exists at /Var/lib/dpkg/info/linux-Image-*.Postinst</title>
-    <link href="http://shuiqingliu.com/2015/02/28/ubuntu-%E5%8D%87%E7%BA%A7%E5%86%85%E6%A0%B8%E5%87%BA%E7%8E%B0failed-to-symbolic-link-bootinitrd-img-to-initrd-imgfile-exists-at-varlibdpkginfolinux-image-postinst/"/>
-    <id>http://shuiqingliu.com/2015/02/28/ubuntu-升级内核出现failed-to-symbolic-link-bootinitrd-img-to-initrd-imgfile-exists-at-varlibdpkginfolinux-image-postinst/</id>
-    <published>2015-02-28T11:58:48.000Z</published>
-    <updated>2017-06-02T03:03:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>错误如下：</p>
-<blockquote>
-<p>Setting up linux-image-3.13.0-46-generic (3.13.0-46.76) …<br>Running depmod.<br>update-initramfs: deferring update (hook will be called later)<br>Failed to symbolic-link boot/initrd.img-3.13.0-46-generic to initrd.img:File exists at /var/lib/dpkg/info/linux-image-3.13.0-46-generic.postinst line 629.<br>dpkg: error processing package linux-image-3.13.0-46-generic (–configure):<br>subprocess installed post-installation script returned error exit status 17<br>dpkg: dependency problems prevent configuration of linux-image-extra-3.13.0-46-generic:<br>linux-image-extra-3.13.0-46-generic depends on linux-image-3.13.0-46-generic; however:<br>Package linux-image-3.13.0-46-generic is not configured yet.</p>
-<p>dpkg: error processing package linux-image-extra-3.13.0-46-generic (–configure):<br>dependency problems - leaving unconfigured<br>No apport report written because the error message indicates its a followup error from a previous failure.<br>E: Sub-process /usr/bin/dpkg returned an error code (1)<br>解决办法如下：<br>sudo mv /var/lib/dpkg/info/linux-image-3.13.0-46-generic.postinst .</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;错误如下：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Setting up linux-image-3.13.0-46-generic (3.13.0-46.76) …&lt;br&gt;Running depmod.&lt;br&gt;update-initramfs: deferring upd
-    
-    </summary>
-    
-      <category term="linux" scheme="http://shuiqingliu.com/categories/linux/"/>
-    
-      <category term="教程" scheme="http://shuiqingliu.com/categories/linux/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Ubuntu" scheme="http://shuiqingliu.com/tags/Ubuntu/"/>
-    
-      <category term="kernel" scheme="http://shuiqingliu.com/tags/kernel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu安卓开发环境配置(四)</title>
-    <link href="http://shuiqingliu.com/2015/01/12/ubuntu%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%9B%9B/"/>
-    <id>http://shuiqingliu.com/2015/01/12/ubuntu安卓开发环境配置四/</id>
-    <published>2015-01-11T16:48:30.000Z</published>
-    <updated>2017-06-02T03:03:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>上篇讲了编译环境搭建，这篇讲android studio下载安装。</p>
-<p>1.下载android studio</p>
-<blockquote>
-<p><a href="https://developer.android.com/sdk/index.html" target="_blank" rel="external">https://developer.android.com/sdk/index.html</a></p>
-<p> <img src="http://qingliu.qiniudn.com/androidd.png" alt="androidd"><br>需要特殊手段下载，昨天我们不是装了ss么，还有proxychains，我们可以用<br><code>proxychains wget -c https://dl.google.com/dl/android/studio/ide-zips/1.0.1/android-studio-ide-135.1641136-linux.zip</code></p>
-</blockquote>
-<p>2.安装oracle 的java，注意android studio 使用的是oracle的java，参见“学长”张篇文章，不再赘述</p>
-<p><a href="http://superwang.me/2014/05/13/install-oracle-java-7-in-ubuntu-via-ppa/" target="_blank" rel="external">http://superwang.me/2014/05/13/install-oracle-java-7-in-ubuntu-via-ppa/</a></p>
-<p>然后昨天我们装了openjdk，今天我们装了oracle，那怎么切换呢如下：</p>
-<blockquote>
-<p>sudo update-alternatives –config java</p>
-<p>sudo update-alternatives –config javac</p>
-</blockquote>
-<p>3.进入到android studio 解压目录运行studio.sh</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /home/qingliu/dn/android-studio/bin</div><div class="line">./studio.sh</div></pre></td></tr></table></figure>
-<p>就可以打开软件，第一次打开会初始化， 然后会下载2.5G的sdk，这个可以跳过，在android studio目录下的bin目录下，编辑idea.properties</p>
-<blockquote>
-<p>添加：disable.android.first.run=true<br>如果你有ipv6环境，下载速度会让你爽到爆，具体设置请看我<a href="http://www.shuiqingliu.com/archives/358" title="Android  Studio 使用纯IPv6环境更新" target="_blank" rel="external">这篇文章</a></p>
-</blockquote>
-<p>进入后主题是白色，我们可以设置</p>
-<blockquote>
-<p>File—–settings—–Appearance—–theme<br>我选择darcula</p>
-</blockquote>
-<p><img src="http://qingliu.qiniudn.com/ttt.png" alt="ttt"></p>
-<p>设置代码配色方案，作为sublime 粉，那必须 设置一下啊：</p>
-<blockquote>
-<p>方法见：<a href="https://github.com/Fumler/idea-monokai" target="_blank" rel="external">https://github.com/Fumler/idea-monokai</a><br>来张全图：</p>
-</blockquote>
-<p><img src="http://qingliu.qiniudn.com/test.png" alt="test"></p>
-<p>&nbsp;</p>
-<p>更详细的anroid studio 详见<a href="http://stormzhang.com/devtools/2014/11/25/android-studio-tutorial1/" target="_blank" rel="external">http://stormzhang.com/devtools/2014/11/25/android-studio-tutorial1/</a></p>
-<p>四篇文章写完，我的电脑也配置的差不多了。最后放上一个小彩蛋，那就是安装zsh，加上我自己基于别人主题修改的炫酷主题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install zsh -y</div><div class="line">curl -L http://install.ohmyz.sh | sh</div></pre></td></tr></table></figure></p>
-<p><img src="http://qingliu.qiniudn.com/show.png" alt="tupian"></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;上篇讲了编译环境搭建，这篇讲android studio下载安装。&lt;/p&gt;
-&lt;p&gt;1.下载android studio&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://developer.android.com/sdk/index.html&quot; ta
-    
-    </summary>
-    
-      <category term="android" scheme="http://shuiqingliu.com/categories/android/"/>
-    
-      <category term="linux" scheme="http://shuiqingliu.com/categories/android/linux/"/>
-    
-      <category term="教程" scheme="http://shuiqingliu.com/categories/android/linux/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="android studio" scheme="http://shuiqingliu.com/tags/android-studio/"/>
     
   </entry>
   

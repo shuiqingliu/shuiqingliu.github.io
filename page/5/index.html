@@ -156,6 +156,164 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-atom-desktop-ubuntu-desktop-entry" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/05/09/atom-desktop-ubuntu-desktop-entry/">atom.desktop Ubuntu Desktop Entry</a>
+    </h1>
+  
+
+        
+        <a href="/2014/05/09/atom-desktop-ubuntu-desktop-entry/" class="archive-article-date">
+  	<time datetime="2014-05-08T17:43:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-05-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="share-my-config-of-atom-desktop"><a href="#share-my-config-of-atom-desktop" class="headerlink" title="share my config of atom.desktop"></a><span style="text-decoration: underline;">share my config of atom.desktop</span></h3><blockquote>
+<p>[Desktop Entry]<br>Version=1.0<br>Type=Application<br>Name=qingliu’s atom<br>GenericName=Text Editor<br>Comment=Sophisticated text editor for code, markup and prose<br>Exec=atom %F<br>Terminal=false<br>MimeType=text/plain;<br>Icon=/home/qingliu/atom/resources/atom.png<br>Categories=TextEditor;Development;<br>StartupNotify=true<br>Actions=Window;Document;</p>
+<p>[Desktop Action Window]<br>Name=New Window<br>Exec=atom -n<br>OnlyShowIn=Unity;</p>
+<p>[Desktop Action Document]<br>Name=New File<br>Exec=atom –command new_file<br>OnlyShowIn=Unity;</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">atom</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">desktop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">entry</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ubuntu</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/05/09/atom-desktop-ubuntu-desktop-entry/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-build-atom-editor-on-ubuntu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/05/09/build-atom-editor-on-ubuntu/">Build Atom Editor on Ubuntu</a>
+    </h1>
+  
+
+        
+        <a href="/2014/05/09/build-atom-editor-on-ubuntu/" class="archive-article-date">
+  	<time datetime="2014-05-08T16:32:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-05-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>随着时间的推移atom editor的邀请注册也告一段落，然而在邀请注册之时也仅仅只有mac获宠。如今atom editor开源了，在windows linux mac上你都可以享受他。我在ubuntu 12.04 64bit 编译了。并做了deb包，哪位朋友想安装的话顺便测试下则个deb<a href="http://t.cn/8sex1ib" title="http://pan.baidu.com/s/1c0sztGc" target="_blank" rel="external">http://t.cn/8sex1ib</a>。</p>
+<p>编译步骤：</p>
+<p>1.首先去node.js官网下载最新版node.js 直接下载<a href="http://nodejs.org/download/" target="_blank" rel="external"> </a><span style="font-weight: bold; color: #46483e;"><a href="http://nodejs.org/download/" target="_blank" rel="external">Linux Binaries</a>，并按照README方法安装</span></p>
+<p>2.然后按照atom github的的README进行安装</p>
+<p>3.编译安装期间建议FQ</p>
+<p>4.编译报错请检查node 和npm版本 node -v    npm -v，并做script/clean，然后重新编译</p>
+<p>5.当出现npm 需要root权限时候你需要更改所有者 sudo chown -R <code>whoami</code> /path/t o/npm</p>
+<p>放张图如下：</p>
+<p><a href="http://www.shuiqingliu.com/wp-content/uploads/2014/05/atom.png" target="_blank" rel="external"><img src="http://www.shuiqingliu.com/wp-content/uploads/2014/05/atom-300x220.png" alt="atom"></a></p>
+<p>&nbsp;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/05/09/build-atom-editor-on-ubuntu/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-ubuntu-install-adobe-flashplugin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -837,163 +995,6 @@
 
 
   
-    <article id="post-dos下gpt分区转换成mbr分区" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/02/18/dos下gpt分区转换成mbr分区/">DOS下GPT分区转换成MBR分区</a>
-    </h1>
-  
-
-        
-        <a href="/2014/02/18/dos下gpt分区转换成mbr分区/" class="archive-article-date">
-  	<time datetime="2014-02-18T03:58:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-02-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>朋友拿过来宏基的本，默认安装linpus linux。做好了U盘启动win764bit的， 坑爹的磁盘是GPT分区，geniusdisk不是专业版dos下还改不了。U盘启动进到安装界面shift+F10  唤出dos    操做如下：</p>
-<p>①diskpart   ②list disk  ③select disk x（一般是0）④clean ⑤convert mbr搞定</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GPT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mbr分区</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/02/18/dos下gpt分区转换成mbr分区/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-wine-qqintl安装出错解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/02/16/wine-qqintl安装出错解决办法/">Wine-Qqintl安装出错解决办法</a>
-    </h1>
-  
-
-        
-        <a href="/2014/02/16/wine-qqintl安装出错解决办法/" class="archive-article-date">
-  	<time datetime="2014-02-16T01:49:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-02-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>wine-qqintl:i386 : 依赖: ttf-wqy-microhei:i386 但无法安装它</p>
-<h2 id="解决办法：在deepin的源里面找到http-packages-linuxdeepin-com-deepin-pool-main-t-ttf-wqy-microhei-下载ttf-wqy-microhei-0-2-0-beta-9-raring-all-deb-安装后，然后再安装就可以了。"><a href="#解决办法：在deepin的源里面找到http-packages-linuxdeepin-com-deepin-pool-main-t-ttf-wqy-microhei-下载ttf-wqy-microhei-0-2-0-beta-9-raring-all-deb-安装后，然后再安装就可以了。" class="headerlink" title="解决办法：在deepin的源里面找到http://packages.linuxdeepin.com/deepin/pool/main/t/ttf-wqy-microhei/ 下载ttf-wqy-microhei_0.2.0-beta-9~raring_all.deb 安装后，然后再安装就可以了。"></a><span style="color: #ff0000;">解决办法：在deepin的源里面找到<a href="http://packages.linuxdeepin.com/deepin/pool/main/t/ttf-wqy-microhei/" target="_blank" rel="external">http://packages.linuxdeepin.com/deepin/pool/main/t/ttf-wqy-microhei/</a> 下载ttf-wqy-microhei_0.2.0-beta-9~raring_all.deb 安装后，然后再安装就可以了。</span></h2><p><span style="color: #ff0000;">上述链接已失效，更新地址如下</span></p>
-<p><a href="http://packages.linuxdeepin.com/ubuntu/pool/main/t/ttf-wqy-microhei/ttf-wqy-microhei_0.2.0-beta-1_all.deb" target="_blank" rel="external"><span style="color: #ff0000;"> http://packages.linuxdeepin.com/ubuntu/pool/main/t/ttf-wqy-microhei/ttf-wqy-microhei_0.2.0-beta-1_all.deb</span></a></p>
-<p>2015.1.9号更新</p>
-<p>不装也可以用：sudo dpkg -i –force-all wine-qqintl_0.1.3-2_i386.deb   也行不过更新软件会错误提示，再装字体就好了</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">linuxdeepin</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">wine-qqintl</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2014/02/16/wine-qqintl安装出错解决办法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
@@ -1119,6 +1120,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1326,15 +1335,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">boost</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ffmpeg</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">wmv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">boost</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1390,11 +1399,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1407,10 +1420,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">一加</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1438,15 +1447,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wordpress</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">搬迁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1494,11 +1503,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二货</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cm11s</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">二货</a>
+                <a href="javascript:void(0)" class="js-tag color5">2013</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">生日</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1514,27 +1531,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">host1free</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">suspended</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">2013</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生日</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">二级域名</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">解析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">host1free</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">suspended</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1566,11 +1575,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">心的激荡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">握手包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">心的激荡</a>
+                <a href="javascript:void(0)" class="js-tag color2">review</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1590,27 +1603,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">review</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">百度云</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">wndr3800</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">netgear</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1623,6 +1620,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">启动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">wndr3800</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">netgear</a>
               </li>
              
               <li class="article-tag-list-item">

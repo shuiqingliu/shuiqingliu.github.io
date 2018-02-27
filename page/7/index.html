@@ -156,6 +156,209 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-git单独更新远程仓库某个commit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/11/27/git单独更新远程仓库某个commit/">Git单独更新远程仓库某个commit</a>
+    </h1>
+  
+
+        
+        <a href="/2013/11/27/git单独更新远程仓库某个commit/" class="archive-article-date">
+  	<time datetime="2013-11-27T10:15:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-11-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先查看下remote 如下</p>
+<blockquote>
+<p>qingliu@Mokee:~/defy/device/moto/jordan-common$ git remote -v<br>gh git://github.com/Quarx2k/android_device_moto_jordan-common (fetch)<br>gh git://github.com/Quarx2k/android_device_moto_jordan-common (push)<br>然后     git fetch (remote)(branch)</p>
+</blockquote>
+<p>如下：</p>
+<blockquote>
+<p>qingliu@Mokee:~/defy/device/moto/jordan-common$git fetch gh cm11.0-3.0<br>remote: Counting objects: 17, done.<br>remote: Compressing objects: 100% (8/8), done.<br>remote: Total 11 (delta 5), reused 9 (delta 3)<br>Unpacking objects: 100% (11/11), done.<br>From git://github.com/Quarx2k/android_device_moto_jordan-common</p>
+<ul>
+<li>branch cm11.0-3.0 -&gt; FETCH_HEAD<br>然后 git cherry-pick commit ID(commitID 可以通过别人的提交记录获得)</li>
+</ul>
+</blockquote>
+<p>如下：</p>
+<blockquote>
+<p>qingliu@Mokee:~/defy/device/moto/jordan-common$git cherry-pick 633b77216e5cfa06d591e6e8662845c336cd2c41<br>[cm-10.2 5e9d284] add opensource camerahal<br>Author: Quarx2k &lt;agent00791@gmail.com&gt;<br>24 files changed, 7572 insertions(+), 1742 deletions(-)<br>create mode 100644 camera/Android.mk<br>create mode 100644 camera/CameraHal.h<br>create mode 100644 camera/CameraHal_Module.cpp<br>create mode 100644 camera/CameraHardware.cpp<br>create mode 100644 camera/CameraHardware.h<br>create mode 100644 camera/V4L2Camera.cpp<br>create mode 100644 camera/V4L2Camera.h<br>create mode 100644 camera/converter.cpp<br>create mode 100644 camera/converter.h<br>create mode 100644 camera/hal_public.h<br>create mode 100644 camera/media.h<br>create mode 100644 camera/saResize.cpp<br>create mode 100644 camera/saResize.h<br>create mode 100644 camera/v4l2-mediabus.h<br>create mode 100644 camera/v4l2-subdev.h</p>
+<p>&nbsp;<br>OK，欢迎大家一起讨论，感谢 但丁不淡定，moonlight-Nexus5 的提示。</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">git cherry-pick</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/android/" class="article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2013/11/27/git单独更新远程仓库某个commit/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-android源码下local-manifest-xml初探" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/11/24/android源码下local-manifest-xml初探/">android源码下local_manifest.xml初探</a>
+    </h1>
+  
+
+        
+        <a href="/2013/11/24/android源码下local-manifest-xml初探/" class="archive-article-date">
+  	<time datetime="2013-11-23T18:11:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-11-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先来个示例：</p>
+<blockquote>
+<p>&lt;?xml version=”1.0” encoding=”UTF-8”?&gt;<br>&lt;manifest&gt;</p>
+<p>&lt;remote name=”omapzoom” fetch=”git://git.omapzoom.org/“ /&gt;<br>&lt;remote name=”gh” fetch=”git://github.com/“ /&gt;</p>
+<p>&lt;!– CM removals –&gt;<br>&lt;remove-project name=”github/CyanogenMod/android_frameworks_av” /&gt;<br>&lt;remove-project name=”MoKee/android_frameworks_base” /&gt;</p>
+<p>&lt;project path=”frameworks/base” name=”Quarx2k/android_frameworks_base” remote=”gh” revision=”cm-10.2” /&gt;</p>
+<p>&lt;/manifest&gt;<br>&nbsp;<br>首先看一下： &lt;remote name=”xxxx”  指定了仓库名可自定义        fetch=”git://github.com/“  指定了要fetch的仓库地址        比如你要fetch github 其他人的项目，那fetch就这样写。<br>&nbsp;<br>其次：remove-project 移除manifests文件中的default.xml 的项目，移除的时候要指定  name=”xxx”</p>
+<p>name 可以可以在default.xml中看到<br>&nbsp;<br>最后：添加自己的想要的项目 &lt;project     path=”xxx”       name=”xx”     remote=”xx”          revision=”xx” /&gt;</p>
+<p>path :同步完源码所储存的路径   、</p>
+<p>name ：别人仓库地址  比如name=”Quarx2k/android_frameworks_base”这个项目在github上保存     remote： 指定同步仓库，remote与name 联系紧密 比如我这里用了remote=”gh” 则他和name 一起构成</p>
+<p>git://github.com/Quarx2k/android_frameworks_base            把git协议换成https 协议是可以访问到的</p>
+<p>revision ：指定同步的项目的分支<br>&nbsp;</p>
+</blockquote>
+<p>remote revision      可选主要是看你要添加的项目的仓库有没有在default.xml中定义 如下：</p>
+<blockquote>
+<p>&lt;remote name=”mokee”<br>fetch=”..”<br>review=”review.mfunz.com” /&gt;</p>
+<p>&lt;default<br>revision=”refs/heads/jb-mr2_mkt”<br>remote=”mokee”<br>sync-c=”true”<br>sync-j=”4” /&gt;</p>
+<p>&nbsp;<br>如果你没有定义remote 和revision那么他就会默认使用default标签中定义的remote和revision</p>
+</blockquote>
+<p>比如我今天同步mokee 4.3的源码分支是jb-mr2_mkt   他默认是从龙猪服务器下载  由（remote）可知，但是我添加的项目却从github下载，而且default.xml中没有定义github的remote，所以就必须自己在local_manifest.xml中定义github的remote         &lt;remote name=”gh” fetch=”git://github.com/“ /&gt;</p>
+<p>然后，自己添加的项目上都要添加remote=”gh”  来定义下载fetch路径   ，同样我要下载的分支都是cm-10.2  但是默认的是refs/heads/jb-mr2_mkt  所以我就要在添加的项目中都定义revision=”cm-10.2”</p>
+<p>ps：如果自己要添加的项目remote  和revision不是用default.xml中defualt默认定义的的话，都要自己添加设置，相反要是与默认相同，那么remote和revision可以省略，就像前面说过的remote和revision是可选的</p>
+<p>ok，到此，只是自己的一点观点，和一点理解。有错误欢迎各位指出。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">local_manifest</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">remote</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">revision</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/android/" class="article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux/" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2013/11/24/android源码下local-manifest-xml初探/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-c8813q卡第一屏无限重启解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -837,146 +1040,6 @@
 
 
   
-    <article id="post-2013-8-26-夜" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/08/26/2013-8-26-夜/">2013.8.26 夜</a>
-    </h1>
-  
-
-        
-        <a href="/2013/08/26/2013-8-26-夜/" class="archive-article-date">
-  	<time datetime="2013-08-26T15:51:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>时间过的好快，眨眼间开学了。翻开博客也一个月没写博客了……</p>
-<p>离开了一个月，回来wp都到3.6了，mokee的项目都4.3了，note3 也应该快发布了。。。。 一切都好快阿。也表现出没网络真可怕啊，一个月没上网变化好大。</p>
-<p>话说这一个月干嘛去了？打工去了,山东聊城清平镇，在这里待了一个月。工作是做测绘，仪器用中海达zts-120R 全站仪     RTK也是中海达的，手簿<strong><span style="font-size: small;"> iHand18系列</span></strong>。清平这个小镇，有旧城之称，四面还有城门。这地方真不愧为江北水城，到处是水，庄稼都全被水淹了。我们去群里测量几乎每个村都有池塘。这边的人情味很浓，待人热情。老婆婆还送我们西瓜吃，还说了句不要你们钱，嘿嘿。</p>
-<p>在这边工作，说实话很累！早上5点起来，吃早饭去工地。中午差不多12：30回来吃中饭 下午2：30就去工地7：30回来。一天累得啊，外加天气很热，一天下来真心累。平均气温35-36去村里测量 衣服全湿透了，后来索性光着膀子去测，反正没人认识我们嘿嘿。一天睡觉是打地铺，吃饭还行吧，就是中间一段时间不好好做饭，天天粉条白菜。我们测量主要是测院墙外围棱角的坐标，工程项目叫做宅基地使用权确定。这活干起来看村子有些村长得整齐，好测就测得快点，有些村建的歪歪扭扭，老坑爹了。这次我们一共去了30个人，真正坚持到最后的干够一个月的也就我们三个，为自己能坚持下来赞一个。工资还没发完，慢慢等吧，希望不要被坑。</p>
-<p>工作结束了，该回到正轨上步入学校了，这一年不说什么大话了，就自己能够学到更多东西吧。不想像以前那样说大话空话了。学到东西，得到想得到的。 夜深了，该睡觉了。</p>
-<p>&nbsp;</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/日志/" class="article-tag-list-link color3">日志</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/08/26/2013-8-26-夜/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-sublime2-去除升级提示" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/08/26/sublime2-去除升级提示/">Sublime2 去除升级提示</a>
-    </h1>
-  
-
-        
-        <a href="/2013/08/26/sublime2-去除升级提示/" class="archive-article-date">
-  	<time datetime="2013-08-26T15:15:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2013-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>打开软件—– preference——settings user——–进入后编辑</p>
-<p>&nbsp;</p>
-<p>在代码中插入 <strong> <span style="color: #ff0000;"> “update_check”: false,           <span style="color: #000000;">  如下：</span></span></strong></p>
-<blockquote>
-<p>{<br>“color_scheme”: “Packages/User/Monokai Soda.tmTheme”,<br>“font_face”: “courier new”,<br>“font_size”: 9.0,<br>“highlight_line”: true,<br>“ignored_packages”:<br>[<br>“Vintage”<br>],<br>“scroll_past_end”: false,<br>“soda_classic_tabs”: true,<br>“soda_folder_icons”: true,<br>“update_check”: false,<br>“tab_size”: 4,<br>“theme”: “Soda Light.sublime-theme”,<br>“word_wrap”: true</p>
-<p>}<br>保存后退出，搞定</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sublime2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2013/08/26/sublime2-去除升级提示/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
@@ -1102,6 +1165,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1309,15 +1380,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">boost</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ffmpeg</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">wmv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">boost</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1373,11 +1444,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sublime2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1390,10 +1465,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">一加</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">terminal</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1421,15 +1492,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">wordpress</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">搬迁</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1477,11 +1548,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二货</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">cm11s</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">二货</a>
+                <a href="javascript:void(0)" class="js-tag color5">2013</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">生日</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1497,27 +1576,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">host1free</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">suspended</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">2013</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生日</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">二级域名</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">解析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">host1free</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">suspended</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1549,11 +1620,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">心的激荡</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">握手包</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">心的激荡</a>
+                <a href="javascript:void(0)" class="js-tag color2">review</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1573,27 +1648,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">review</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">百度云</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">wndr3800</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">netgear</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1606,6 +1665,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">启动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">openwrt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">wndr3800</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">netgear</a>
               </li>
              
               <li class="article-tag-list-item">
