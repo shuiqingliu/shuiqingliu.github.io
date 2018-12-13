@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://shuiqingliu.com">
   <title>[OJ刷题]题目1464：Hello World for U | qingliu&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目： 题目描述：Given any string of N (&amp;gt;=5) characters, you are asked to form the characters into the shape of U. For example, “helloworld” can be printed as:h    de     ll      rlowoThat is, the characte">
+  <meta name="description" content="题目： 题目描述：Given any string of N (&amp;gt;=5) characters, you are asked to form the characters into the shape of U. For example, “helloworld” can be printed as:">
 <meta name="keywords" content="ACM,OJ,C&#x2F;C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[OJ刷题]题目1464：Hello World for U">
 <meta property="og:url" content="http://shuiqingliu.com/2017/03/13/OJ刷题-题目1464：Hello-World-for-U/index.html">
 <meta property="og:site_name" content="qingliu&#39;s blog">
-<meta property="og:description" content="题目： 题目描述：Given any string of N (&amp;gt;=5) characters, you are asked to form the characters into the shape of U. For example, “helloworld” can be printed as:h    de     ll      rlowoThat is, the characte">
+<meta property="og:description" content="题目： 题目描述：Given any string of N (&amp;gt;=5) characters, you are asked to form the characters into the shape of U. For example, “helloworld” can be printed as:">
 <meta property="og:image" content="http://qingliu.qiniudn.com/1464.png">
 <meta property="og:image" content="http://qingliu.qiniudn.com/14641.png">
-<meta property="og:updated_time" content="2017-06-02T03:03:28.000Z">
+<meta property="og:updated_time" content="2018-12-13T10:39:36.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[OJ刷题]题目1464：Hello World for U">
-<meta name="twitter:description" content="题目： 题目描述：Given any string of N (&amp;gt;=5) characters, you are asked to form the characters into the shape of U. For example, “helloworld” can be printed as:h    de     ll      rlowoThat is, the characte">
+<meta name="twitter:description" content="题目： 题目描述：Given any string of N (&amp;gt;=5) characters, you are asked to form the characters into the shape of U. For example, “helloworld” can be printed as:">
 <meta name="twitter:image" content="http://qingliu.qiniudn.com/1464.png">
   
     <link rel="alternative" href="/atom.xml" title="qingliu&#39;s blog" type="application/atom+xml">
@@ -180,7 +180,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><blockquote>
-<p>题目描述：<br>Given any string of N (&gt;=5) characters, you are asked to form the characters into the shape of U. For example, “helloworld” can be printed as:<br>h    d<br>e     l<br>l      r<br>lowo<br>That is, the characters must be printed in the original order, starting top-down from the left vertical line with n1 characters, then left to right along the bottom line with n2 characters, and finally bottom-up along the vertical line with n3 characters. And more, we would like U to be as squared as possible – that is, it must be satisfied that n1 = n3 = max { k| k &lt;= n2 for all 3 &lt;= n2 &lt;= N } with n1 + n2 + n3 - 2 = N.<br>输入：<br>There are multiple test cases.Each case contains one string with no less than 5 and no more than 80 characters in a line. The string contains no white space.<br>输出：<br>For each test case, print the input string in the shape of U as specified in the description.<br>样例输入：<br>helloworld!<br>ac.jobdu.com<br>样例输出：<br>h   !<br>e   d<br>l   l<br>lowor<br>a    m<br>c    o<br>.    c<br>jobdu.</p>
+<p>题目描述：<br>Given any string of N (&gt;=5) characters, you are asked to form the characters into the shape of U. For example, “helloworld” can be printed as:<br><a id="more"></a><br>h    d<br>e     l<br>l      r<br>lowo<br>That is, the characters must be printed in the original order, starting top-down from the left vertical line with n1 characters, then left to right along the bottom line with n2 characters, and finally bottom-up along the vertical line with n3 characters. And more, we would like U to be as squared as possible – that is, it must be satisfied that n1 = n3 = max { k| k &lt;= n2 for all 3 &lt;= n2 &lt;= N } with n1 + n2 + n3 - 2 = N.<br>输入：<br>There are multiple test cases.Each case contains one string with no less than 5 and no more than 80 characters in a line. The string contains no white space.<br>输出：<br>For each test case, print the input string in the shape of U as specified in the description.<br>样例输入：<br>helloworld!<br>ac.jobdu.com<br>样例输出：<br>h   !<br>e   d<br>l   l<br>lowor<br>a    m<br>c    o<br>.    c<br>jobdu.</p>
 </blockquote>
 <h1 id="AC-Answer"><a href="#AC-Answer" class="headerlink" title="AC Answer:"></a>AC Answer:</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> p = <span class="number">0</span>; <span class="comment">//字符串个数</span></div><div class="line">    <span class="keyword">int</span> n2 = <span class="number">0</span>; <span class="comment">//横行输入个数</span></div><div class="line">    <span class="keyword">int</span> n1 = <span class="number">0</span>; <span class="comment">//纵向输入个数</span></div><div class="line">    <span class="keyword">char</span> strInput[<span class="number">81</span>]; <span class="comment">//字符串最大个数</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;<span class="number">81</span>;i++)&#123;</div><div class="line">        strInput[i] = <span class="number">0</span>; <span class="comment">//初始化字符串数组</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span>((<span class="built_in">scanf</span>(<span class="string">"%s"</span>,strInput)) != EOF)&#123;</div><div class="line">        p = <span class="built_in">strlen</span>(strInput); <span class="comment">//计算字符串长度</span></div><div class="line">        <span class="keyword">int</span> arrayLen = p - <span class="number">3</span> + <span class="number">1</span>; <span class="comment">//计算所有可能的N2个数</span></div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> a[arrayLen];</div><div class="line">        <span class="comment">//产生N2数组</span></div><div class="line">        <span class="keyword">for</span>(i =<span class="number">0</span>;i&lt; arrayLen;i++)&#123;</div><div class="line">            a[i] = <span class="number">3</span> + i;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//判断第一个满足要求的n2</span></div><div class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; arrayLen;i++)&#123;</div><div class="line">            <span class="keyword">if</span>((p + <span class="number">2</span> - a[i]) % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; a[i] &gt;= (p + <span class="number">2</span> - a[i])/<span class="number">2</span>)&#123;</div><div class="line">                n2 = a[i];</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        n1 = (p + <span class="number">2</span> - n2)/<span class="number">2</span>; <span class="comment">//计算N1个数</span></div><div class="line">        <span class="keyword">int</span> j=p<span class="number">-1</span>;</div><div class="line">        <span class="comment">//输出列</span></div><div class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; n1<span class="number">-1</span>;i++)&#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%c"</span>,strInput[i]);</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;n2<span class="number">-2</span>;i++)&#123;</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"%s"</span>,<span class="string">" "</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%c\n"</span>,strInput[j--]);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//输出行</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = n1<span class="number">-1</span>;i&lt;p-n1+<span class="number">1</span>;i++)&#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%c"</span>,strInput[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h1><ul>
@@ -468,6 +468,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">2014</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">建站</a>
               </li>
              
@@ -476,7 +480,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">2014</a>
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,10 +508,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ACM</a>
               </li>
              
@@ -524,14 +524,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ribbon</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">adb</a>
               </li>
              
@@ -541,6 +533,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ribbon</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,6 +616,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">filezilla</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">MLSD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">git clone</a>
               </li>
              
@@ -628,19 +636,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">filezilla</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">MLSD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git cherry-pick</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,6 +649,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">教程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">git cherry-pick</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -672,15 +672,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">survey</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">inputstream</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">survey</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,6 +788,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kernel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nvidia</a>
               </li>
              
@@ -796,15 +800,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kernel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">repo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">-anaconda -opencv -pycharm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -816,7 +812,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
+                <a href="javascript:void(0)" class="js-tag color2">-anaconda -opencv -pycharm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -825,6 +821,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wine-qqintl</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -852,6 +852,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cm11s</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">kms</a>
               </li>
              
@@ -864,14 +868,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">二货</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cm11s</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">2013</a>
               </li>
              
@@ -880,11 +876,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">host1free</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">suspended</a>
+                <a href="javascript:void(0)" class="js-tag color3">二货</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -908,6 +900,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">host1free</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">suspended</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">更新</a>
               </li>
              
@@ -917,6 +917,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">剑指 Offer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">15G</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">天翼云</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -932,15 +940,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">15G</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">天翼云</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">元旦</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">握手包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -948,7 +952,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">握手包</a>
+                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Deep Learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">numpy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RGB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -976,15 +992,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">biso</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双硬盘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">启动</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1000,15 +1008,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">毕业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">biso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双硬盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">启动</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1056,19 +1072,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">完善</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">VB</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">心情</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">完善</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">

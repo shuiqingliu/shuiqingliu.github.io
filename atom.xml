@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shuiqingliu.com/"/>
-  <updated>2018-02-28T03:09:48.000Z</updated>
+  <updated>2018-06-24T14:04:23.000Z</updated>
   <id>http://shuiqingliu.com/</id>
   
   <author>
@@ -16,15 +16,52 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>机器学习之图像的理解和处理</title>
+    <link href="http://shuiqingliu.com/2018/06/24/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%9B%BE%E5%83%8F%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E5%A4%84%E7%90%86/"/>
+    <id>http://shuiqingliu.com/2018/06/24/机器学习之图像的理解和处理/</id>
+    <published>2018-06-24T13:42:40.000Z</published>
+    <updated>2018-06-24T14:04:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>在机器学习和深度学习项目当中必定要对网络输入数据，有相当大一部分的数据都是图像数据，这就涉及到对图像的理解和处理知识，本文针对这两点做一个简单的介绍，方便像我一样的初学者进行学习。</li>
+</ul>
+<h2 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;在机器学习和深度学习项目当中必定要对网络输入数据，有相当大一部分的数据都是图像数据，这就涉及到对图像的理解和处理知识，本文针对这两点做一个简单的介绍，方便像我一样的初学者进行学习。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;1&quot;&gt;&lt;a href=&quot;#1&quot; class
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://shuiqingliu.com/categories/Machine-Learning/"/>
+    
+      <category term="Deep Learning" scheme="http://shuiqingliu.com/categories/Machine-Learning/Deep-Learning/"/>
+    
+    
+      <category term="Machine Learning" scheme="http://shuiqingliu.com/tags/Machine-Learning/"/>
+    
+      <category term="Deep Learning" scheme="http://shuiqingliu.com/tags/Deep-Learning/"/>
+    
+      <category term="numpy" scheme="http://shuiqingliu.com/tags/numpy/"/>
+    
+      <category term="RGB" scheme="http://shuiqingliu.com/tags/RGB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>剑指 Offer Java 实现</title>
     <link href="http://shuiqingliu.com/2018/02/27/%E5%89%91%E6%8C%87%20Offer%20%E4%B9%A0%E9%A2%98%20Java%20%E5%AE%9E%E7%8E%B0/"/>
     <id>http://shuiqingliu.com/2018/02/27/剑指 Offer 习题 Java 实现/</id>
     <published>2018-02-27T15:36:00.000Z</published>
-    <updated>2018-02-28T03:09:48.000Z</updated>
+    <updated>2018-12-13T10:31:17.977Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ul>
 <li>注意考虑边界条件、特殊输入以及错误处理，一定要对输入值做判断。</li>
-<li>采用画图将抽象问题形象化、举例将抽象问题具体化和分解问题将复杂问题简单化的方法来理清思路</li>
+<li>采用画图将抽象问题形象化、举例将抽象问题具体化和分解问题将复杂问题简单化的方法来理清思路<a id="more"></a>
+</li>
 </ul>
 <h2 id="1-实现-Singleton-模式"><a href="#1-实现-Singleton-模式" class="headerlink" title="1. 实现 Singleton 模式"></a>1. 实现 Singleton 模式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">+ (instanceType *)sharedInstance &#123;</div><div class="line">    static instanceType *sharedInstance = nil;</div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        sharedInstance = [[instanceType alloc] init];</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    return sharedInstance;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>线程安全，保证在应用的 lifetime 中只生成一次。其他一些语言实现需要加同步锁如 Java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> MyObject instance;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> MyObject <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (instance == <span class="keyword">null</span>)&#123;</div><div class="line">        instance = <span class="keyword">new</span> MyObject();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> instance;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -40,7 +77,7 @@
     
       &lt;h2 id=&quot;Tips&quot;&gt;&lt;a href=&quot;#Tips&quot; class=&quot;headerlink&quot; title=&quot;Tips&quot;&gt;&lt;/a&gt;Tips&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;注意考虑边界条件、特殊输入以及错误处理，一定要对输入值做判断。&lt;/li&gt;
-&lt;li&gt;采用画图将抽象问题形象化、举例
+&lt;li&gt;采用画图将抽象问题形象化、举例将抽象问题具体化和分解问题将复杂问题简单化的方法来理清思路
     
     </summary>
     
@@ -58,10 +95,9 @@
     <link href="http://shuiqingliu.com/2018/01/31/Java-TCP-IP-Socket-%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     <id>http://shuiqingliu.com/2018/01/31/Java-TCP-IP-Socket-编程读书笔记/</id>
     <published>2018-01-31T10:22:44.000Z</published>
-    <updated>2018-02-08T10:21:10.000Z</updated>
+    <updated>2018-12-13T10:34:48.356Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="第一章-简介"><a href="#第一章-简介" class="headerlink" title="第一章 简介"></a>第一章 简介</h1><h2 id="1-1计算机网络、分组报文和协议"><a href="#1-1计算机网络、分组报文和协议" class="headerlink" title="1.1计算机网络、分组报文和协议"></a>1.1计算机网络、分组报文和协议</h2><p>&emsp; 计算机网络由一组通过通信信道连接的机器组成，有 <code>host</code> 和 <code>router</code>，<code>host</code>  是运行了应用程序的计算机。<code>router</code> 能够将信息从一个通信信道转发或传递到另一个通信信道。通信信道是将字节序列从一个 host 传输到另外一个 host 的手段。不同 host 的差异性通过和 router 连接连进行消除</p>
-<p>&emsp;传递的字节序列被称为分组报文，一组报文包括了基本的控制信息和用户数据，要传递这些报文需要定义 protocol,它规定了报文交换的方式和结构以及如何解析，TCP/IP 就是来解决这个问题的。他是一个协议簇主要包含 网络层的 IP 协议，传输层的 TCP 和 UDP 等。网络层负责将分组报文传输到目的地址，IP 协议提供将每组分组报文独立处理分发的能力，每个 IP 报文包含目的主机地址字段。但是 IP 协议不能保证报文完整的百分之百的正确的传递到目标主机，偶尔会丢失报文，报文乱序等。在 IP 协议之上为传输层，TCP 和 UDP  协议是进一步的寻址，他们采用端口号作为地址来区分同一主机上的不同应用，因为 IP 只能发到主机 不能区分应用。所以他们称为端到端的传输协议。</p>
+    <content type="html"><![CDATA[<h1 id="第一章-简介"><a href="#第一章-简介" class="headerlink" title="第一章 简介"></a>第一章 简介</h1><h2 id="1-1计算机网络、分组报文和协议"><a href="#1-1计算机网络、分组报文和协议" class="headerlink" title="1.1计算机网络、分组报文和协议"></a>1.1计算机网络、分组报文和协议</h2><p>&emsp; 计算机网络由一组通过通信信道连接的机器组成，有 <code>host</code> 和 <code>router</code>，<code>host</code>  是运行了应用程序的计算机。<code>router</code> 能够将信息从一个通信信道转发或传递到另一个通信信道。通信信道是将字节序列从一个 host 传输到另外一个 host 的手段。不同 host 的差异性通过和 router 连接连进行消除<br><a id="more"></a><br>&emsp;传递的字节序列被称为分组报文，一组报文包括了基本的控制信息和用户数据，要传递这些报文需要定义 protocol,它规定了报文交换的方式和结构以及如何解析，TCP/IP 就是来解决这个问题的。他是一个协议簇主要包含 网络层的 IP 协议，传输层的 TCP 和 UDP 等。网络层负责将分组报文传输到目的地址，IP 协议提供将每组分组报文独立处理分发的能力，每个 IP 报文包含目的主机地址字段。但是 IP 协议不能保证报文完整的百分之百的正确的传递到目标主机，偶尔会丢失报文，报文乱序等。在 IP 协议之上为传输层，TCP 和 UDP  协议是进一步的寻址，他们采用端口号作为地址来区分同一主机上的不同应用，因为 IP 只能发到主机 不能区分应用。所以他们称为端到端的传输协议。</p>
 <p>&emsp;TCP 提供可信赖的字节流信道，他能检测和恢复 IP 层提供的主机到主机信道中可能发生的报文丢失，重复和其他错误。TCP在使用时候要先建立连接所以它是面向连接的协议。建立连接就需要常常提到的三次握手，断开连接采用四次握手。相反 UDP 不能对IP层产生的错误进行修复，他扩展了 IP 层的数据报服务功能使其能够在应用程序间工作。所以它叫做 用户数据报协议，他是不可靠的。<br>PS: IP 地址和域名不表</p>
 <h2 id="1-2-Socket"><a href="#1-2-Socket" class="headerlink" title="1.2 Socket"></a>1.2 Socket</h2><p>Socket  是在传输层和应用层之间的一中抽象层，应用程序可以使用 socket 来发送和接收数据就像在磁盘上读取和写入数据一样。TCP/IP 协议簇中的 socket 为 Stream Socket 和 datagram socket，它们分别应用 TCP 和 UDP 协议。一个 Steam Socket 代表了 TCP 连接的一端，TCP/IP 套接字有一个 地址和端口唯一确定。<br><img src="http://qingliu.qiniudn.com/file_30.jpg" alt="file_30"><br><img src="http://qingliu.qiniudn.com/file_34.jpg" alt="file_34.jpg"></p>
 <p><img src="http://qingliu.qiniudn.com/file_1.jpg" alt="file_1.jpg"></p>
@@ -69,7 +105,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;第一章-简介&quot;&gt;&lt;a href=&quot;#第一章-简介&quot; class=&quot;headerlink&quot; title=&quot;第一章 简介&quot;&gt;&lt;/a&gt;第一章 简介&lt;/h1&gt;&lt;h2 id=&quot;1-1计算机网络、分组报文和协议&quot;&gt;&lt;a href=&quot;#1-1计算机网络、分组报文和协议&quot; cla
+      &lt;h1 id=&quot;第一章-简介&quot;&gt;&lt;a href=&quot;#第一章-简介&quot; class=&quot;headerlink&quot; title=&quot;第一章 简介&quot;&gt;&lt;/a&gt;第一章 简介&lt;/h1&gt;&lt;h2 id=&quot;1-1计算机网络、分组报文和协议&quot;&gt;&lt;a href=&quot;#1-1计算机网络、分组报文和协议&quot; class=&quot;headerlink&quot; title=&quot;1.1计算机网络、分组报文和协议&quot;&gt;&lt;/a&gt;1.1计算机网络、分组报文和协议&lt;/h2&gt;&lt;p&gt;&amp;emsp; 计算机网络由一组通过通信信道连接的机器组成，有 &lt;code&gt;host&lt;/code&gt; 和 &lt;code&gt;router&lt;/code&gt;，&lt;code&gt;host&lt;/code&gt;  是运行了应用程序的计算机。&lt;code&gt;router&lt;/code&gt; 能够将信息从一个通信信道转发或传递到另一个通信信道。通信信道是将字节序列从一个 host 传输到另外一个 host 的手段。不同 host 的差异性通过和 router 连接连进行消除&lt;br&gt;
     
     </summary>
     
@@ -87,7 +123,7 @@
     <link href="http://shuiqingliu.com/2017/11/01/The-Role-of-View-Controllers/"/>
     <id>http://shuiqingliu.com/2017/11/01/The-Role-of-View-Controllers/</id>
     <published>2017-11-01T15:37:28.000Z</published>
-    <updated>2017-11-06T12:45:07.000Z</updated>
+    <updated>2018-12-13T10:35:21.531Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>本文翻译自：<br><a href="https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/index.html#//apple_ref/doc/uid/TP40007457" target="_blank" rel="external">https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/index.html#//apple_ref/doc/uid/TP40007457</a><br>由于对内容理解程度不够深入，翻译内容难免有不当之处还望指正。</p>
@@ -95,8 +131,7 @@
 <ul>
 <li><em>PS：下文中用 VC 代表 view controller</em></li>
 </ul>
-<p>View Controllers 是你的应用内部结构的基础，每个应用至少有一个 VC 大部分应用有多个 VC的。每个 VC 管理你的应用的用户界面的一部分以及底层数据和用户界面之间的交互。VC 也有助于在你的应用的用户界面之间进行切换。</p>
-<p>因为 VC 在你的 app 中扮演如此重要的角色，VC 几乎是你所做一切工作的核心. <code>UIViewController</code> 类定义了管理 view 的方法和属性，处理事件，从一个 VC 切换到另一个 VC，他也协调你 app 的其他部分。你定义  <code>UIViewController</code> 的子类（或者其子类之一）并且你需要添加实现你的 app 的 行为的自定义代码。</p>
+<p>View Controllers 是你的应用内部结构的基础，每个应用至少有一个 VC 大部分应用有多个 VC的。每个 VC 管理你的应用的用户界面的一部分以及底层数据和用户界面之间的交互。VC 也有助于在你的应用的用户界面之间进行切换。<br><a id="more"></a><br>因为 VC 在你的 app 中扮演如此重要的角色，VC 几乎是你所做一切工作的核心. <code>UIViewController</code> 类定义了管理 view 的方法和属性，处理事件，从一个 VC 切换到另一个 VC，他也协调你 app 的其他部分。你定义  <code>UIViewController</code> 的子类（或者其子类之一）并且你需要添加实现你的 app 的 行为的自定义代码。</p>
 <p>这里有两种类型的 VC：</p>
 <ul>
 <li>Content View controller管理你应用的一部分 并且是你创建的 VC 的主要类型</li>
@@ -132,7 +167,12 @@
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;本文翻译自：&lt;br&gt;&lt;a href=&quot;https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/index.html#//app
+&lt;p&gt;本文翻译自：&lt;br&gt;&lt;a href=&quot;https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/index.html#//apple_ref/doc/uid/TP40007457&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/index.html#//apple_ref/doc/uid/TP40007457&lt;/a&gt;&lt;br&gt;由于对内容理解程度不够深入，翻译内容难免有不当之处还望指正。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;PS：下文中用 VC 代表 view controller&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;View Controllers 是你的应用内部结构的基础，每个应用至少有一个 VC 大部分应用有多个 VC的。每个 VC 管理你的应用的用户界面的一部分以及底层数据和用户界面之间的交互。VC 也有助于在你的应用的用户界面之间进行切换。&lt;br&gt;
     
     </summary>
     
@@ -172,9 +212,9 @@
     <link href="http://shuiqingliu.com/2017/10/16/Simple-Way-to-Custom-UIView/"/>
     <id>http://shuiqingliu.com/2017/10/16/Simple-Way-to-Custom-UIView/</id>
     <published>2017-10-16T08:20:27.000Z</published>
-    <updated>2017-10-16T14:02:30.000Z</updated>
+    <updated>2018-12-13T10:36:00.691Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Create-UIViewController-SubClass"><a href="#Create-UIViewController-SubClass" class="headerlink" title="Create UIViewController SubClass"></a>Create UIViewController SubClass</h1><p>create two file : AlterViewController.h and AlterViewController.m.  .h file is the head file like C style. we can create class and declare property. .m file is is the implementation file it implement method and create instance object. </p>
+    <content type="html"><![CDATA[<h1 id="Create-UIViewController-SubClass"><a href="#Create-UIViewController-SubClass" class="headerlink" title="Create UIViewController SubClass"></a>Create UIViewController SubClass</h1><p>create two file : AlterViewController.h and AlterViewController.m.  .h file is the head file like C style. we can create class and declare property. .m file is is the implementation file it implement method and create instance object.<br><a id="more"></a></p>
 <h2 id="create-AlterViewController-h-file"><a href="#create-AlterViewController-h-file" class="headerlink" title="create AlterViewController.h file"></a>create AlterViewController.h file</h2><p>We should import UIKith to head file and then inherit from UIViewController<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line">@interface AlterViewController : UIViewController</div><div class="line">@end</div></pre></td></tr></table></figure></p>
 <h2 id="create-AlterViewController-m-file"><a href="#create-AlterViewController-m-file" class="headerlink" title="create AlterViewController.m file"></a>create AlterViewController.m file</h2><p>create implementation of AlterViewController. We should import AlterViewController.h and then implementation AlterViewController and override viewDidLoad method and so on .<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &quot;AlterViewController.h&quot;</div><div class="line"></div><div class="line">@interface AlterViewController()</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation AlterViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad&#123;</div><div class="line">  #statement </div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
 <h1 id="Define-UIView-property"><a href="#Define-UIView-property" class="headerlink" title="Define UIView property"></a>Define UIView property</h1><p>UIView  is flexible and easy to customize We can use iOS API to set its propety.We can set frame（position,size）、background color、gesture… etc. let’s look at the details.</p>
@@ -203,7 +243,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Create-UIViewController-SubClass&quot;&gt;&lt;a href=&quot;#Create-UIViewController-SubClass&quot; class=&quot;headerlink&quot; title=&quot;Create UIViewController SubC
+      &lt;h1 id=&quot;Create-UIViewController-SubClass&quot;&gt;&lt;a href=&quot;#Create-UIViewController-SubClass&quot; class=&quot;headerlink&quot; title=&quot;Create UIViewController SubClass&quot;&gt;&lt;/a&gt;Create UIViewController SubClass&lt;/h1&gt;&lt;p&gt;create two file : AlterViewController.h and AlterViewController.m.  .h file is the head file like C style. we can create class and declare property. .m file is is the implementation file it implement method and create instance object.&lt;br&gt;
     
     </summary>
     
@@ -215,13 +255,13 @@
   </entry>
   
   <entry>
-    <title>Ssh 不能连接 Github 的一次搞笑经历</title>
+    <title>SSH 不能连接 Github 的一次搞笑经历</title>
     <link href="http://shuiqingliu.com/2017/10/02/ssh-%E4%B8%8D%E8%83%BD%E8%BF%9E%E6%8E%A5-github-%E7%9A%84%E4%B8%80%E6%AC%A1%E6%90%9E%E7%AC%91%E7%BB%8F%E5%8E%86/"/>
     <id>http://shuiqingliu.com/2017/10/02/ssh-不能连接-github-的一次搞笑经历/</id>
     <published>2017-10-02T01:33:15.000Z</published>
-    <updated>2017-10-02T02:36:29.000Z</updated>
+    <updated>2018-12-13T10:37:08.665Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Background-Information"><a href="#Background-Information" class="headerlink" title="Background Information:"></a>Background Information:</h1><p>Environment ：Mac Sierra10.12.6,OpenSSH,Global Proxy with IPv6<br>ERROR like this photo below:<br><img src="http://qingliu.qiniudn.com/ssh-exchange.jpg" alt="ERROR"><br>ssh_exchange_identification: Connection closed by remote host</p>
+    <content type="html"><![CDATA[<h1 id="Background-Information"><a href="#Background-Information" class="headerlink" title="Background Information:"></a>Background Information:</h1><p>Environment ：Mac Sierra10.12.6,OpenSSH,Global Proxy with IPv6<br>ERROR like this photo below:<br><img src="http://qingliu.qiniudn.com/ssh-exchange.jpg" alt="ERROR"><br>ssh_exchange_identification: Connection closed by remote host<br><a id="more"></a></p>
 <h1 id="How-to-find-the-main-problem"><a href="#How-to-find-the-main-problem" class="headerlink" title="How to find the main problem:"></a>How to find the main problem:</h1><h3 id="Search-the-error-info-on-Google"><a href="#Search-the-error-info-on-Google" class="headerlink" title="Search the error info on Google"></a>Search the error info on Google</h3><p>I searched for a long time and try it by myself,all of not work I realized that the problem was not that simple. So I go to next way.</p>
 <h3 id="Analyse-Error-message"><a href="#Analyse-Error-message" class="headerlink" title="Analyse Error message"></a>Analyse Error message</h3><p>I found the Message give me <code>key_load_public: no such file or directory</code>,this message cause me to focus on this direction .As you know it still don’t work well,when you check the connection with command <code>ssh -T git@github.com -vvv</code> you can get the same message of the key_load even if  you can connect properly. </p>
 <p>I saw a message when I very upset,It is <code>Connecting to github.com port 21473</code>,Holy S**t as you know the ssh default port is <strong>22</strong> ,I am stupid to use <code>21473</code>  connect the github, I recall that I have changed the local ssh port. so I type <code>ssh -T -p 22 git@github.com</code> it worked well.</p>
@@ -231,7 +271,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Background-Information&quot;&gt;&lt;a href=&quot;#Background-Information&quot; class=&quot;headerlink&quot; title=&quot;Background Information:&quot;&gt;&lt;/a&gt;Background Informat
+      &lt;h1 id=&quot;Background-Information&quot;&gt;&lt;a href=&quot;#Background-Information&quot; class=&quot;headerlink&quot; title=&quot;Background Information:&quot;&gt;&lt;/a&gt;Background Information:&lt;/h1&gt;&lt;p&gt;Environment ：Mac Sierra10.12.6,OpenSSH,Global Proxy with IPv6&lt;br&gt;ERROR like this photo below:&lt;br&gt;&lt;img src=&quot;http://qingliu.qiniudn.com/ssh-exchange.jpg&quot; alt=&quot;ERROR&quot;&gt;&lt;br&gt;ssh_exchange_identification: Connection closed by remote host&lt;br&gt;
     
     </summary>
     
@@ -251,9 +291,9 @@
     <link href="http://shuiqingliu.com/2017/06/12/How-to-driver-BCM94352-on-MacOS-Sierra-12-5/"/>
     <id>http://shuiqingliu.com/2017/06/12/How-to-driver-BCM94352-on-MacOS-Sierra-12-5/</id>
     <published>2017-06-12T02:37:58.000Z</published>
-    <updated>2018-01-31T10:40:43.000Z</updated>
+    <updated>2018-12-13T10:37:35.212Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>PS: You should first look over tolede’s github :<a href="https://github.com/toleda/wireless_half-mini/" target="_blank" rel="external">https://github.com/toleda/wireless_half-mini/</a> before you read this article</strong></p>
+    <content type="html"><![CDATA[<p><strong>PS: You should first look over tolede’s github :<a href="https://github.com/toleda/wireless_half-mini/" target="_blank" rel="external">https://github.com/toleda/wireless_half-mini/</a> before you read this article</strong><br><a id="more"></a></p>
 <h1 id="Base-Information"><a href="#Base-Information" class="headerlink" title="Base Information"></a>Base Information</h1><table>
 <thead>
 <tr>
@@ -320,7 +360,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;PS: You should first look over tolede’s github :&lt;a href=&quot;https://github.com/toleda/wireless_half-mini/&quot; target=&quot;_blank&quot; rel=&quot;exte
+      &lt;p&gt;&lt;strong&gt;PS: You should first look over tolede’s github :&lt;a href=&quot;https://github.com/toleda/wireless_half-mini/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/toleda/wireless_half-mini/&lt;/a&gt; before you read this article&lt;/strong&gt;&lt;br&gt;
     
     </summary>
     
@@ -342,15 +382,16 @@
     <link href="http://shuiqingliu.com/2017/03/29/use-anaconda-to-install-opencv/"/>
     <id>http://shuiqingliu.com/2017/03/29/use-anaconda-to-install-opencv/</id>
     <published>2017-03-29T15:59:34.000Z</published>
-    <updated>2017-06-02T03:03:28.000Z</updated>
+    <updated>2018-12-13T10:38:07.501Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Install-and-Setting-Anaconda-with-python3-x-version"><a href="#Install-and-Setting-Anaconda-with-python3-x-version" class="headerlink" title="Install and Setting Anaconda with python3.x version"></a>Install and Setting Anaconda with python3.x version</h1><h3 id="1-install-anaconda"><a href="#1-install-anaconda" class="headerlink" title="1. install anaconda"></a>1. install anaconda</h3><blockquote>
-<p>look this link: <a href="https://www.continuum.io/downloads" target="_blank" rel="external">https://www.continuum.io/downloads</a></p>
-</blockquote>
+<p>look this link: <a href="https://www.continuum.io/downloads" target="_blank" rel="external">https://www.continuum.io/downloads</a><br><a id="more"></a></p>
 <h3 id="2-setting-anaconda"><a href="#2-setting-anaconda" class="headerlink" title="2. setting anaconda"></a>2. setting anaconda</h3><ul>
-<li><p>Add the anaconda bin <em>PATH</em> in your .bashrc  file or maybe you are using zsh the file will be .zshrc:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim .bashrc</div></pre></td></tr></table></figure>
+<li>Add the anaconda bin <em>PATH</em> in your .bashrc  file or maybe you are using zsh the file will be .zshrc:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim .bashrc</div></pre></td></tr></table></figure>
 </li>
+</ul>
+</blockquote>
+<ul>
 <li><p>add the following line to the file</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=&quot;~/anaconda3/bin:$PATH&quot;</div></pre></td></tr></table></figure>
 </li>
@@ -378,7 +419,8 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Install-and-Setting-Anaconda-with-python3-x-version&quot;&gt;&lt;a href=&quot;#Install-and-Setting-Anaconda-with-python3-x-version&quot; class=&quot;headerlin
+      &lt;h1 id=&quot;Install-and-Setting-Anaconda-with-python3-x-version&quot;&gt;&lt;a href=&quot;#Install-and-Setting-Anaconda-with-python3-x-version&quot; class=&quot;headerlink&quot; title=&quot;Install and Setting Anaconda with python3.x version&quot;&gt;&lt;/a&gt;Install and Setting Anaconda with python3.x version&lt;/h1&gt;&lt;h3 id=&quot;1-install-anaconda&quot;&gt;&lt;a href=&quot;#1-install-anaconda&quot; class=&quot;headerlink&quot; title=&quot;1. install anaconda&quot;&gt;&lt;/a&gt;1. install anaconda&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;look this link: &lt;a href=&quot;https://www.continuum.io/downloads&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.continuum.io/downloads&lt;/a&gt;&lt;br&gt;
     
     </summary>
     
@@ -394,10 +436,10 @@
     <link href="http://shuiqingliu.com/2017/03/13/OJ%E5%88%B7%E9%A2%98-%E9%A2%98%E7%9B%AE1464%EF%BC%9AHello-World-for-U/"/>
     <id>http://shuiqingliu.com/2017/03/13/OJ刷题-题目1464：Hello-World-for-U/</id>
     <published>2017-03-12T19:15:57.000Z</published>
-    <updated>2017-06-02T03:03:28.000Z</updated>
+    <updated>2018-12-13T10:39:36.262Z</updated>
     
     <content type="html"><![CDATA[<h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><blockquote>
-<p>题目描述：<br>Given any string of N (&gt;=5) characters, you are asked to form the characters into the shape of U. For example, “helloworld” can be printed as:<br>h    d<br>e     l<br>l      r<br>lowo<br>That is, the characters must be printed in the original order, starting top-down from the left vertical line with n1 characters, then left to right along the bottom line with n2 characters, and finally bottom-up along the vertical line with n3 characters. And more, we would like U to be as squared as possible – that is, it must be satisfied that n1 = n3 = max { k| k &lt;= n2 for all 3 &lt;= n2 &lt;= N } with n1 + n2 + n3 - 2 = N.<br>输入：<br>There are multiple test cases.Each case contains one string with no less than 5 and no more than 80 characters in a line. The string contains no white space.<br>输出：<br>For each test case, print the input string in the shape of U as specified in the description.<br>样例输入：<br>helloworld!<br>ac.jobdu.com<br>样例输出：<br>h   !<br>e   d<br>l   l<br>lowor<br>a    m<br>c    o<br>.    c<br>jobdu.</p>
+<p>题目描述：<br>Given any string of N (&gt;=5) characters, you are asked to form the characters into the shape of U. For example, “helloworld” can be printed as:<br><a id="more"></a><br>h    d<br>e     l<br>l      r<br>lowo<br>That is, the characters must be printed in the original order, starting top-down from the left vertical line with n1 characters, then left to right along the bottom line with n2 characters, and finally bottom-up along the vertical line with n3 characters. And more, we would like U to be as squared as possible – that is, it must be satisfied that n1 = n3 = max { k| k &lt;= n2 for all 3 &lt;= n2 &lt;= N } with n1 + n2 + n3 - 2 = N.<br>输入：<br>There are multiple test cases.Each case contains one string with no less than 5 and no more than 80 characters in a line. The string contains no white space.<br>输出：<br>For each test case, print the input string in the shape of U as specified in the description.<br>样例输入：<br>helloworld!<br>ac.jobdu.com<br>样例输出：<br>h   !<br>e   d<br>l   l<br>lowor<br>a    m<br>c    o<br>.    c<br>jobdu.</p>
 </blockquote>
 <h1 id="AC-Answer"><a href="#AC-Answer" class="headerlink" title="AC Answer:"></a>AC Answer:</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> p = <span class="number">0</span>; <span class="comment">//字符串个数</span></div><div class="line">    <span class="keyword">int</span> n2 = <span class="number">0</span>; <span class="comment">//横行输入个数</span></div><div class="line">    <span class="keyword">int</span> n1 = <span class="number">0</span>; <span class="comment">//纵向输入个数</span></div><div class="line">    <span class="keyword">char</span> strInput[<span class="number">81</span>]; <span class="comment">//字符串最大个数</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;<span class="number">81</span>;i++)&#123;</div><div class="line">        strInput[i] = <span class="number">0</span>; <span class="comment">//初始化字符串数组</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span>((<span class="built_in">scanf</span>(<span class="string">"%s"</span>,strInput)) != EOF)&#123;</div><div class="line">        p = <span class="built_in">strlen</span>(strInput); <span class="comment">//计算字符串长度</span></div><div class="line">        <span class="keyword">int</span> arrayLen = p - <span class="number">3</span> + <span class="number">1</span>; <span class="comment">//计算所有可能的N2个数</span></div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> a[arrayLen];</div><div class="line">        <span class="comment">//产生N2数组</span></div><div class="line">        <span class="keyword">for</span>(i =<span class="number">0</span>;i&lt; arrayLen;i++)&#123;</div><div class="line">            a[i] = <span class="number">3</span> + i;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//判断第一个满足要求的n2</span></div><div class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; arrayLen;i++)&#123;</div><div class="line">            <span class="keyword">if</span>((p + <span class="number">2</span> - a[i]) % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; a[i] &gt;= (p + <span class="number">2</span> - a[i])/<span class="number">2</span>)&#123;</div><div class="line">                n2 = a[i];</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        n1 = (p + <span class="number">2</span> - n2)/<span class="number">2</span>; <span class="comment">//计算N1个数</span></div><div class="line">        <span class="keyword">int</span> j=p<span class="number">-1</span>;</div><div class="line">        <span class="comment">//输出列</span></div><div class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; n1<span class="number">-1</span>;i++)&#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%c"</span>,strInput[i]);</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;n2<span class="number">-2</span>;i++)&#123;</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"%s"</span>,<span class="string">" "</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%c\n"</span>,strInput[j--]);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//输出行</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = n1<span class="number">-1</span>;i&lt;p-n1+<span class="number">1</span>;i++)&#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%c"</span>,strInput[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h1><ul>
@@ -412,7 +454,7 @@
     <summary type="html">
     
       &lt;h1 id=&quot;题目：&quot;&gt;&lt;a href=&quot;#题目：&quot; class=&quot;headerlink&quot; title=&quot;题目：&quot;&gt;&lt;/a&gt;题目：&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;题目描述：&lt;br&gt;Given any string of N (&amp;gt;=5) characters, y
+&lt;p&gt;题目描述：&lt;br&gt;Given any string of N (&amp;gt;=5) characters, you are asked to form the characters into the shape of U. For example, “helloworld” can be printed as:&lt;br&gt;
     
     </summary>
     
@@ -786,30 +828,6 @@ Setting--&gt;Editor---&gt;Syntax highlight 设置颜色主题
     <summary type="html">
     
       &lt;p&gt;WPS，大流氓一只。你要是装了这货，那就坑了。当你卸载后他还是会关联DOC,PPT,XLS等等。导致你office2013安装默认打开图标还是空白的。为了解决这个流氓带来的问题，你得重装下这个流氓然后用流氓自己的配置工具取消文件关联才可以。ksomisc.exe用它配置；路
-    
-    </summary>
-    
-      <category term="linux" scheme="http://shuiqingliu.com/categories/linux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>百度地图API Android Sdk导入jar和so文件</title>
-    <link href="http://shuiqingliu.com/2015/04/12/%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BEapi-android-sdk%E5%AF%BC%E5%85%A5jar%E5%92%8Cso%E6%96%87%E4%BB%B6/"/>
-    <id>http://shuiqingliu.com/2015/04/12/百度地图api-android-sdk导入jar和so文件/</id>
-    <published>2015-04-12T13:18:59.000Z</published>
-    <updated>2017-06-02T03:03:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>首先，在导入百度地图SDK的时候对于android studio来讲应该将<span style="color: #ff0000;">BaiduLBS_Android.jar </span><span><span style="color: #000000;">添加到项目的libs目录下，然后将so文件添加到src/jniLibs/armeabi 目录下没有目录结构的话自己建立，不然会造成如下错误：</span></span></p>
-<blockquote>
-<p>No implementation found for int com.baidu.platform.comjni.map.commonmemcache.JNICommonMemCache.Create() (tried Java_com_baidu_platform_comjni_map_commonmemcache_JNICommonMemCache_Create and Java_com_baidu_platform_comjni_map_commonmemcache_JNICommonMemCache_Create__)<br>在SDKInitializer.initialize(getApplicationContext()) 时候会出错。</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;首先，在导入百度地图SDK的时候对于android studio来讲应该将&lt;span style=&quot;color: #ff0000;&quot;&gt;BaiduLBS_Android.jar &lt;/span&gt;&lt;span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;添加到项目的
     
     </summary>
     

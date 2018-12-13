@@ -156,6 +156,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-机器学习之图像的理解和处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/24/机器学习之图像的理解和处理/">机器学习之图像的理解和处理</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/24/机器学习之图像的理解和处理/" class="archive-article-date">
+  	<time datetime="2018-06-24T13:42:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>在机器学习和深度学习项目当中必定要对网络输入数据，有相当大一部分的数据都是图像数据，这就涉及到对图像的理解和处理知识，本文针对这两点做一个简单的介绍，方便像我一样的初学者进行学习。</li>
+</ul>
+<h2 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deep Learning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">numpy</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">RGB</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/MachineLearning/" class="article-tag-list-link color2">Machine Learning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/DeepLearning/" class="article-tag-list-link color4">Deep Learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/24/机器学习之图像的理解和处理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-剑指 Offer 习题 Java 实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -178,17 +266,10 @@
       
         <h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ul>
 <li>注意考虑边界条件、特殊输入以及错误处理，一定要对输入值做判断。</li>
-<li>采用画图将抽象问题形象化、举例将抽象问题具体化和分解问题将复杂问题简单化的方法来理清思路</li>
-</ul>
-<h2 id="1-实现-Singleton-模式"><a href="#1-实现-Singleton-模式" class="headerlink" title="1. 实现 Singleton 模式"></a>1. 实现 Singleton 模式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">+ (instanceType *)sharedInstance &#123;</div><div class="line">    static instanceType *sharedInstance = nil;</div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        sharedInstance = [[instanceType alloc] init];</div><div class="line">    &#125;);</div><div class="line">    </div><div class="line">    return sharedInstance;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>线程安全，保证在应用的 lifetime 中只生成一次。其他一些语言实现需要加同步锁如 Java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> MyObject instance;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> MyObject <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (instance == <span class="keyword">null</span>)&#123;</div><div class="line">        instance = <span class="keyword">new</span> MyObject();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> instance;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="2-数组中重复的数字"><a href="#2-数组中重复的数字" class="headerlink" title="2.数组中重复的数字"></a>2.数组中重复的数字</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by qingliu on 2/27/18.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="comment">// 面试题3（一）：找出数组中重复的数字</span></div><div class="line"><span class="comment">// 题目：在一个长度为n的数组里的所有数字都在0到n-1的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，</span></div><div class="line"><span class="comment">// 也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。例如，如果输入长度为7的数组&#123;2, 3, 1, 0, 2, 5, 3&#125;，</span></div><div class="line"><span class="comment">// 那么对应的输出是重复的数字2或者3。</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DuplicationInArray</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> a[] = &#123;<span class="number">2</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>&#125;;</div><div class="line">        duplicate(a);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">duplicate</span><span class="params">(<span class="keyword">int</span>[] numbers)</span></span>&#123;</div><div class="line">        <span class="comment">//判断是否为空和长度是否为 0</span></div><div class="line">        <span class="keyword">if</span> (numbers == <span class="keyword">null</span> || numbers.length &lt;= <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//数组每个值要符合 0~n-1</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++)&#123;</div><div class="line">            <span class="keyword">if</span> (numbers[i] &lt; <span class="number">0</span> || numbers[i] &gt; numbers.length -<span class="number">1</span>)&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++)&#123;</div><div class="line">            <span class="keyword">while</span> (numbers[i] != i)&#123;</div><div class="line">                <span class="comment">//如果当前位置的值定于以该值为下标处的值则找到了重复的</span></div><div class="line">                <span class="keyword">if</span> (numbers[i] == numbers[numbers[i]])&#123;</div><div class="line">                    System.out.println(<span class="string">"找到的其中一个值为："</span> +  numbers[i]);</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="comment">//若不等于则交互两个位置的值，这样数组下标值就等于当前存储的值</span></div><div class="line">                <span class="keyword">int</span> tempNumber = numbers[i];</div><div class="line">                numbers[i] =  numbers[tempNumber];</div><div class="line">                numbers[tempNumber] =  tempNumber;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"没有找到任何一个重复数字"</span>);</div><div class="line">        <span class="keyword">return</span>  <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="3-二维数组中的查找"><a href="#3-二维数组中的查找" class="headerlink" title="3.二维数组中的查找"></a>3.二维数组中的查找</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.company;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by qingliu on 2/27/18.</div><div class="line"> */</div><div class="line"> </div><div class="line"><span class="comment">// 面试题4：二维数组中的查找</span></div><div class="line"><span class="comment">// 题目：在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按</span></div><div class="line"><span class="comment">// 照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个</span></div><div class="line"><span class="comment">// 整数，判断数组中是否含有该整数。</span></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FindNumInMatrix</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">        <span class="keyword">int</span>[][] testData = &#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">9</span>&#125;,&#123;<span class="number">3</span>,<span class="number">6</span>,<span class="number">10</span>,<span class="number">13</span>&#125;,&#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">11</span>,<span class="number">14</span>&#125;,&#123;<span class="number">5</span>,<span class="number">8</span>,<span class="number">12</span>,<span class="number">15</span>&#125;&#125;;</div><div class="line">        <span class="keyword">int</span>[][] num = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>][<span class="number">4</span>];</div><div class="line">        <span class="keyword">boolean</span> result = Found(testData,<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>);</div><div class="line">        <span class="keyword">if</span>(result)&#123;</div><div class="line">            System.out.println(<span class="string">"Found it"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            System.out.println(<span class="string">"Not Found"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">Found</span><span class="params">(<span class="keyword">int</span>[][] data,<span class="keyword">int</span> rows,<span class="keyword">int</span> columns,<span class="keyword">int</span> targetNum)</span></span>&#123;</div><div class="line">        <span class="keyword">boolean</span> found = <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">if</span> (data != <span class="keyword">null</span> &amp;&amp; rows &gt; <span class="number">0</span> &amp;&amp; columns &gt; <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">int</span> row = <span class="number">0</span>;</div><div class="line">            <span class="keyword">int</span> column = columns - <span class="number">1</span>;</div><div class="line">            <span class="keyword">while</span> (row &lt; rows &amp;&amp; column &gt;=<span class="number">0</span>)&#123;</div><div class="line">                <span class="keyword">if</span> (data[row][column] == targetNum)&#123;</div><div class="line">                    found = <span class="keyword">true</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (data[row][column] &gt; targetNum)&#123; <span class="comment">//右上角元素大于目标数字则剔除所在列</span></div><div class="line">                    column--;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> &#123;      <span class="comment">//否则目标数组大于该数字，行数增加</span></div><div class="line">                    row++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> found;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="4-替换空格"><a href="#4-替换空格" class="headerlink" title="4.替换空格"></a>4.替换空格</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.company;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by qingliu on 2/27/18.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">* 面试题5：替换空格</div><div class="line">* 题目：请实现一个函数，把字符串中的每个空格替换成"%20"。例如输入“We are happy.”，</div><div class="line">* 则输出“We%20are%20happy.”。</div><div class="line">**/</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReplaceSpace</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">        String testData = <span class="string">"Hello World! #$#$!!@!@"</span>;</div><div class="line">        <span class="keyword">char</span>[] test = <span class="keyword">new</span> <span class="keyword">char</span>[testData.length() + <span class="number">4</span>];</div><div class="line">        <span class="keyword">char</span>[] testDataArray = testData.toCharArray();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; testDataArray.length; i++)&#123;</div><div class="line">            test[i] = testDataArray[i];</div><div class="line">        &#125;</div><div class="line">        replace(test,testData.length(),testData.length() + <span class="number">4</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">replace</span><span class="params">(<span class="keyword">char</span>[] testStr,<span class="keyword">int</span> strLength,<span class="keyword">int</span> storeLength)</span></span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (testStr == <span class="keyword">null</span> || testStr.length == <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> length = strLength;</div><div class="line">        <span class="keyword">int</span> numberOfBlank = <span class="number">0</span>; <span class="comment">//空格计数</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strLength; i++)&#123;</div><div class="line">            <span class="keyword">if</span> (testStr[i] == <span class="string">' '</span>)&#123;</div><div class="line">                numberOfBlank++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> newStrLength = length + numberOfBlank*<span class="number">2</span>;</div><div class="line">        <span class="keyword">if</span> (newStrLength &gt; storeLength)&#123; <span class="comment">//若给定空间不够存储则直接返回</span></div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> indexOfOriginal = length - <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> indexOfNew = newStrLength -<span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (indexOfOriginal &gt;=<span class="number">0</span> &amp;&amp; indexOfNew &gt; indexOfOriginal)&#123;</div><div class="line">            <span class="keyword">if</span> (testStr[indexOfOriginal] == <span class="string">' '</span>)&#123;  <span class="comment">//若前面指针已经找到空格则后面的指针开始填充</span></div><div class="line">                testStr[indexOfNew--] = <span class="string">'0'</span>;</div><div class="line">                testStr[indexOfNew--] = <span class="string">'2'</span>;</div><div class="line">                testStr[indexOfNew--] = <span class="string">'%'</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                testStr[indexOfNew--] = testStr[indexOfOriginal]; <span class="comment">//若没找到则将前面指针的值拷贝到后面指针存储</span></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            indexOfOriginal--;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        String result = String.valueOf(testStr);</div><div class="line">        System.out.println(result);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="5-从尾到头打印链表"><a href="#5-从尾到头打印链表" class="headerlink" title="5.从尾到头打印链表"></a>5.从尾到头打印链表</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.company;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by qingliu on 2/28/18.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="comment">// 面试题6：从尾到头打印链表</span></div><div class="line"><span class="comment">// 题目：输入一个链表的头结点，从尾到头反过来打印出每个结点的值。</span></div><div class="line">    </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrintListInReversedOrder</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">        Node one = <span class="keyword">new</span> Node();</div><div class="line">        Node two = <span class="keyword">new</span> Node();</div><div class="line">        Node three = <span class="keyword">new</span> Node();</div><div class="line">        Node four = <span class="keyword">new</span> Node();</div><div class="line"></div><div class="line">        one.item = <span class="number">1</span>;</div><div class="line">        one.next = two;</div><div class="line">        two.item = <span class="number">2</span>;</div><div class="line">        two.next = three;</div><div class="line">        three.item = <span class="number">3</span>;</div><div class="line">        three.next = four;</div><div class="line">        four.item = <span class="number">4</span>;</div><div class="line"></div><div class="line">        printReverseList(one);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> item;</div><div class="line">        Node next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printReverseList</span><span class="params">(Node listNode)</span></span>&#123;</div><div class="line">        Stack&lt;Integer&gt; nodes = <span class="keyword">new</span> Stack&lt;&gt;();</div><div class="line"></div><div class="line">        Node node = listNode;</div><div class="line">        <span class="keyword">while</span> (node != <span class="keyword">null</span>)&#123;</div><div class="line">            nodes.push(node.item);</div><div class="line">            node = node.next;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (!nodes.isEmpty())&#123;</div><div class="line">            <span class="keyword">int</span> outputNode = nodes.pop();</div><div class="line">            System.out.println(outputNode);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>栈的实现</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.company;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Iterator;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by qingliu on 2/28/18.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">Item</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">Item</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Node first; <span class="comment">// top of the stack</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> N; <span class="comment">//numbers of item</span></div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</div><div class="line">        Item item;</div><div class="line">        Node next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> first == <span class="keyword">null</span>; &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> N; &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(Item item)</span></span>&#123;</div><div class="line">        Node oldFirst = first;</div><div class="line">        first = <span class="keyword">new</span> Node();</div><div class="line">        first.item = item;</div><div class="line">        first.next = oldFirst;</div><div class="line">        N++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Item <span class="title">pop</span><span class="params">()</span></span>&#123;</div><div class="line">        Item item = first.item;</div><div class="line">        first = first.next;</div><div class="line">        N--;</div><div class="line">        <span class="keyword">return</span> item;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Iterator&lt;Item&gt; <span class="title">iterator</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ListIterator();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ListIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">Item</span>&gt;</span>&#123;</div><div class="line">        <span class="keyword">private</span> Node current =  first;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>&#123;</div><div class="line">            <span class="keyword">return</span> current != <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>&#123; &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> Item <span class="title">next</span><span class="params">()</span> </span>&#123;</div><div class="line">            Item item = current.item;</div><div class="line">            current = current.next;</div><div class="line">            <span class="keyword">return</span> item;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+<li>采用画图将抽象问题形象化、举例将抽象问题具体化和分解问题将复杂问题简单化的方法来理清思路
+        
+          <a class="article-more-a" href="/2018/02/27/剑指 Offer 习题 Java 实现/#more">more >></a>
+        
       
 
       
@@ -261,12 +342,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="第一章-简介"><a href="#第一章-简介" class="headerlink" title="第一章 简介"></a>第一章 简介</h1><h2 id="1-1计算机网络、分组报文和协议"><a href="#1-1计算机网络、分组报文和协议" class="headerlink" title="1.1计算机网络、分组报文和协议"></a>1.1计算机网络、分组报文和协议</h2><p>&emsp; 计算机网络由一组通过通信信道连接的机器组成，有 <code>host</code> 和 <code>router</code>，<code>host</code>  是运行了应用程序的计算机。<code>router</code> 能够将信息从一个通信信道转发或传递到另一个通信信道。通信信道是将字节序列从一个 host 传输到另外一个 host 的手段。不同 host 的差异性通过和 router 连接连进行消除</p>
-<p>&emsp;传递的字节序列被称为分组报文，一组报文包括了基本的控制信息和用户数据，要传递这些报文需要定义 protocol,它规定了报文交换的方式和结构以及如何解析，TCP/IP 就是来解决这个问题的。他是一个协议簇主要包含 网络层的 IP 协议，传输层的 TCP 和 UDP 等。网络层负责将分组报文传输到目的地址，IP 协议提供将每组分组报文独立处理分发的能力，每个 IP 报文包含目的主机地址字段。但是 IP 协议不能保证报文完整的百分之百的正确的传递到目标主机，偶尔会丢失报文，报文乱序等。在 IP 协议之上为传输层，TCP 和 UDP  协议是进一步的寻址，他们采用端口号作为地址来区分同一主机上的不同应用，因为 IP 只能发到主机 不能区分应用。所以他们称为端到端的传输协议。</p>
-<p>&emsp;TCP 提供可信赖的字节流信道，他能检测和恢复 IP 层提供的主机到主机信道中可能发生的报文丢失，重复和其他错误。TCP在使用时候要先建立连接所以它是面向连接的协议。建立连接就需要常常提到的三次握手，断开连接采用四次握手。相反 UDP 不能对IP层产生的错误进行修复，他扩展了 IP 层的数据报服务功能使其能够在应用程序间工作。所以它叫做 用户数据报协议，他是不可靠的。<br>PS: IP 地址和域名不表</p>
-<h2 id="1-2-Socket"><a href="#1-2-Socket" class="headerlink" title="1.2 Socket"></a>1.2 Socket</h2><p>Socket  是在传输层和应用层之间的一中抽象层，应用程序可以使用 socket 来发送和接收数据就像在磁盘上读取和写入数据一样。TCP/IP 协议簇中的 socket 为 Stream Socket 和 datagram socket，它们分别应用 TCP 和 UDP 协议。一个 Steam Socket 代表了 TCP 连接的一端，TCP/IP 套接字有一个 地址和端口唯一确定。<br><img src="http://qingliu.qiniudn.com/file_30.jpg" alt="file_30"><br><img src="http://qingliu.qiniudn.com/file_34.jpg" alt="file_34.jpg"></p>
-<p><img src="http://qingliu.qiniudn.com/file_1.jpg" alt="file_1.jpg"></p>
-
+        <h1 id="第一章-简介"><a href="#第一章-简介" class="headerlink" title="第一章 简介"></a>第一章 简介</h1><h2 id="1-1计算机网络、分组报文和协议"><a href="#1-1计算机网络、分组报文和协议" class="headerlink" title="1.1计算机网络、分组报文和协议"></a>1.1计算机网络、分组报文和协议</h2><p>&emsp; 计算机网络由一组通过通信信道连接的机器组成，有 <code>host</code> 和 <code>router</code>，<code>host</code>  是运行了应用程序的计算机。<code>router</code> 能够将信息从一个通信信道转发或传递到另一个通信信道。通信信道是将字节序列从一个 host 传输到另外一个 host 的手段。不同 host 的差异性通过和 router 连接连进行消除<br>
+        
+          <a class="article-more-a" href="/2018/01/31/Java-TCP-IP-Socket-编程读书笔记/#more">more >></a>
+        
       
 
       
@@ -345,39 +424,10 @@
 <ul>
 <li><em>PS：下文中用 VC 代表 view controller</em></li>
 </ul>
-<p>View Controllers 是你的应用内部结构的基础，每个应用至少有一个 VC 大部分应用有多个 VC的。每个 VC 管理你的应用的用户界面的一部分以及底层数据和用户界面之间的交互。VC 也有助于在你的应用的用户界面之间进行切换。</p>
-<p>因为 VC 在你的 app 中扮演如此重要的角色，VC 几乎是你所做一切工作的核心. <code>UIViewController</code> 类定义了管理 view 的方法和属性，处理事件，从一个 VC 切换到另一个 VC，他也协调你 app 的其他部分。你定义  <code>UIViewController</code> 的子类（或者其子类之一）并且你需要添加实现你的 app 的 行为的自定义代码。</p>
-<p>这里有两种类型的 VC：</p>
-<ul>
-<li>Content View controller管理你应用的一部分 并且是你创建的 VC 的主要类型</li>
-<li>Container view controller 从其他视图控制器（称为子视图控制器）收集信息，并且以 导航栏或者 <code>prsent</code> 的这样便利的方式呈现不同地视图控制器的内容。</li>
-</ul>
-<p>大多数 VC 是这两种类型的混合。</p>
-<h2 id="视图的管理"><a href="#视图的管理" class="headerlink" title="视图的管理"></a>视图的管理</h2><p>视图控制器最重要的角色是管理视图的层次结构。每个视图控制器有一个 根视图（root view）它包含了视图控制器的所有内容，你在根视图中添加用于展示内容的视图。<code>图 1-1</code> 展示了视图控制器和视图之间的内在关系。视图控制器总是有对其根视图的引用并且每个视图对齐子视图都是强引用。</p>
-<p>图1-1 视图控制器和其视图之间的关系<br><img src="http://qingliu.qiniudn.com/VCPG_ControllerHierarchy_fig_1-1_2x.png" alt="vc"></p>
-<blockquote>
-<p>注意<br>在你的视图控制器层级中使用 <code>outlets</code> 去访问其他视图是常用的方法，因为一个视图控制器管理所有视图的内容， <code>outlets</code> 可以让你存储你需要的视图的引用。当视图从<code>storyboard</code> 加载的时候，<code>outlets</code> 本身自动的链接到实际的视图对象。</p>
-</blockquote>
-<ul>
-<li>译者注：outlets 用IBoutlet 注解的属性，在 类接口中声明 outlets 然后和 storyboard 中的对象进行连接，当 storyboardd 加载时候这个连接被建立）</li>
-</ul>
-<p>一个内容视图控制器自己管理其说有的视图，一个容器视图控制器（container view controller）管理其自己的视图以及来自其一个或多个子视图控制器的根视图。容器视图控制器不管理他子视图的内容。它只管理根视图，根据容器的设计进行尺寸调整和位置的摆放。图1-2 显示了一个视图分割的视图控制器和他子视图之间的关系。这个分割的视图控制器管理管理其子视图的整体的大小和位置，但是子视图控制器真正管理这些视图的内容。</p>
-<p>图1-2 视图控制器可以管理其他视图控制器的内容。<br><img src="http://qingliu.qiniudn.com/VCPG_ContainerViewController_fig_1-2_2x.png" alt="ViewController"></p>
-<p>关于管理视图控制器的视图的信息可以查看 <a href="https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html#//apple_ref/doc/uid/TP40007457-CH7-SW6" target="_blank" rel="external">Managing View Layout</a></p>
-<ul>
-<li>译者注：如图所示，容器视图控制器（Split View Controller）管理自己视图（Split View Container View ）和 来自其他多个视图控制器的根视图 （View Controller A/B），然后视图控制器再去管理自己视图的内容 A/B 的内容。</li>
-</ul>
-<h2 id="数据封送"><a href="#数据封送" class="headerlink" title="数据封送"></a>数据封送</h2><p>一个视图控制器充当在它管理的视图和你应用的数据之间的媒介。<code>UIViewController</code> 类的属性和方法可以让你管理你的应用的视觉呈现。当你继承<code>UIViewController</code>后，你可以在你的子类中添加任何你需要用来管理数据的变量。添加自定义变量会创建一个如图1-3 所示的关系，其中视图控制器具有对你数据的应用以及用于呈现数据的视图。在这两者直接来回移动数据是你的工作。<br>图1-3 视图控制器在数据对象和视图之间调解<br><img src="http://qingliu.qiniudn.com/VCPG_CustomSubclasses_fig_1-3_2x.png" alt="1-3"><br>你应该始终在视图控制器和数据对象中保持清晰的职责分工。大多数的确保数据结构完整性的逻辑属于数据对象的本身。视图控制器可以校验来自视图的输入然后以数据对象需要的格式打包输入，但是你应该最小化视图控制器在管理实际数据中的角色。</p>
-<p><code>UIDocument</code> 对象是一个独立于视图控制器来管理你的数据的方式。一个文档（doucument）对象是一个控制器对象，它知道如何读取和写入数据到持久化存储当中。当你继承 <code>UIDocument</code>时候，你可以添加所需的任何逻辑和方法来提取数据，并将其传递给视图控制器或应用程序的其他部分。视图控制器可以存储他接受的任何数据的副本，以便更新视图，但文档仍然拥有真实的数据。</p>
-<h2 id="用户交互"><a href="#用户交互" class="headerlink" title="用户交互"></a>用户交互</h2><p>视图控制器是响应者（responder) 对象 ，能够处理响应者链中传递下来的事件。尽管他们都能够处理事件，视图控制器很少直接处理触摸事件。相反，视图经常处理他们自己的触摸事件然后将结果报告给关联的委托（delegate）或目标对象（通常是视图控制器）的方法。所以视图控制器的大多数事件都是使用委托方法或操作方法处理的。</p>
-<p>关于在视图控制器中实现操作方法的更多信息，请查看<a href="https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/DefiningYourSubclass.html#//apple_ref/doc/uid/TP40007457-CH7-SW11" target="_blank" rel="external">Handling User interractions</a>.有关处理其他类型的事件，请查看 <code>Event handling Guide for iOS</code></p>
-<h2 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h2><p>视图控制器对其视图和它创建的任何对象承担全部责任。 <code>UIViewController</code> 类自动处理视图管理的大多数方面。举个例子，UIKit 自动释放不在需要的任何视图相关的资源。在你的 <code>UIViewController</code> 子类中，你负责管理你明确创建的任何对象。</p>
-<p>当可用空闲内存不足时，UIKit 要求应用程序释放不在需要的资源。一种方式是通过调用视图控制器的 <code>didReceiveMemoryWarning</code> 方法。用这个方法移除不再需要的对象的引用或者稍后可以轻松重新创建。例如，你可能用这个方法删除了缓存数据，当低内存条件发生的时候，他是一个你能够释放更多内存的重要方法。应用消耗太多内存的话可能被系统恢复内存彻底终止。</p>
-<h2 id="适应性"><a href="#适应性" class="headerlink" title="适应性"></a>适应性</h2><p>视图控制器负责呈现其视图，并使该呈现适应底层环境。每个 iOS 应用应该能够在 iPadshang运行，并且可以在几种不同大小的 iPhone  上运行。而不是为每个设备提供不同的视图控制器和视图层次结构。使用单一视图控制器管理视图使其适应不断变化的空间要求更为简单。</p>
-<p>在 iOS  中，视图控制器需要处理粗粒度编号和细粒度变化。粗粒度变化发生在视图控制器特征的变化。特征是描述整个环境的属性，像显示的比例。两个重要的特征是视图控制器的水平和垂直尺寸类别，它表示视图控制器在给定维度有多少空间。你可以使用尺寸类别的变化来更改你布局视图的类别，像 图1-4 显示的那样。当尺寸种类是 <code>regular</code> 时候，视图控制器利用额外的空间去管理它的内容，当是 <code>compact</code> 时候，视图控制器垂直排列其内容。<br>图1-4 调整视图大小类的变化<br><img src="http://qingliu.qiniudn.com/VCPG_SizeClassChanges_fig_1-4_2x.png" alt="1-4"></p>
-<p>在给定的尺寸级别类中，任何时候都可能发生更细粒度的尺寸变化。当用户将 iPhone 从纵向旋转到横向时，尺寸类别可能不会改变，但是屏幕尺寸通常会改变。当你使用自动布局时候，<code>UIKit</code> 自动调整视图的大小和位置去匹配新的屏幕大小，视图控制器可以需求进行其他调整。</p>
-<p>有关更多的适应性的信息，请查看<a href="https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/TheAdaptiveModel.html#//apple_ref/doc/uid/TP40007457-CH19-SW1" target="_blank" rel="external">The Adaptive Model</a></p>
-
+<p>View Controllers 是你的应用内部结构的基础，每个应用至少有一个 VC 大部分应用有多个 VC的。每个 VC 管理你的应用的用户界面的一部分以及底层数据和用户界面之间的交互。VC 也有助于在你的应用的用户界面之间进行切换。<br>
+        
+          <a class="article-more-a" href="/2017/11/01/The-Role-of-View-Controllers/#more">more >></a>
+        
       
 
       
@@ -509,32 +559,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Create-UIViewController-SubClass"><a href="#Create-UIViewController-SubClass" class="headerlink" title="Create UIViewController SubClass"></a>Create UIViewController SubClass</h1><p>create two file : AlterViewController.h and AlterViewController.m.  .h file is the head file like C style. we can create class and declare property. .m file is is the implementation file it implement method and create instance object. </p>
-<h2 id="create-AlterViewController-h-file"><a href="#create-AlterViewController-h-file" class="headerlink" title="create AlterViewController.h file"></a>create AlterViewController.h file</h2><p>We should import UIKith to head file and then inherit from UIViewController<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#import &lt;UIKit/UIKit.h&gt;</div><div class="line">@interface AlterViewController : UIViewController</div><div class="line">@end</div></pre></td></tr></table></figure></p>
-<h2 id="create-AlterViewController-m-file"><a href="#create-AlterViewController-m-file" class="headerlink" title="create AlterViewController.m file"></a>create AlterViewController.m file</h2><p>create implementation of AlterViewController. We should import AlterViewController.h and then implementation AlterViewController and override viewDidLoad method and so on .<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#import &lt;Foundation/Foundation.h&gt;</div><div class="line">#import &quot;AlterViewController.h&quot;</div><div class="line"></div><div class="line">@interface AlterViewController()</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation AlterViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad&#123;</div><div class="line">  #statement </div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
-<h1 id="Define-UIView-property"><a href="#Define-UIView-property" class="headerlink" title="Define UIView property"></a>Define UIView property</h1><p>UIView  is flexible and easy to customize We can use iOS API to set its propety.We can set frame（position,size）、background color、gesture… etc. let’s look at the details.</p>
-<h2 id="Init-UIView"><a href="#Init-UIView" class="headerlink" title="Init UIView"></a>Init UIView</h2><p><code>UIView *alterView = [[UIView alloc]init];</code><br>in objective-c we can get an instance object use grammar like<br><code>Object *property = [[ Object alloc]init]</code><br>alloc return a new instance and  initialized to a data structrue that describes the class memory for all other instance variables is set to 0;</p>
-<h2 id="set-UIView-Position-and-size"><a href="#set-UIView-Position-and-size" class="headerlink" title="set UIView Position and size"></a>set UIView Position and size</h2><p>In the first pleace we should have a concept of view coordinator system  in UIKit .The default coordinate system has its origin in the top-left corner and has axes that extend down and to the right from the origin point .Firgure 1 show this concept<br>Figure 1<br><img src="http://qingliu.qiniudn.com/native_coordinate_system.jpg" alt="Figure1"><br>We can set UIView postion and size with frame rectangle. It create a rectangle return from  CGRectMake Function that can define the position of rectangle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;</div><div class="line">CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;</div><div class="line">NSLog(@&quot;screenWidth:%0.2f,screenHeight:%0.2f&quot;,screenWidth,screenHeight);</div><div class="line"></div><div class="line">alterView.frame = CGRectMake(15, screenHeight - 175, screenWidth - 30, 160);</div></pre></td></tr></table></figure></p>
-<p>CGRectMake have four arguments: x,y rectangle width and height<br><code>CGRect CGRectMake(CGFloat x, CGFloat y, CGFloat width, CGFloat height);</code><br>you should get x,y-coordinate depends the origin point (0,0) at the top-left corner<br>For the example, I want to set UIView height with <code>160</code> and width with <code>screenwidth -30</code><br>Why subtract 30 ? because the X is 15 I want the UIView have a same safe area to the phone border  The Firure 2 show the description .<br>Figure 2<br><img src="http://qingliu.qiniudn.com/myView.png" alt="Figure 2"><br>The height same as the above. set height is 160 so I should subtract the View height and margin that’s why Y = screenHeight - 175 (175 = 160 +15)</p>
-<p>For this section we set the UIView position and size completed.</p>
-<h1 id="Add-UIView-to-view-that-is-receiver"><a href="#Add-UIView-to-view-that-is-receiver" class="headerlink" title="Add UIView to view that is receiver"></a>Add UIView to view that is receiver</h1><p>We already create View and set the view position. we should add the view to the SuperView now<br>background: When we create view and want to display it add a view to the end of the receiver’s list of subviews is necessary. we can use <code>ddSubview</code>method<br>From the Apple API description:<br><code>the method establishes a strong reference to view and set its next responder to the receiver,which is its new superview. Views can have only one superview.If view already has a superview and that view is not receiver,this method removes the privious superview before making the receiver its new superview.</code></p>
-<p>Add sub view method:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self.view addSubview:alterView];</div></pre></td></tr></table></figure></p>
-<p>self.view rpresents the current view not the view we just created. <code>alterView</code> will be presented soon.</p>
-<h1 id="Add-Gesture-Recognizer-optional"><a href="#Add-Gesture-Recognizer-optional" class="headerlink" title="Add Gesture Recognizer(optional)"></a>Add Gesture Recognizer(optional)</h1><p>If you want to listener the tap action we should add tap recognizer to the View.For example you want to dismiss the UIView when to tap the point out of UIView.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissVC:)];</div><div class="line">[self.view addGestureRecognizer:tap];</div></pre></td></tr></table></figure></p>
-<p>UITapGestureRecognizer object have a action of selector  you should define the selector,eg: we can dismiss our UIView.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-(void) dismissVC:(id) sender&#123;</div><div class="line">    [self dismissViewControllerAnimated:YES completion:nil];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="Display-the-UIView"><a href="#Display-the-UIView" class="headerlink" title="Display the UIView"></a>Display the UIView</h1><p>Now we can display the UIView on the other View.</p>
-<ul>
-<li>import AlterViewController.h file<br><code>#import &quot;AlterViewController.h&quot;</code></li>
-<li>create instance of AlterViewController<br><code>#import &quot;AlterViewController.h&quot;</code></li>
-<li>set presentation style<br><code>alter.modalPresentationStyle = UIModalPresentationOverCurrentContext;</code></li>
-<li>present view<br><code>[self presentViewController:alter animated:YES  completion:nil];</code></li>
-</ul>
-<p>Explain: when we present the view  we the the modal style. you can found the guide from here<br><a href="https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/PresentingaViewController.html" target="_blank" rel="external">https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/PresentingaViewController.html</a></p>
-<p>UIModalPresentationOverCurrentContext result like  figure 3</p>
-<p>Figure 3 The current context presentation style<br><img src="https://developer.apple.com/library/content/featuredarticles/ViewControllerPGforiPhoneOS/Art/VCPG_CurrentContextStyles_2x.png" alt="presentation"></p>
-<h1 id="Full-source-file"><a href="#Full-source-file" class="headerlink" title="Full source file"></a>Full source file</h1><p>Source file <a href="https://github.com/shuiqingliu/IOS_Dev/tree/master/Assignment1/Assignment1" target="_blank" rel="external">https://github.com/shuiqingliu/IOS_Dev/tree/master/Assignment1/Assignment1</a></p>
-<h1 id="Credit"><a href="#Credit" class="headerlink" title="Credit"></a>Credit</h1><p>@xizhou help me to understand the concepte of UITapGestureRecongnizer.</p>
-
+        <h1 id="Create-UIViewController-SubClass"><a href="#Create-UIViewController-SubClass" class="headerlink" title="Create UIViewController SubClass"></a>Create UIViewController SubClass</h1><p>create two file : AlterViewController.h and AlterViewController.m.  .h file is the head file like C style. we can create class and declare property. .m file is is the implementation file it implement method and create instance object.<br>
+        
+          <a class="article-more-a" href="/2017/10/16/Simple-Way-to-Custom-UIView/#more">more >></a>
+        
       
 
       
@@ -583,7 +611,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/02/ssh-不能连接-github-的一次搞笑经历/">Ssh 不能连接 Github 的一次搞笑经历</a>
+      <a class="article-title" href="/2017/10/02/ssh-不能连接-github-的一次搞笑经历/">SSH 不能连接 Github 的一次搞笑经历</a>
     </h1>
   
 
@@ -596,13 +624,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Background-Information"><a href="#Background-Information" class="headerlink" title="Background Information:"></a>Background Information:</h1><p>Environment ：Mac Sierra10.12.6,OpenSSH,Global Proxy with IPv6<br>ERROR like this photo below:<br><img src="http://qingliu.qiniudn.com/ssh-exchange.jpg" alt="ERROR"><br>ssh_exchange_identification: Connection closed by remote host</p>
-<h1 id="How-to-find-the-main-problem"><a href="#How-to-find-the-main-problem" class="headerlink" title="How to find the main problem:"></a>How to find the main problem:</h1><h3 id="Search-the-error-info-on-Google"><a href="#Search-the-error-info-on-Google" class="headerlink" title="Search the error info on Google"></a>Search the error info on Google</h3><p>I searched for a long time and try it by myself,all of not work I realized that the problem was not that simple. So I go to next way.</p>
-<h3 id="Analyse-Error-message"><a href="#Analyse-Error-message" class="headerlink" title="Analyse Error message"></a>Analyse Error message</h3><p>I found the Message give me <code>key_load_public: no such file or directory</code>,this message cause me to focus on this direction .As you know it still don’t work well,when you check the connection with command <code>ssh -T git@github.com -vvv</code> you can get the same message of the key_load even if  you can connect properly. </p>
-<p>I saw a message when I very upset,It is <code>Connecting to github.com port 21473</code>,Holy S**t as you know the ssh default port is <strong>22</strong> ,I am stupid to use <code>21473</code>  connect the github, I recall that I have changed the local ssh port. so I type <code>ssh -T -p 22 git@github.com</code> it worked well.</p>
-<h1 id="Solve-problem"><a href="#Solve-problem" class="headerlink" title="Solve problem "></a>Solve problem </h1><p>There have to ways to solve this,the first way is change the ssh port to default value <code>22</code>,the second way use <a href="https://help.github.com/articles/using-ssh-over-the-https-port/" target="_blank" rel="external">Using SSH over the HTTPS port</a></p>
-<h1 id="Finally"><a href="#Finally" class="headerlink" title="Finally"></a>Finally</h1><p>Enjoy your coding time and focus on the error message.</p>
-
+        <h1 id="Background-Information"><a href="#Background-Information" class="headerlink" title="Background Information:"></a>Background Information:</h1><p>Environment ：Mac Sierra10.12.6,OpenSSH,Global Proxy with IPv6<br>ERROR like this photo below:<br><img src="http://qingliu.qiniudn.com/ssh-exchange.jpg" alt="ERROR"><br>ssh_exchange_identification: Connection closed by remote host<br>
+        
+          <a class="article-more-a" href="/2017/10/02/ssh-不能连接-github-的一次搞笑经历/#more">more >></a>
+        
       
 
       
@@ -679,70 +704,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>PS: You should first look over tolede’s github :<a href="https://github.com/toleda/wireless_half-mini/" target="_blank" rel="external">https://github.com/toleda/wireless_half-mini/</a> before you read this article</strong></p>
-<h1 id="Base-Information"><a href="#Base-Information" class="headerlink" title="Base Information"></a>Base Information</h1><table>
-<thead>
-<tr>
-<th>Item</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HardWare  Name</td>
-<td>BCM94352HMB</td>
-</tr>
-<tr>
-<td>Vendor ID</td>
-<td>14E4</td>
-</tr>
-<tr>
-<td>Device ID</td>
-<td>43B1</td>
-</tr>
-<tr>
-<td>System Version</td>
-<td>macOS Sierra(10.12.5 16F73)</td>
-</tr>
-<tr>
-<td>Laptop info</td>
-<td>Hasee K610-I7-D2</td>
-</tr>
-</tbody>
-</table>
-<h1 id="Driver-WIFI-and-Bluetooth"><a href="#Driver-WIFI-and-Bluetooth" class="headerlink" title="Driver WIFI and Bluetooth"></a>Driver WIFI and Bluetooth</h1><p>There are a few steps for dealing with wif &amp; bluetooth</p>
-<ul>
-<li>Setting your BIOS</li>
-<li>Add the necessary kext to your /L/E forlder</li>
-<li>Add the necessary patch to your config.list</li>
-</ul>
-<p>Tools:</p>
-<ul>
-<li>KCPM Utility Pro</li>
-<li>Clover Configurator</li>
-<li>DPCIManager</li>
-<li>IORegistryExplorer</li>
-</ul>
-<p><strong><a href="https://1drv.ms/u/s!Amlm6pusnQYKePGlxcnG75xjyoM" title="OneDriver Download Link" target="_blank" rel="external">Tools Download</a></strong></p>
-<h2 id="Setting-your-BIOS"><a href="#Setting-your-BIOS" class="headerlink" title="Setting your BIOS"></a>Setting your BIOS</h2><p>Reboot your computer and then quickly press the <strong><code>ESC</code></strong> button,When you into the BIOS option select <strong><code>SCU</code></strong> Item then move to <strong><code>Advanced</code></strong> option ,the very important step is set the value of <strong><code>XHC</code></strong>  to<strong><code>smart auto</code></strong><br>The operation like this<br><img src="http://qingliu.qiniudn.com/IMG_8951.JPG" alt="BIOS Setting"><br><img src="http://qingliu.qiniudn.com/IMG_1191.JPG" alt="XHC Settingi"></p>
-<h2 id="Add-the-necessary-kext-of-WIFI"><a href="#Add-the-necessary-kext-of-WIFI" class="headerlink" title="Add the necessary kext  of WIFI"></a>Add the necessary kext  of WIFI</h2><ul>
-<li>Download the newer version of FakePCIID Kext from RehabMan’s bitbucket<br><a href="https://bitbucket.org/RehabMan/os-x-fake-pci-id/downloads/" target="_blank" rel="external">https://bitbucket.org/RehabMan/os-x-fake-pci-id/downloads/</a></li>
-<li>Unzip the download file and then use <code>KCMP Utility Pro</code> tools  to install <code>FakePCIID.kext</code> , <code>FakePCIID_Broadcom_WiFi.kext</code> and <code>FakePCIID_XHCIMux.kext</code> into <code>/Library/Extensions</code></li>
-</ul>
-<h2 id="Add-the-necessary-kext-of-Bluetooth"><a href="#Add-the-necessary-kext-of-Bluetooth" class="headerlink" title="Add the necessary kext of Bluetooth"></a>Add the necessary kext of Bluetooth</h2><ul>
-<li>Download the newer version of <code>BrcmFirmwareRepo.kext</code> and <code>BrcmPatchRAM2.kext</code> from RehabMan’s bitbucket  <a href="https://bitbucket.org/RehabMan/os-x-brcmpatchram/downloads/" target="_blank" rel="external">https://bitbucket.org/RehabMan/os-x-brcmpatchram/downloads/</a></li>
-<li>Unzip the download file and the use install the two files into <code>/Library/Extensions</code></li>
-</ul>
-<h2 id="Add-the-necessary-patch-to-config-list"><a href="#Add-the-necessary-patch-to-config-list" class="headerlink" title="Add the necessary patch to config.list"></a>Add the necessary patch to config.list</h2><ul>
-<li>I already upload the KextsToPatch part of  my config.list  see it here <a href="https://1drv.ms/u/s!Amlm6pusnQYKeVcY1hUHugHsZeU" target="_blank" rel="external">https://1drv.ms/u/s!Amlm6pusnQYKeVcY1hUHugHsZeU</a><br>you can paste the whole patch into your config.list</li>
-<li>you must add the fellow patch to DSDT the path is <code>ACPI/DSDT/Patches/</code><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">array</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Comment<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">string</span>&gt;</span>change EHC1 to EH01<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Disabled<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">false</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Find<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">data</span>&gt;</span></div><div class="line">        RUhDMQ==</div><div class="line">        <span class="tag">&lt;/<span class="name">data</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Replace<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">data</span>&gt;</span></div><div class="line">        RUgwMQ==</div><div class="line">        <span class="tag">&lt;/<span class="name">data</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dict</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Comment<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">string</span>&gt;</span>change EHC2 to EH02<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Disabled<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">false</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Find<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">data</span>&gt;</span></div><div class="line">        RUhDMg==</div><div class="line">        <span class="tag">&lt;/<span class="name">data</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>Replace<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">data</span>&gt;</span></div><div class="line">        RUgwMg==</div><div class="line">        <span class="tag">&lt;/<span class="name">data</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">array</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="Verify-and-check"><a href="#Verify-and-check" class="headerlink" title="Verify and check"></a>Verify and check</h1><p>When you driver the BCM94352HMB you can check it use IORegistryExplorer tools,open the tools you can find the bluetooth port.connect to network and try to use AirDrop Enjoy your hackintosh!</p>
-<h1 id="Screenshot"><a href="#Screenshot" class="headerlink" title="Screenshot"></a>Screenshot</h1><p><img src="http://qingliu.qiniudn.com/system.png" alt="system"><br><img src="http://qingliu.qiniudn.com/Bluetooth11.png" alt="Bluetooth"><br><img src="http://qingliu.qiniudn.com/wif.png" alt="wifi"><br><img src="http://qingliu.qiniudn.com/airdrop.png" alt="airdrop"><br><img src="http://qingliu.qiniudn.com/Bluetooth.png" alt="Bluetooth Port"></p>
-<h1 id="Credit"><a href="#Credit" class="headerlink" title="Credit"></a>Credit</h1><p>@RehabMan<br>@toleda<br>@jqqqqqqqqqq<br>@wx3124558<br>@yuxans</p>
-<p>PS:If you find a grammatical error please let me know, I am  learning to write a blog in English this time.</p>
-
+        <p><strong>PS: You should first look over tolede’s github :<a href="https://github.com/toleda/wireless_half-mini/" target="_blank" rel="external">https://github.com/toleda/wireless_half-mini/</a> before you read this article</strong><br>
+        
+          <a class="article-more-a" href="/2017/06/12/How-to-driver-BCM94352-on-MacOS-Sierra-12-5/#more">more >></a>
+        
       
 
       
@@ -824,36 +789,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Install-and-Setting-Anaconda-with-python3-x-version"><a href="#Install-and-Setting-Anaconda-with-python3-x-version" class="headerlink" title="Install and Setting Anaconda with python3.x version"></a>Install and Setting Anaconda with python3.x version</h1><h3 id="1-install-anaconda"><a href="#1-install-anaconda" class="headerlink" title="1. install anaconda"></a>1. install anaconda</h3><blockquote>
-<p>look this link: <a href="https://www.continuum.io/downloads" target="_blank" rel="external">https://www.continuum.io/downloads</a></p>
-</blockquote>
-<h3 id="2-setting-anaconda"><a href="#2-setting-anaconda" class="headerlink" title="2. setting anaconda"></a>2. setting anaconda</h3><ul>
-<li><p>Add the anaconda bin <em>PATH</em> in your .bashrc  file or maybe you are using zsh the file will be .zshrc:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim .bashrc</div></pre></td></tr></table></figure>
-</li>
-<li><p>add the following line to the file</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=&quot;~/anaconda3/bin:$PATH&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>and then load the config use <code>source .bashrc</code></p>
-<h3 id="3-update-and-create-environment"><a href="#3-update-and-create-environment" class="headerlink" title="3. update and create environment"></a>3. update and create environment</h3></li>
-<li>update<code>conda update --all</code></li>
-<li>create enviroment<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda creat --name opencv python=3</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="4-install-opencv"><a href="#4-install-opencv" class="headerlink" title="4.  install opencv"></a>4.  install opencv</h3><ul>
-<li><p>activate enviroment</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source activate opencv</div></pre></td></tr></table></figure>
-</li>
-<li><p>install opencv</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conda install -c menpo opencv3</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="5-test-opencv"><a href="#5-test-opencv" class="headerlink" title="5. test opencv"></a>5. test opencv</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">python</div><div class="line"><span class="keyword">import</span> cv2</div></pre></td></tr></table></figure>
-<p><img src="http://qingliu.qiniudn.com/cv.png" alt="test"></p>
-<h3 id="6-setting-pycharm-to-use-the-opencv-environment"><a href="#6-setting-pycharm-to-use-the-opencv-environment" class="headerlink" title="6. setting pycharm to use the opencv environment"></a>6. setting pycharm to use the opencv environment</h3><ul>
-<li>open the <code>File--&gt;Settings--&gt;Project Interpreter</code>,click the right button like a gear then click add local input the path of <code>~/anaconda3/envs/opencv/bin/python</code> click ok button to save the setting<br>like the following pic:</li>
-</ul>
-<p><img src="http://qingliu.qiniudn.com/settingcv.png" alt="setting"></p>
-<h2 id="finally-enjoy-your-field"><a href="#finally-enjoy-your-field" class="headerlink" title="finally, enjoy your field"></a><em>finally, enjoy your field</em></h2>
+<p>look this link: <a href="https://www.continuum.io/downloads" target="_blank" rel="external">https://www.continuum.io/downloads</a><br>
+        
+          <a class="article-more-a" href="/2017/03/29/use-anaconda-to-install-opencv/#more">more >></a>
+        
       
 
       
@@ -923,17 +862,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h1><blockquote>
-<p>题目描述：<br>Given any string of N (&gt;=5) characters, you are asked to form the characters into the shape of U. For example, “helloworld” can be printed as:<br>h    d<br>e     l<br>l      r<br>lowo<br>That is, the characters must be printed in the original order, starting top-down from the left vertical line with n1 characters, then left to right along the bottom line with n2 characters, and finally bottom-up along the vertical line with n3 characters. And more, we would like U to be as squared as possible – that is, it must be satisfied that n1 = n3 = max { k| k &lt;= n2 for all 3 &lt;= n2 &lt;= N } with n1 + n2 + n3 - 2 = N.<br>输入：<br>There are multiple test cases.Each case contains one string with no less than 5 and no more than 80 characters in a line. The string contains no white space.<br>输出：<br>For each test case, print the input string in the shape of U as specified in the description.<br>样例输入：<br>helloworld!<br>ac.jobdu.com<br>样例输出：<br>h   !<br>e   d<br>l   l<br>lowor<br>a    m<br>c    o<br>.    c<br>jobdu.</p>
-</blockquote>
-<h1 id="AC-Answer"><a href="#AC-Answer" class="headerlink" title="AC Answer:"></a>AC Answer:</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> p = <span class="number">0</span>; <span class="comment">//字符串个数</span></div><div class="line">    <span class="keyword">int</span> n2 = <span class="number">0</span>; <span class="comment">//横行输入个数</span></div><div class="line">    <span class="keyword">int</span> n1 = <span class="number">0</span>; <span class="comment">//纵向输入个数</span></div><div class="line">    <span class="keyword">char</span> strInput[<span class="number">81</span>]; <span class="comment">//字符串最大个数</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;<span class="number">81</span>;i++)&#123;</div><div class="line">        strInput[i] = <span class="number">0</span>; <span class="comment">//初始化字符串数组</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span>((<span class="built_in">scanf</span>(<span class="string">"%s"</span>,strInput)) != EOF)&#123;</div><div class="line">        p = <span class="built_in">strlen</span>(strInput); <span class="comment">//计算字符串长度</span></div><div class="line">        <span class="keyword">int</span> arrayLen = p - <span class="number">3</span> + <span class="number">1</span>; <span class="comment">//计算所有可能的N2个数</span></div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> a[arrayLen];</div><div class="line">        <span class="comment">//产生N2数组</span></div><div class="line">        <span class="keyword">for</span>(i =<span class="number">0</span>;i&lt; arrayLen;i++)&#123;</div><div class="line">            a[i] = <span class="number">3</span> + i;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//判断第一个满足要求的n2</span></div><div class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; arrayLen;i++)&#123;</div><div class="line">            <span class="keyword">if</span>((p + <span class="number">2</span> - a[i]) % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; a[i] &gt;= (p + <span class="number">2</span> - a[i])/<span class="number">2</span>)&#123;</div><div class="line">                n2 = a[i];</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        n1 = (p + <span class="number">2</span> - n2)/<span class="number">2</span>; <span class="comment">//计算N1个数</span></div><div class="line">        <span class="keyword">int</span> j=p<span class="number">-1</span>;</div><div class="line">        <span class="comment">//输出列</span></div><div class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; n1<span class="number">-1</span>;i++)&#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%c"</span>,strInput[i]);</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>;i&lt;n2<span class="number">-2</span>;i++)&#123;</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"%s"</span>,<span class="string">" "</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%c\n"</span>,strInput[j--]);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//输出行</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = n1<span class="number">-1</span>;i&lt;p-n1+<span class="number">1</span>;i++)&#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%c"</span>,strInput[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">puts</span>(<span class="string">""</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h1><ul>
-<li>判系统是有多组test case输入，所以需要使用while来判断EOF</li>
-<li>每组用例输出结果最后一行需要换行</li>
-</ul>
-<h1 id="晒图："><a href="#晒图：" class="headerlink" title="晒图："></a>晒图：</h1><p><img src="http://qingliu.qiniudn.com/1464.png" alt="1464"><br><img src="http://qingliu.qiniudn.com/14641.png" alt="14641"></p>
-<hr>
-<p><em><strong>最后祝大家刷题愉快！</strong></em></p>
-
+<p>题目描述：<br>Given any string of N (&gt;=5) characters, you are asked to form the characters into the shape of U. For example, “helloworld” can be printed as:<br>
+        
+          <a class="article-more-a" href="/2017/03/13/OJ刷题-题目1464：Hello-World-for-U/#more">more >></a>
+        
       
 
       
@@ -980,113 +912,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/03/13/OJ刷题-题目1464：Hello-World-for-U/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-codeblocks使用技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/11/codeblocks使用技巧/">Codeblocks使用技巧</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/11/codeblocks使用技巧/" class="archive-article-date">
-  	<time datetime="2017-03-11T06:53:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Code::Blocks is a free, open-source, cross-platform IDE. Using a plugin architecture, its capabilities and features are defined by the provided plugins.  </p>
-</blockquote>
-<h1 id="初始安装"><a href="#初始安装" class="headerlink" title="初始安装:"></a>初始安装:</h1><h3 id="1-添加codeblocks的仓库"><a href="#1-添加codeblocks的仓库" class="headerlink" title="1. 添加codeblocks的仓库"></a>1. 添加<code>codeblocks</code>的仓库</h3><p>​    因为我用的Ubuntu所以直接去添加仓库：</p>
-<blockquote>
-<p><a href="https://launchpad.net/~damien-moore/+archive/ubuntu/codeblocks-stable/" target="_blank" rel="external">https://launchpad.net/~damien-moore/+archive/ubuntu/codeblocks-stable/</a></p>
-</blockquote>
-<h3 id="2-按照提示输入命令添加"><a href="#2-按照提示输入命令添加" class="headerlink" title="2. 按照提示输入命令添加"></a>2. 按照提示输入命令添加</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo add-apt-repository ppa:damien-moore/codeblocks-stable</div><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install codeblocks</div></pre></td></tr></table></figure>
-<h1 id="简单配置："><a href="#简单配置：" class="headerlink" title="简单配置："></a>简单配置：</h1><h3 id="1-配置使用的终端类型"><a href="#1-配置使用的终端类型" class="headerlink" title="1.  配置使用的终端类型"></a>1.  配置使用的终端类型</h3><pre><code>Setting---&gt;General settings ----&gt; Terminal to launch console programs
-选择 genome-terminal -t $TITLE -x
-</code></pre><h3 id="2-配置打开默认工程"><a href="#2-配置打开默认工程" class="headerlink" title="2. 配置打开默认工程"></a>2. 配置打开默认工程</h3><pre><code>Setting---&gt;General settings---&gt;Open default workspace 
-还要设置下on project load 为 open all project files
-</code></pre><h3 id="3-配置语法颜色主题和光标颜色"><a href="#3-配置语法颜色主题和光标颜色" class="headerlink" title="3. 配置语法颜色主题和光标颜色"></a>3. 配置语法颜色主题和光标颜色</h3><pre><code>Setting--&gt;Editor---&gt;Margins and caret在caret栏目选择颜色和宽度就可（光标）
-Setting--&gt;Editor---&gt;Syntax highlight 设置颜色主题
-</code></pre><h1 id="可能遇到的问题："><a href="#可能遇到的问题：" class="headerlink" title="可能遇到的问题："></a>可能遇到的问题：</h1><h3 id="1-配置文件不能保存"><a href="#1-配置文件不能保存" class="headerlink" title="1. 配置文件不能保存"></a>1. 配置文件不能保存</h3><ul>
-<li><p>检查配置文件的权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls <span class="_">-a</span> ~/.config/codeblocks/default.conf</div></pre></td></tr></table></figure>
-</li>
-<li><p>如果用户和所属组均为root 则修改权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod 777 ~/.config/codeblocks/default.conf</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="2-新添加的文件不能编译运行"><a href="#2-新添加的文件不能编译运行" class="headerlink" title="2. 新添加的文件不能编译运行"></a>2. 新添加的文件不能编译运行</h3><ul>
-<li>很有可能编辑目标没有设置，需要在add file的时候就勾选build target如下:</li>
-</ul>
-<p><img src="http://qingliu.qiniudn.com/Hello.cpp.png" alt="target"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">codeblocks</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程/" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Linux/" class="article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/C/C++/" class="article-tag-list-link color1">C/C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/11/codeblocks使用技巧/">展开全文 >></a>
         </p>
       
 
@@ -1213,6 +1038,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">2014</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">建站</a>
               </li>
              
@@ -1221,7 +1050,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">2014</a>
+                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1249,10 +1078,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ACM</a>
               </li>
              
@@ -1269,14 +1094,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ribbon</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">adb</a>
               </li>
              
@@ -1286,6 +1103,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">rom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ribbon</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1361,6 +1186,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">filezilla</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">MLSD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">git clone</a>
               </li>
              
@@ -1373,19 +1206,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">filezilla</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">MLSD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">git cherry-pick</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1398,6 +1219,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">教程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">git cherry-pick</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1417,15 +1242,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">survey</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">inputstream</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">survey</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1533,6 +1358,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kernel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">nvidia</a>
               </li>
              
@@ -1541,15 +1370,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kernel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">repo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">-anaconda -opencv -pycharm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1561,7 +1382,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
+                <a href="javascript:void(0)" class="js-tag color2">-anaconda -opencv -pycharm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1570,6 +1391,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">wine-qqintl</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">windows CE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1597,6 +1422,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">cm11s</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">kms</a>
               </li>
              
@@ -1609,14 +1438,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">二货</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">cm11s</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">2013</a>
               </li>
              
@@ -1625,11 +1446,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">host1free</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">suspended</a>
+                <a href="javascript:void(0)" class="js-tag color3">二货</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1653,6 +1470,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">host1free</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">suspended</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">更新</a>
               </li>
              
@@ -1662,6 +1487,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">剑指 Offer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">15G</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">天翼云</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1677,15 +1510,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">15G</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">天翼云</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">元旦</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">握手包</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1693,7 +1522,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">握手包</a>
+                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Deep Learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">numpy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RGB</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1721,15 +1562,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">biso</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">双硬盘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">启动</a>
+                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1745,15 +1578,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">渗透</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">大学</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">毕业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">biso</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">双硬盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">启动</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1801,19 +1642,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">完善</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">VB</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">心情</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">完善</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
